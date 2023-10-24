@@ -10,7 +10,7 @@
 
 ## Sobre el proyecto ##
 
- Los compas 
+Los compas <br/>
 Es un supermercado en línea que ofrece una amplia variedad de productos y servicios para hacer las compras más convenientes y accesibles. Nuestra oferta incluye:
 
 - **Productos Frescos**: Frutas, verduras, carne, pescado y productos lácteos de alta calidad.
