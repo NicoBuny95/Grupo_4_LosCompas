@@ -45,4 +45,23 @@ Nuestro equipo de "NuestroMercado" está formado por un grupo de apasionados pro
 - [Francisco Sequeira](https://github.com/franxdd): Desarrollador Web Principal. Encargado de la experiencia del usuario en el sitio web.
 
 
+## Sitios de Referencia
 
+ - https://www.vea.com.ar/
+	Carrusel
+	Promociones
+
+ - https://www.masonline.com.ar/
+ 	carrusel
+	Carrito de compras
+
+- https://www.vital.com.ar/
+	Catalgo de ofertas para descargar
+	Redes sociales
+
+- https://www.carrefour.com.ar/
+	Menú hamburguesa
+	Opciones de Ingresar a cuenta
+
+ - https://www.hiperlibertad.com.ar/
+	Detalle de productos
