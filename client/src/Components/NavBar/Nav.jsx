@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import a from "../../images/barra-de-menus.png";
+import b from "../../images/carrito.png";
+import c from "../../images/perfil.png";
 import SearchBar from "./SearchBar";
 import { Link } from "react-router-dom";
 const Nav = () => {
@@ -11,8 +13,8 @@ const Nav = () => {
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
-      <div className="flex flex-wrap max-w-screen-xl items-center justify-between mx-auto p-4">
-        <div className="flex items-center w-3/4 justify-between">
+      <div className="flex flex-wrap max-w-full items-center justify-between mx-auto p-4">
+        <div className="flex items-center w-full justify-between">
           <div>
             <button
               onClick={toggleMenu}
@@ -23,13 +25,21 @@ const Nav = () => {
             </button>
           </div>
           <div className="flex items-center">
+            <Link to={"/"}>
             <img
               src="https://flowbite.com/docs/images/logo.svg"
               className="h-8 mr-3"
               alt="Flowbite Logo"
-            />
+              />
+              </Link>
           </div>
           <SearchBar />
+          <Link to={"/cart"}>
+            <img src={b} alt="carrito" className="w-7" />
+          </Link>
+          <Link to={"/perfil"}>
+            <img src={c} alt="perfil" className="w-7" />
+          </Link>
         </div>
         <div
           className={`flex relative left-4 w-full ${

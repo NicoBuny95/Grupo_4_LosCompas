@@ -5,16 +5,15 @@ import Carrousel from "./Carousel";
 function Home() {
   return (
     <>
-    <Carrousel/>
-    <div className="flex flex-wrap">
-
-      <CardHome />
-      <CardHome />
-      <CardHome />
-      <CardHome />
-      <CardHome />
-      <CardHome />
-    </div>
+      <Carrousel />
+      <div className="flex flex-wrap">
+        <CardHome />
+        <CardHome />
+        <CardHome />
+        <CardHome />
+        <CardHome />
+        <CardHome />
+      </div>
     </>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 
 const SearchBar = () => {
   return (
-    <form className="w-1/2">
+    <form className="w-2/3">
       <div className="flex">
         <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none"></div>
         <input

@@ -34,7 +34,7 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full">
-      <div className="relative h-40 overflow-hidden rounded-lg md:h-40">
+      <div className="relative h-40 overflow-hidden rounded-lg  transition-transform ease-in-out duration-300 transform translate-x-[-100%] md:h-40 ">
         {slides.map((slide, index) => (
           <div
             key={index}
@@ -46,7 +46,7 @@ const Carousel = () => {
             <img
               src={slide}
               alt={`Slide ${index + 1}`}
-              className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
+              className=" text-black absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
             />
           </div>
         ))}
@@ -74,7 +74,7 @@ const Carousel = () => {
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
-            className="w-4 h-4 text-white dark:text-gray-800"
+            className="w-4 h-4 text-black dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -98,7 +98,7 @@ const Carousel = () => {
       >
         <span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
           <svg
-            className="w-4 h-4 text-white dark:text-gray-800"
+            className="w-4 h-4 text-black dark:text-white"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
