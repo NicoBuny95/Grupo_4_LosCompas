@@ -1,9 +1,22 @@
-import React from 'react'
+import React from "react";
+import CardHome from "../CardHome/CardHome";
+import Carrousel from "./Carousel";
 
 function Home() {
   return (
-    <div>Home</div>
-  )
+    <>
+    <Carrousel/>
+    <div className="flex flex-wrap">
+
+      <CardHome />
+      <CardHome />
+      <CardHome />
+      <CardHome />
+      <CardHome />
+      <CardHome />
+    </div>
+    </>
+  );
 }
 
-export default Home
+export default Home;
