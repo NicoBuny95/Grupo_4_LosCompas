@@ -8,7 +8,7 @@ function Login() {
       <form>
         <div className="mb-6">
           <label
-            for="email"
+            htmlFor="email"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Your email
@@ -23,7 +23,7 @@ function Login() {
         </div>
         <div className="mb-6">
           <label
-            for="password"
+            htmlFor="password"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Your password
@@ -46,7 +46,7 @@ function Login() {
             />
           </div>
           <label
-            for="remember"
+            htmlFor="remember"
             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
             Remember me

@@ -5,7 +5,7 @@ const CardHome = () => {
   return (
     <div className="w-full max-w-[14rem] m-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <Link to={`detail/${9}`}>
-        <img className="p-5 rounded-t-lg" alt="product-image" />
+        <img src="." className="p-5 rounded-t-lg" alt="" />
         <div className="px-3 pb-3">
           <h5 className="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
             Apple Watch Series 7 GPS

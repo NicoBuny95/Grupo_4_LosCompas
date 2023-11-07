@@ -12,7 +12,7 @@ const Carousel = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setActiveSlide((prevSlide) => (prevSlide + 1) % slides.length);
+      // setActiveSlide((prevSlide) => (prevSlide + 1) % slides.length);
     }, 3000);
 
     return () => clearInterval(interval);
@@ -24,12 +24,12 @@ const Carousel = () => {
 
   const handlePrevSlide = () => {
     setActiveSlide(
-      (prevSlide) => (prevSlide - 1 + slides.length) % slides.length
+      // (prevSlide) => (prevSlide - 1 + slides.length) % slides.length
     );
   };
 
   const handleNextSlide = () => {
-    setActiveSlide((prevSlide) => (prevSlide + 1) % slides.length);
+    // setActiveSlide((prevSlide) => (prevSlide + 1) % slides.length);
   };
 
   return (
