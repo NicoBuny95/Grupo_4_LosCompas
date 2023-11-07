@@ -60,8 +60,8 @@ const Carousel = () => {
             className={`w-3 h-3 rounded-full ${
               index === activeSlide ? "bg-blue-700" : "bg-gray-300"
             }`}
-            ariaCurrent={index === activeSlide}
-            ariaLabel={`Slide ${index + 1}`}
+            aria-current={index === activeSlide}
+            aria-label={`Slide ${index + 1}`}
             onClick={() => handleSlideTo(index)}
           ></button>
         ))}

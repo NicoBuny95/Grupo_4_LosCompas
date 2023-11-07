@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 const CardHome = () => {
   return (
-    <div className="w-full max-w-[11rem] m-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    <div className="w-full max-w-[14rem] m-1 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <Link to={`detail/${9}`}>
-        <img className="p-5 rounded-t-lg" alt="product image" />
+        <img className="p-5 rounded-t-lg" alt="product-image" />
         <div className="px-3 pb-3">
           <h5 className="text-md font-semibold tracking-tight text-gray-900 dark:text-white">
             Apple Watch Series 7 GPS
@@ -65,7 +65,7 @@ const CardHome = () => {
               $599
             </span>
             <button
-              href="#"
+              
               className="text-white px-0.5 py-1 rounded-lg text-xs bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium  text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             >
               Add to cart
