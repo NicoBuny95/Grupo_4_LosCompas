@@ -12,6 +12,7 @@ function Home() {
         <CardHome />
         <CardHome />
         <CardHome />
+       
       </div>
     </>
   );
