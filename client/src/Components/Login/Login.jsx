@@ -4,12 +4,12 @@ import { Link } from "react-router-dom";
 
 function Login() {
   return (
-    <div>
-      <form>
+    <div className="flex flex-col md:flex-row-reverse justify-center">
+      <form className="border m-2 px-2 py-4 h-3/4">
         <div className="mb-6">
           <label
             htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block  mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Your email
           </label>
@@ -49,21 +49,23 @@ function Login() {
             htmlFor="remember"
             className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300"
           >
-            Remember me
+            Recuerdame
           </label>
         </div>
         <button
           type="submit"
           className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover-bg-blue-700 dark:focus:ring-blue-800"
         >
-          Iniciar
+          Ingresar
         </button>
         <div>
-            No tenes cuenta?  
-            <Link to={"/register"}> Registrate</Link>
+          No tenes cuenta?
+          <Link to={"/register"}> Registrate</Link>
         </div>
       </form>
-      <img src={img} alt="loscompas.png" />
+      <div>
+        <img src={img} alt="loscompas.png" className="h-5/6" />
+      </div>
     </div>
   );
 }

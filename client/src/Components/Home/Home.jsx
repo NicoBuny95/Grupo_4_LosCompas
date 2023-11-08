@@ -5,7 +5,7 @@ import Carrousel from "./Carousel";
 function Home() {
   return (
     <>
-      <Carrousel />
+      {/* <Carrousel /> */}
       <div className="flex flex-col items-center md:flex-row md:flex-wrap">
         <CardHome />
         <CardHome />

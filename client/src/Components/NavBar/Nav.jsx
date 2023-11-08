@@ -25,13 +25,13 @@ const Nav = () => {
                 alt="Flowbite Logo"
               />
             </Link>
-            <div
+            <button
+              onClick={toggleMenu}
               className="inline-flex items-center p-1 justify-center text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover-bg-gray-700"
-              onMouseEnter={() => setIsMenuOpen(true)}
-              onMouseLeave={() => setIsMenuOpen(false)}
+              aria-expanded={isMenuOpen ? "true" : "false"}
             >
               <img src={a} alt="" className="w-6 h-6" />
-            </div>
+            </button>
           </div>
           <div className="md:w-full justify-center items-center hidden sm:flex">
             {path !== "/login" && <SearchBar />}
@@ -46,12 +46,12 @@ const Nav = () => {
           </div>
         </div>
         <div
-          className={`flex relative left-4 w-full ${
+          className={`flex md:justify-start relative md:left-4 w-full  ${
             isMenuOpen ? "" : "hidden"
           }`}
           id="navbar-default"
         >
-          <ul className="font-medium flex flex-col p-4 mt-4 border border-gray-100 rounded-lg bg-gray-50">
+          <ul className="font-medium flex flex-col p-4  border border-gray-100 rounded-lg opacity-100 bg-white">
             <li className="sm:hidden">
               <SearchBar />
             </li>
