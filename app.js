@@ -16,6 +16,9 @@ app.get(
 app.get(
     '/carrito',(req,res)=> res.sendFile(__dirname + '/views/carrito.html')
 )
+app.get(
+    '/detalle',(req,res)=> res.sendFile(__dirname + '/views/detalle.html')
+)
 app.listen(PORT ,()=>{
     console.log("servidor iniciado en el puerto ",PORT)
 });

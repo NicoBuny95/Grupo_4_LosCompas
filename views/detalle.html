@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="static/css/home.css">    
+    <link rel="stylesheet" href="static/css/home.css">
     <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="static/css/detalle.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="static/css/carrito.css">
-    <title>Carrito de Compras</title>
+    <title>Detalle de Producto</title>
 </head>
 <body>
     <header>
@@ -66,51 +66,49 @@
           </nav>
           
     </header>
+    <main>
+        <div class="container">
 
-    <div class="container">
-
-        <h1>Mi Carrito</h1>
-
-        <div class="product-card">
-            <a href="/detalle">
-                <div class="product-image">
-                    <img src="static/img/home-aceite.webp" alt="product-image" height="200px"/>
-                    <button class="close-button">X</button>
-                </div>
-                <div class="product-details">
-                    <h5 class="product-title">Aceite Natura</h5>
-                    <div class="cont1">
-                    <div class="product-quantity">
-                        <button class="decrease-quantity-button">-</button>
-                        <span class="quantity">1</span>
-                        <button class="increase-quantity-button">+</button>
-                        
+            <h1>Detalle del Producto</h1>
+    
+            <div class="product-card">
+                <a href="/detalle">
+                    <div class="product-image">
+                        <img src="static/img/home-aceite.webp" alt="product-image" height="200px"/>
+                        <button class="close-button">X</button>
                     </div>
-                    <div class="product-actions">
-                        <span class="product-price">$599</span>
+                    <div class="product-details">
+                        <h5 class="product-title">Aceite Natura</h5>
+                        <div class="cont1">
+                            <div class="product-quantity">
+                                <button class="decrease-quantity-button">-</button>
+                                <span class="quantity">1</span>
+                                <button class="increase-quantity-button">+</button>
+                                
+                            </div>
+                            <div class="product-actions">
+                                <span class="product-price">$599</span>
+                            </div>
+                        </div>
                     </div>
+                    <div class="product-details">
+                        <h2>Descripcion</h2>
+                        <h3>Características principales</h3>
+                        <ul>
+                            <li>Tipo de aceite para cocina: Girasol</li>
+                            <li>Marca: Natura</li>
+                            <li>Tipo de envase: Botella</li>
+                            <li>Volumen de la unidad: 900 cc</li>
+                            <li>Es libre de gluten</li>
+                            <li>Con fecha de vencimiento</li>  
+                        </ul>
                     </div>
-                </div>
-            </a>
-        </div>
-
-        <div class="cart">
-            <h2>Resumen del Carrito</h2>
-            <ul class="cart-items">
-                <li>
-                    <span class="cart-product-name">Producto 1</span>
-                    <span class="cart-quantity">1</span>
-                    <span class="cart-price">$10</span>
-                   
-                </li>
-               
-            </ul>
-            <div class="cart-total">
-                <p>Total: <span id="cart-total-price">$0</span></p>
+                </a>
             </div>
-            <button class="checkout-button">Realizar Pago</button>
         </div>
-    </div>
+    </main>
+
+
 
 </body>
 </html>
