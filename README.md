@@ -65,3 +65,8 @@ Nuestro equipo de "NuestroMercado" está formado por un grupo de apasionados pro
 
  - https://www.hiperlibertad.com.ar/
 	Detalle de productos
+
+## Tablero de Trabajo
+
+ - https://trello.com/b/OSx45jqs/dh-super
+ - 
