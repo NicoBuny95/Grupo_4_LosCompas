@@ -87,5 +87,78 @@
   
   .image {
     height: 75%;
+    border-radius: 50%;
   }
   
+  /* Estilos generales */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Contenedor del formulario */
+.form {
+  background-color: #fff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 40px;
+  width: 300px;
+  text-align: center;
+}
+
+/* Estilos para etiquetas y campos de entrada */
+.form-label {
+  display: block;
+  font-size: 16px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 15px;
+}
+
+/* Estilos para el checkbox */
+.form-checkbox {
+  margin-right: 10px;
+}
+
+.form-checkbox-label {
+  font-size: 16px;
+}
+
+/* Estilos para el botón de envío */
+.form-button {
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.form-button:hover {
+  background-color: #0056b3;
+}
+
+/* Estilos para el enlace de registro */
+.form-register a {
+  text-decoration: none;
+  color: #007BFF;
+}
+
+.form-register a:hover {
+  text-decoration: underline;
+}
