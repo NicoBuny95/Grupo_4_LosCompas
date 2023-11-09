@@ -1,0 +1,17 @@
+{
+  "name": "grupo_4_loscompas",
+  "version": "1.0.0",
+  "description": "<div align=\"center\" id=\"top\"> \r   <img src=\"./boceto/OIG 1.png\" alt=\"Grupo 4 Los Compas Supermarket\" />",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "nodemon": "^3.0.1"
+  }
+}

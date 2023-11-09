@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/carrito.css">
+    <title>Carrito de Compras</title>
+</head>
+<body>
+    <div class="container">
+
+        <h1>Mi Carrito</h1>
+
+        <div class="product-card">
+            <a href="detail/9">
+                <div class="product-image">
+                    <img src="static/img/home-aceite.webp" alt="product-image" height="200px"/>
+                    <button class="close-button">X</button>
+                </div>
+                <div class="product-details">
+                    <h5 class="product-title">Aceite Natura</h5>
+                    <div class="cont1">
+                    <div class="product-quantity">
+                        <button class="decrease-quantity-button">-</button>
+                        <span class="quantity">1</span>
+                        <button class="increase-quantity-button">+</button>
+                        
+                    </div>
+                    <div class="product-actions">
+                        <span class="product-price">$599</span>
+                    </div>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        <div class="cart">
+            <h2>Resumen del Carrito</h2>
+            <ul class="cart-items">
+                <li>
+                    <span class="cart-product-name">Producto 1</span>
+                    <span class="cart-quantity">1</span>
+                    <span class="cart-price">$10</span>
+                   
+                </li>
+               
+            </ul>
+            <div class="cart-total">
+                <p>Total: <span id="cart-total-price">$0</span></p>
+            </div>
+            <button class="checkout-button">Realizar Pago</button>
+        </div>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+.product-card {
+  width: 50%;
+  /* margin: 6rem; */
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.375rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.product-card a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product-image {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+.product-image img {
+  display: inline;
+  padding: 0.125rem;
+  border-radius: 0.25rem;
+}
+
+.close-button {
+  background-color: #ebe9e9;
+  color: #ee0606;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+.product-details {
+  padding: 0.125rem;
+}
+
+.product-title {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  margin-top: 0.625rem;
+}
+
+.rating-icon {
+  width: 1rem;
+  height: 1rem;
+  fill: #f7b429;
+  margin-right: 0.25rem;
+}
+
+.rating-badge {
+  background-color: #b3d3f7;
+  color: #1e3a8a;
+  font-size: 0.75rem;
+  font-weight: 600;
+  margin-left: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.375rem;
+}
+
+.product-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.product-price {
+  font-size: 2rem;
+  font-weight: 600;
+  color: #333;
+  margin: 20px;
+}
+
+.add-to-cart-button {
+  background-color: #1e3a8a;
+  color: white;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+.container{
+    display: flex;
+    align-items: center;
+  flex-direction: column;
+}
+.cart{
+    width: 50%;
+}
+.product-quantity {
+    border: 1px solid #ccc; /* Un borde para el contenedor */
+    border-radius: 10px; /* Establece el radio de las esquinas para redondear el contenedor */
+    display: inline-block;
+    padding: 10px;
+}
+
+.decrease-quantity-button,
+.increase-quantity-button {
+    border: 1px solid #ccc; /* Un borde para los botones */
+    border-radius: 50%; /* Establece el radio de las esquinas para que los botones sean redondos */
+    padding: 5px 10px; /* Ajusta el relleno de los botones según tus preferencias */
+    background-color: #f0f0f0; /* Cambia el color de fondo si lo deseas */
+    cursor: pointer; /* Cambia el cursor cuando pasas el ratón sobre los botones */
+}
+
+/* Estilos adicionales para resaltar los botones al pasar el ratón por encima */
+.decrease-quantity-button:hover,
+.increase-quantity-button:hover {
+    background-color: #ddd;
+}
+.checkout-button{
+    background-color: rgb(88, 138, 121);
+    color: white;
+height: 50px;
+width: 100%;
+
+}
+.cont1{
+    display:flex;
+
+align-items:center;
+
+}
+
