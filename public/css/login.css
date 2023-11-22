@@ -87,19 +87,10 @@
   
   .image {
     height: 75%;
-    border-radius: 50%;
+    width: 40%;
   }
   
   /* Estilos generales */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
 
 /* Contenedor del formulario */
 .form {

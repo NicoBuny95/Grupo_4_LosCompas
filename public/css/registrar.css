@@ -77,15 +77,7 @@
   .registration-image {
     height: auto;
   }
-  body {
-    font-family: Arial, sans-serif;
-    background-color: #f2f2f2;
-    margin: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
+  
 
 .container {
     background-color: #fff;
@@ -101,24 +93,24 @@
     flex-direction: column;
 }
 
-h1 {
+/* h1 {
     font-size: 24px;
     margin: 0 0 20px;
-}
+} */
 
 .form-group {
     margin-bottom: 15px;
 }
-
+/* 
 input {
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     font-size: 16px;
-}
+} */
 
-button {
+/* button {
     background-color: #007BFF;
     color: #fff;
     border: none;
@@ -126,8 +118,8 @@ button {
     padding: 12px;
     font-size: 16px;
     cursor: pointer;
-}
+} */
 
-button:hover {
+/* button:hover {
     background-color: #0056b3;
-}
+} */
