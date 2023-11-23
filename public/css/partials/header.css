@@ -1,12 +1,12 @@
 :root {
-    --color-beige: #E9D186;
-    --color-verde: #42A64A;
-    --color-negro: #0B090C;
-    --color-rojo: #D7162B;
-    --color-rojo-oscuro: #722924;
-    --color-verde-oscuro: #176332;
-    --color-gris: #7C7484;
-  }  
+  --color-beige: #E9D186;
+  --color-verde: #42A64A;
+  --color-negro: #0B090C;
+  --color-rojo: #D7162B;
+  --color-rojo-oscuro: #722924;
+  --color-verde-oscuro: #176332;
+  --color-gris: #7C7484;
+}
 
 
 /* Mobile Version */
@@ -121,5 +121,4 @@
     align-items: flex-start;
     gap: 10px;
   }
-
 }

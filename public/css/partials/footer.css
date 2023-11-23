@@ -1,0 +1,76 @@
+:root {
+    --color-beige: #E9D186;
+    --color-verde: #42A64A;
+    --color-negro: #0B090C;
+    --color-rojo: #D7162B;
+    --color-rojo-oscuro: #722924;
+    --color-verde-oscuro: #176332;
+    --color-gris: #7C7484;
+}
+
+
+footer {
+    margin-top: 50px; 
+    background: radial-gradient(circle, #393E46, #222831);
+    padding: 10px;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: flex-start;
+    justify-content: space-around;
+  }
+  
+  footer div {
+    min-width: 40%;
+  }
+  
+  .sobre-nosotros-redes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #sobre-nosotros-footer {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  #sobre-nosotros-footer {
+    color: #00ADB5;
+  }
+  
+  #sobre-nosotros-footer:visited {
+    color: #00ADB5;
+  }
+  
+  .defensa-consumidor {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sobre-nosotros-redes h3, .defensa-consumidor h3 {
+    color: #EEEEEE;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+  
+  .redes-links {
+    display: flex;
+    flex-direction: row;
+    gap: 17px;
+    margin-top: -2px;
+  }
+  
+  .redes-links a {
+    color: #00ADB5;
+  }
+  
+  .defensa-consumidor {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .defensa-consumidor a {
+    color: #00ADB5;
+  }
