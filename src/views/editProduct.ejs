@@ -3,11 +3,11 @@
   <%- include('./partials/header') %>
   <main>
     <div class="container-form">
-      <h1>Agregar nuevo producto</h1>
+      <h1>Editar producto</h1>
       <form action="/product/addProduct" method="post" class="registration-form">
         <div class="form-group">
-          <input type="text" name="name" placeholder="" required>
-          <label for="name"> Nombre del producto</label>
+          <input type="text" name="name" placeholder="" required value="Aceite">
+          <label for="name"> Nombre del producto <%= productoE[0].name; %></label>
         </div>
         <div class="form-group">          
           <input name="description" placeholder="" required></input>
