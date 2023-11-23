@@ -1,0 +1,44 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+  <main>
+    <div class="container">
+      <h2>Agregar nuevo producto</h2>
+      <form action="/" method="post">
+        <div>
+          <label for="name"> Nombre: </label>
+          <input type="text" name="name" >
+        </div>
+        <div>
+          <label for="description">Descripcion</label>
+          <textarea name="description" ></textarea>
+        </div>
+        <div>
+          <label for="price">Precio</label>
+          <input type="text" name="price">
+        </div>
+        <div>
+          <label for="category">Categoría</label>
+          <input type="radio" value="envasados" name="category">Envasados
+          <input type="radio" value="frescos" name="category">Frescos
+          <input type="radio" value="limpieza" name="category">Limpieza
+          <input type="radio" value="hogar" name="category"> Para el hogar
+        </div>
+        <div>
+          <label for="image"> Subir imagen:</label>
+          <input type="image" name="image" id="image">
+        </div>
+
+        <div class="product-add-actions">
+          <button type="submit">Agregar</button>
+          <button type="reset">Limpiar</button>
+        </div>
+      </form>
+
+    </div>
+
+ </main> 
+
+  <%- include('./partials/footer') %>
+</body>
+</html>
