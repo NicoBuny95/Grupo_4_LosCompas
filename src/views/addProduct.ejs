@@ -1,0 +1,32 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+  <main>
+    <div class="container">
+      <form action="/" method="post">
+        <div>
+          <label for="name"> Nombre: </label>
+          <input type="text" name="name" >
+        </div>
+        <div>
+          <label for="description">Descripcion</label>
+          <textarea name="description" >
+        </div>
+        <div>
+          <label for="price">Precio</label>
+          <input type="text" name="price">
+        </div>
+        <div>
+          <label for="category">Categoría</label>
+          <option value="envasados" name="category">Envasados</option>
+          <option value="frescos" name="category">Frescos</option>
+        </div>
+      </form>
+
+    </div>
+
+ </main> 
+
+  <%- include('./partials/footer') %>
+</body>
+</html>
