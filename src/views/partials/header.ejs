@@ -1,19 +1,31 @@
 <header>
     <div class="header-mobile">
         <nav class="logo-buscador-usuario-carrito">
-            <div class="menu-icono">
+            <div>
+                <a href="/product/carrito" class="carrito">
+                    <i id="iconoCarrito" class="fa-solid fa-cart-shopping"></i>
+                    <p>Carrito</p>
+                </a>
+            </div> 
+            <a id="logo-header-link" href="/">
+                <img id="logo-header" src="/img/Logo.png" alt="Logo Los Compas">
+            </a>
+            <a class="menu-icono" href="#menu-hamburguesa">
                 <i class="fa-solid fa-bars fa-2xl"></i>
-            </div>
-            <div class="menu-hamburguesa">
+            </a>
+            <a href="#" class="menu-icono-cerrar">
+                <i class="fa-regular fa-rectangle-xmark"></i>
+            </a>
+            <div id="menu-hamburguesa" class="menu-hamburguesa">
+                <h2>Menu</h2>
                 <div class="ventana-busqueda">
-                    <input type="text">
-                    <button id="boton-lupa-ventana"><i class="fa-brands fa-searchengin"></i></button>
+                     <input type="text" placeholder="¡Encontrá lo que buscás!">
+                    <button id="boton-lupa-ventana"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <ul>
-                    <li><a href="">Iniciar sesion</a></li>
-                    <li><a href="">Registrate</a></li>
+                <ul id="user-options">
+                    <li><a href="/user/login">Iniciar sesion</a></li>
+                    <li><a href="/user/register">Registrate</a></li>
                 </ul>
-                <hr>
                 <nav class="categorias">                   
                     <h3>Categorias</h3>
                     <ul>
@@ -23,34 +35,28 @@
                         <li><a href="">Para el hogar</a></li>
                     </ul>
                 </nav>
-                <hr>
                 <ul class="sobre-nosotros-contactanos">
                     <li><a href="">Sobre Nosotros</a></li>
                     <li><a href="">Contactanos</a></li>
                 </ul>
-            </div>
-            <img id="logo-header" src="/img/Logo.png" alt="Logo Los Compas">
-            <div>
-                <a href="" class="carrito">
-                    <i id="iconoCarrito" class="fa-solid fa-cart-shopping"></i>
-                    <p>Carrito</p>
-                </a>
-            </div>                                      
+            </div>                    
         </nav>
     </div>
     <div class="header-desktop">
         <div class="logo-buscador-usuario-carrito-D">
-            <img id="logo-header-D" src="/img/Logo.png" alt="Logo Los Compas">
+            <a id="logo-header-link-D" href="/">
+                <img id="logo-header-D" src="/img/Logo.png" alt="Logo Los Compas">
+            </a>  
             <div class="buscador-D">
                 <input type="text" placeholder="¡Encontrá lo que buscás!">
                 <button><i class="fa-solid fa-magnifying-glass"></i></i></button>
             </div>
             <div class="usuario-carrito-D">
                 <div class="usuario-D">
-                    <a href=""><i class="fa-solid fa-user"></i>Iniciar Sesion</a>
+                    <a href="/user/login"><i class="fa-solid fa-user"></i>Iniciar Sesion</a>
                 </div>
                 <div class="carrito-D">
-                    <a href=""><i class="fa-solid fa-cart-shopping"></i>Carrito de Compras</a>
+                    <a href="/product/carrito"><i class="fa-solid fa-cart-shopping"></i>Carrito de Compras</a>
                 </div>
             </div>
         </div>

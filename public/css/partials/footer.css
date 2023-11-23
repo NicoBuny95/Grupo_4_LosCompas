@@ -11,7 +11,8 @@
 
 footer {
     margin-top: 50px; 
-    background: radial-gradient(circle, #393E46, #222831);
+    background: var(--color-rojo);
+    color: #FFF;
     padding: 10px;
     display: flex;
     flex-flow: row wrap;
@@ -35,11 +36,11 @@ footer {
   }
   
   #sobre-nosotros-footer {
-    color: #00ADB5;
+    color: #FFF;
   }
   
   #sobre-nosotros-footer:visited {
-    color: #00ADB5;
+    color: #FFF;
   }
   
   .defensa-consumidor {
@@ -61,7 +62,7 @@ footer {
   }
   
   .redes-links a {
-    color: #00ADB5;
+    color: #FFF;
   }
   
   .defensa-consumidor {
@@ -72,5 +73,5 @@ footer {
   }
   
   .defensa-consumidor a {
-    color: #00ADB5;
+    color: #FFF;
   }
