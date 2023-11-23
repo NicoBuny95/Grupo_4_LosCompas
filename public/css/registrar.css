@@ -50,6 +50,8 @@
   padding-left: 30px; 
   width: 100% ;
   padding: 10px;
+  padding-left: 35px;
+  padding-top: 25px;
   border-radius: 5px;
   border: 1px solid var(--color-gris);
 }
