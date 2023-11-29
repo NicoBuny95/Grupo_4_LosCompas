@@ -10,19 +10,20 @@
           <div class="product-card">
               <!--<a href="/product/productDetail"> -->
                 <div class="product-details">
-                  <h4>Categoría: <%= producto[0].category; %></h4>
+                  <h4>Categoría: <%= product.category %></h4>
                 </div>
                   <div class="product-image">
-                      <img src="/img/<%= producto[0].image %>" alt="product-image" height="200px"/>
+                      <img src="/img/<%= product.image %>" alt="product-image" height="200px"/>
                   <!--<button class="close-button">X</button> -->
-                  <a href="/product/editProduct/<%= producto[0].id %>"><i class="fa-solid fa-pen-to-square" tooltip="Editar producto"></i></a>
+                  <a href="/product/editProduct/<%= product.id %>"><i class="fa-solid fa-pen-to-square" tooltip="Editar producto"></i></a>
                   <a href="/product/addProduct"><i class="fa-solid fa-plus" tooltip="Agregar producto"></i></a> 
+                  <a href="/product/deleteProduct/<%= productoE.id %>/?_method=DELETE"><i class="fa-solid fa-trash" tooltip="eliminar producto"></i></a> 
                   
                   </div>
                   <div class="product-details">
-                      <h3 class="product-title"><%= producto[0].name %></h3>
+                      <h3 class="product-title"><%= product.name %></h3>
                       <div class="product-actions">
-                        <span class="product-price">$ <%= producto[0].price %></span>
+                        <span class="product-price">$ <%= product.price %></span>
                       </div>
                       <div class="cont1">
                           <div class="product-quantity">
@@ -36,7 +37,7 @@
                   <div class="product-details">
                       <h3>Descripcion</h3>
                       <p>
-                        <%= producto[0].description %>
+                        <%= product.description %>
                       </p>
       
                   </div>

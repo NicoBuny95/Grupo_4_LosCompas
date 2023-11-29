@@ -1,10 +1,98 @@
-[{"id":1,"name":"Aceite","description":"","image":"img/home-aceite.webp","category":"Category 3","price":"Rupiah"},
-{"id":2,"name":"Arvejas","description":"","image":"img/Arvejas.png","category":"Category 3","price":""},
-{"id":3,"name":"Spaguetti","description":"","image":"./img/Spaguetti.png","category":"Category 3","price":"Rupiah"},
-{"id":4,"name":"Arroz","description":"","image":"img/Arroz.png","category":"Category 2","price":"Rial"},
-{"id":5,"name":"Higienol","description":"","image":"img/Higienol.png","category":"Category 2","price":"Dollar"},
-{"id":6,"name":"Lentejas","description":"","image":"img/Lentejas.png","category":"Category 2","price":"Yuan Renminbi"},
-{"id":7,"name":"Vino","description":"","image":"img/vino.png","category":"Category 3","price":""},
-{"id":8,"name":"Cif","description":"  ","image":"img/Cif.png","category":"Category 3","price":"Sol"},
-{"id":9,"name":"Choclo","description":"","image":"img/Choclo.png","category":"Category 1","price":"Yuan Renminbi"},
-{"id":10,"name":"Polenta","description":".","image":"img/Polenta.png","category":"Category 1","price":"Ruble"}]
+[
+  {
+    "id": 1,
+    "name": "Aceite",
+    "description": "",
+    "image": "home-aceite.webp",
+    "category": "Category 3",
+    "price": "Rupiah"
+  },
+  {
+    "id": 2,
+    "name": "Arvejas",
+    "description": "",
+    "image": "Arvejas.png",
+    "category": "Category 3",
+    "price": ""
+  },
+  {
+    "id": 3,
+    "name": "Spaguetti",
+    "description": "",
+    "image": "Spaguetti.png",
+    "category": "Category 3",
+    "price": "Rupiah"
+  },
+  {
+    "id": 4,
+    "name": "Arroz",
+    "description": "holi",
+    "image": "",
+    "category": "envasados",
+    "price": "234"
+  },
+  {
+    "id": 5,
+    "name": "Higienol",
+    "description": "",
+    "image": "Higienol.png",
+    "category": "Category 2",
+    "price": "Dollar"
+  },
+  {
+    "id": 6,
+    "name": "Lentejas",
+    "description": "",
+    "image": "Lentejas.png",
+    "category": "Category 2",
+    "price": "Yuan Renminbi"
+  },
+  {
+    "id": 7,
+    "name": "Vino",
+    "description": "",
+    "image": "vino.png",
+    "category": "Category 3",
+    "price": ""
+  },
+  {
+    "id": 8,
+    "name": "Cif",
+    "description": "  ",
+    "image": "Cif.png",
+    "category": "Category 3",
+    "price": "Sol"
+  },
+  {
+    "id": 9,
+    "name": "Choclo",
+    "description": "",
+    "image": "Choclo.png",
+    "category": "Category 1",
+    "price": "Yuan Renminbi"
+  },
+  {
+    "id": 10,
+    "name": "Polenta",
+    "description": ".",
+    "image": "Polenta.png",
+    "category": "Category 1",
+    "price": "Ruble"
+  },
+  {
+    "id": 12,
+    "name": "Carne Picada",
+    "description": "asdfasdf",
+    "price": "123",
+    "category": "frescos",
+    "image": "dragon-ball-dragon-ball-z-wallpaper-preview.jpg"
+  },
+  {
+    "id": 13,
+    "name": "dffd",
+    "description": "asdfasdf",
+    "price": "1222",
+    "category": "envasados",
+    "image": "dragon-ball-dragon-ball-z-wallpaper-preview.jpg"
+  }
+]

@@ -4,17 +4,17 @@
   <main>
     <div class="container-form">
       <h1>Editar producto</h1>
-      <form action="/product/editProduct/<%= productoE[0].id; %>" method="post" class="registration-form">
+      <form action="/product/editProduct/<%= productoE.id %>/?_method=PUT" method="POST" class="registration-form">
         <div class="form-group">
-          <input type="text" name="name" placeholder="" required value="<%= productoE[0].name; %>">
+          <input type="text" name="name" placeholder="" value="<%= productoE.name; %>">
           <label for="name"> Nombre del producto</label>
         </div>
         <div class="form-group">          
-          <input name="description" placeholder="" required rows="5" value = "<%= productoE[0].description; %>"></input>
+          <input name="description" placeholder="<%= productoE.description; %>" required rows="5" value = "<%= productoE.description; %>"></input>
           <label for="description">Descripcion</label>
         </div>
         <div class="form-group">          
-          <input type="text" name="price" placeholder="" required value="<%= productoE[0].price; %>">
+          <input type="text" name="price" placeholder="" required value="<%= productoE.price; %>">
           <label for="price">Precio</label>
         </div>
         <label for="category">Categoría</label>
@@ -37,7 +37,7 @@
           </div>
         </div>
         <div class="form-image" placeholder="" required>
-          <img src="/img/<%= productoE[0].image %>" alt="Imagen del producto <%= productoE[0].name; %>" width="50px">
+          <img src="/img/<%= productoE.image %>" alt="Imagen del producto <%= productoE.name; %>" width="50px">
           <label for="image"> Subir imagen:</label>          
           <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .webp">
           
