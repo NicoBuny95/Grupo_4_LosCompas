@@ -1,9 +1,9 @@
 const fs = require("fs");
 
 let productController = {
-  allProducts: (res, req) => {
+  allProducts: (req,res ) => {
     const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-    req.json(productsData);
+    res.json(productsData);
   },
 
   detalle: (req, res) => {
@@ -49,6 +49,11 @@ let productController = {
         "data/products.json",
         JSON.stringify(productsData, null, 2)
       );
+
+      res.render("addProduct", {
+        title: "Agregar producto",
+        css: "/css/addProduct.css",
+      });
 
       //   res.render("addProduct", {
       //     title: "Agregar producto",
@@ -112,7 +117,7 @@ let productController = {
     }
   },
 
-  deleteProduct: (res, req) => {
+  deleteProduct: (req, res) => {
     try {
       const productId = req.params.id;
       const productsData = JSON.parse(fs.readFileSync("data/products.json"));
@@ -123,7 +128,7 @@ let productController = {
         "data/products.json",
         JSON.stringify(updatedProducts, null, 2)
       );
-      res.redirect("/index");
+      res.redirect("/");
     } catch (err) {
       res.status(500).json({ error: "No se pudo eliminar el producto" });
     }
@@ -133,6 +138,9 @@ let productController = {
   carrito: (req, res) => {
     res.render("carrito", { title: "Carrito", css: "/css/carrito.css" });
   },
+
+
+
 };
 
 module.exports = productController;

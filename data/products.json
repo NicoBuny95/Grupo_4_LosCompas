@@ -57,22 +57,6 @@
   },
   {
     "id": 8,
-    "name": "Cif",
-    "description": "  ",
-    "image": "Cif.png",
-    "category": "Category 3",
-    "price": "Sol"
-  },
-  {
-    "id": 9,
-    "name": "Choclo",
-    "description": "",
-    "image": "Choclo.png",
-    "category": "Category 1",
-    "price": "Yuan Renminbi"
-  },
-  {
-    "id": 10,
     "name": "Polenta",
     "description": ".",
     "image": "Polenta.png",
@@ -80,19 +64,11 @@
     "price": "Ruble"
   },
   {
-    "id": 12,
+    "id": 9,
     "name": "Carne Picada",
-    "description": "asdfasdf",
-    "price": "123",
+    "description": "500g",
+    "price": "2500",
     "category": "frescos",
-    "image": "dragon-ball-dragon-ball-z-wallpaper-preview.jpg"
-  },
-  {
-    "id": 13,
-    "name": "dffd",
-    "description": "asdfasdf",
-    "price": "1222",
-    "category": "envasados",
-    "image": "dragon-ball-dragon-ball-z-wallpaper-preview.jpg"
+    "image": ""
   }
 ]
