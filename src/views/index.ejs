@@ -6,176 +6,33 @@
             <h2 id="titulo-carrusel">¡Ofertas!</h2>
             <div class="carrusel">
                 <ul>
-                    <li>
-                        <div class="li-container">
-                            <img src="/img/home-aceite.webp" alt="Aceite Natura">
-                        <div class="producto-precio-carrusel">
-                            <h4>Ryzen 7 5700X</h4>
-                            <p>$295.900</p>
-                        </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="li-container">
-                            <img src="/img/oferta/RTX 3060.png" alt="Nvidia RTX 3060">
-                        <div class="producto-precio-carrusel">
-                            <h4>Nvidia RTX 3060</h4>
-                            <p>$517.180</p>
-                        </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="li-container">
-                            <img src="/img/oferta/M.2 Crucial.png" alt="M.2 Crucial">
-                        <div class="producto-precio-carrusel">
-                            <h4>SSD M.2 500GB</h4>
-                            <p>$39.800</p>
-                        </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="li-container">
-                            <img src="/img/oferta/Intel i5.png" alt="Intel core i5">
-                            <div class="producto-precio-carrusel">
-                                <h4>Intel Core i5 11400F</h4>
-                                <p>$172.000</p>
+                    <% for(let i = 0; i < 4; i++) { %>
+                        <li>
+                            <div class="li-container">
+                                <img class="carrusel-img" src="/img/<%= productos[i].image %>" alt="<%= productos[i].name %>">
+                                <div class="producto-precio-carrusel">
+                                    <h4><%= productos[i].name %></h4>
+                                    <p><%= productos[i].price %></p>
+                                </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
+                    <% } %>
                 </ul>
             </div>
         </div>
-        <aside class="aside-filtros">
-            <form class="filtros-productos" action="" method="GET">
-                <div class="prod-procesadores">
-                    <h4>Procesadores</h4>
-                    <div>
-                        <label for="amd">AMD</label>
-                        <input  id="cpu-amd" type="radio" name="procesadores">
-                    </div>
-                    <div>
-                        <label for="intel">Intel</label>
-                        <input id="cpu-intel" type="radio" name="procesadores">
-                    </div>
-                </div>
-                <div class="prod-placas-madre">
-                    <h4>Placas Madres</h4>
-                    <div>
-                        <label for="mother-amd">AMD</label>
-                        <input id="mother-amd" type="radio" name="placas-madre">
-                    </div>
-                    <div>
-                        <label for="mother-amd">Intel</label>
-                        <input id="mother-intel" type="radio" name="placas-madre">
-                    </div>
-                </div>
-                <div class="prod-memorias-ram">
-                    <h4>Memorias Ram</h4>
-                    <div>
-                        <label for="ram">Memorias</label>
-                        <input id="ram" type="radio" name="memorias-ram">
-                    </div>
-                    <div>
-                        <label for="ram-notebook">Memorias Notebook</label>
-                        <input id="ram-notebook" type="radio" name="memorias-ram">
-                    </div>
-                </div>
-                <div class="prod-almacenamiento">
-                    <h4>Almacenamiento</h4>
-                    <div>
-                        <label for="hdd">HDD</label>
-                        <input id="hdd" type="radio" name="almacenamiento">
-                    </div>
-                    <div>
-                        <label for="ssd">SSD</label>
-                        <input id="ssd" type="radio" name="almacenamiento">
-                    </div>
-                    <div>
-                        <label for="externo">Externo</label>
-                        <input id="externo" type="radio" name="almacenamiento">
-                    </div>
-                </div>
-                <div class="prod-fuentes">
-                    <h4>Fuentes</h4>
-                    <div>
-                        <label for="f-cert">Certificadas</label>
-                        <input id="f-cert" type="radio" name="fuentes-alimentacion">
-                    </div>
-                    <div>
-                        <label for="f-no-cert">No Certificadas</label>
-                        <input id="f-no-cert" type="radio" name="fuentes-alimentacion">
-                    </div>
-                </div>
-                <div class="prod-monitores">
-                    <h4>Monitores</h4>
-                    <div>
-                        <label for="m-samsung">Samsung</label>
-                        <input id="m-samsung" type="radio" name="monitores">
-                    </div>
-                    <div>
-                        <label for="m-lg">LG</label>
-                        <input id="m-lg" type="radio" name="monitores">
-                    </div>
-                    <div>
-                        <label for="m-asus">ASUS</label>
-                        <input id="m-asus" type="radio" name="monitores">
-                    </div>
-                    <div>
-                        <label for="m-msi">MSI</label>
-                        <input id="m-msi" type="radio" name="monitores">
-                    </div>
-                    <div>
-                        <label for="m-philips">Philips</label>
-                        <input id="m-philips" type="radio" name="monitores">
-                    </div>
-                </div>
-                <div class="prod-perifericos">
-                    <h4>Perifericos</h4>
-                    <div>
-                        <label for="mouse">Mouse</label>
-                        <input id="mouse" type="radio" name="perifericos">
-                    </div>
-                    <div>
-                        <label for="teclado">Teclado</label>
-                        <input id="teclado" type="radio" name="perifericos">
-                    </div>
-                    <div>
-                        <label for="auriculares">Auriculares</label>
-                        <input id="auriculares" type="radio" name="perifericos">
-                    </div>
-                </div>
-            </form>
-        </aside>
         <section id="productos-container">
             <h2>ÚLTIMAS NOVEDADES</h2>
-            <article class="producto">
-                <img src="/img/oferta/Ryzen 7.png" alt="Ryzen 7">
-                <div>
-                    <h4 class="producto-nombre">Ryzen 7 5700X</h4>
-                    <p class="producto-precio">$295.900</p>
-                </div>
-            </article>
-            <article class="producto">
-                <img src="/img/oferta/Intel i5.png" alt="Intel core i5">
-                <div>
-                    <h4 class="producto-nombre">Intel Core i5 11400F</h4>
-                    <p class="producto-precio">$172.000</p>
-                </div>
-            </article>
-            <article class="producto">
-                <img src="/img/oferta/M.2 Crucial.png" alt="M.2 Crucial">
-                <div>
-                    <h4 class="producto-nombre">SSD M.2 500GB</h4>
-                    <p class="producto-precio">$39.800</p>
-                </div>
-            </article>
-            <article class="producto">
-                <img src="/img/oferta/RTX 3060.png" alt="Nvidia RTX 3060">
-                <div>
-                    <h4 class="producto-nombre">Nvidia RTX 3060</h4>
-                    <p class="producto-precio">$517.180</p>
-                </div>
-            </article>
+                <% for(let i = 0; i < productos.length; i++) { %>
+                    <article class="producto">
+                        <a href="/productDetail/<%= productos[i].id %>">
+                            <img src="<%= productos[i].image %>" alt="<%= productos[i].name %>">
+                            <div>
+                                <h4 class="producto-nombre"><%= productos[i].name %></h4>
+                                <p class="producto-precio"><%= productos[i].price %></p>
+                            </div>
+                        </a>
+                    </article>
+                <% } %>
         </section>
     </main>
     <%- include('./partials/footer') %>
