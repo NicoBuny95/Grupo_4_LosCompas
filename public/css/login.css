@@ -1,4 +1,93 @@
-.flexContainer {
+:root {
+  --color-beige: #fce5a0;
+  --color-verde: #42A64A;
+  --color-negro: #0B090C;
+  --color-rojo: #D7162B;
+  --color-rojo-oscuro: #722924;
+  --color-verde-oscuro: #176332;
+  --color-gris: #7C7484;
+}
+
+main {
+  font-family: 'Open Sans', 'sans-serif';
+  font-size: 1rem;
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 80vh;
+  padding: 10px 30px;
+  width: 80%;
+}
+
+#logo {
+  width: 50%;
+  display:none;
+}
+
+.login-form-email, .login-form-password {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.login-form-email label, .login-form-password label {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.login-form-email input, .login-form-password input {
+  height: 50px;
+  border: 1px solid var(--color-gris);
+  border-radius: 5px;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.login-form-checkbox {
+  align-self: flex-start;
+  font-size: 1.2rem;
+}
+
+.login-form-submit {
+  height: 52px;
+  border: none;
+  background: var(--color-verde);
+  color: #fff;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 1.2rem;
+  transition: all .3s;
+}
+
+.login-form-submit:hover {
+  background: var(--color-verde-oscuro);
+}
+
+.login-form-register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  width: 100%;
+  margin-top: -20px;
+}
+
+
+
+
+
+
+
+/* .flexContainer {
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -152,4 +241,4 @@
 
 .form-register a:hover {
   text-decoration: underline;
-}
+} */
