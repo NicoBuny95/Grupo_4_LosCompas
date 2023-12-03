@@ -1,74 +1,74 @@
 [
   {
     "id": 1,
-    "name": "Aceite",
-    "description": "",
+    "name": "NATURA",
+    "description": "Aceite De Girasol Natura 1L",
     "image": "home-aceite.webp",
     "category": "Category 3",
-    "price": "Rupiah"
+    "price": "843,28"
   },
   {
     "id": 2,
-    "name": "Arvejas",
-    "description": "",
+    "name": "CUISINE & CO NBE MP",
+    "description": "Arvejas Cuisine & Co 300gr",
     "image": "Arvejas.png",
-    "category": "Category 3",
-    "price": ""
+    "category": "enlatados y envasados",
+    "price": "205"
   },
   {
     "id": 3,
-    "name": "Spaguetti",
-    "description": "",
+    "name": "LUCCHETTI",
+    "description": "Fideos Lucchetti Tallarín N5 X500g",
     "image": "Spaguetti.png",
-    "category": "Category 3",
-    "price": "Rupiah"
+    "category": "enlatados y envasados",
+    "price": "1.005,97"
   },
   {
     "id": 4,
-    "name": "Arroz",
-    "description": "holi",
-    "image": "",
-    "category": "envasados",
-    "price": "234"
+    "name": "PATY",
+    "description": "Hamburguesas Paty De Carne 4 U- 480 Gr",
+    "image": "paty.png",
+    "category": "enlatados y envasados",
+    "price": "2.368,97"
   },
   {
     "id": 5,
-    "name": "Higienol",
-    "description": "",
-    "image": "Higienol.png",
-    "category": "Category 2",
-    "price": "Dollar"
+    "name": "POETT",
+    "description": "Poett Desinf. Frescura De Lavanda 1.8ml",
+    "image": "Poett.png",
+    "category": "Limpieza",
+    "price": "748,11"
   },
   {
     "id": 6,
-    "name": "Lentejas",
-    "description": "",
+    "name": "CUISINE & CO NBE MP",
+    "description": "Lentejas Cuisine & Co 300gr",
     "image": "Lentejas.png",
-    "category": "Category 2",
-    "price": "Yuan Renminbi"
+    "category": "enlatados y envasados",
+    "price": "469,76"
   },
   {
     "id": 7,
-    "name": "Vino",
-    "description": "",
+    "name": "SHERNI SHIRAZ",
+    "description": "Vino Tinto Sherni Shiraz 750ml",
     "image": "vino.png",
-    "category": "Category 3",
-    "price": ""
+    "category": "frescos",
+    "price": "8.732"
   },
   {
     "id": 8,
-    "name": "Polenta",
-    "description": ".",
+    "name": "PRESTO PRONTA",
+    "description": "Polenta Presto Pronta 500gr",
     "image": "Polenta.png",
-    "category": "Category 1",
-    "price": "Ruble"
+    "category": "enlatados y envasados",
+    "price": "582"
   },
   {
     "id": 9,
     "name": "Carne Picada",
-    "description": "500g",
-    "price": "2500",
+    "description": "Carne picada seleccionada, precio por Kg",
+    "price": "3.495",
     "category": "frescos",
-    "image": ""
+    "image": "Carne-picada.webp"
   }
 ]

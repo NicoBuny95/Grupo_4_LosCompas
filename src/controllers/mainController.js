@@ -7,7 +7,21 @@ let productos = JSON.parse(archivo);
 
 let mainController = {
     index: (req, res) => {
-        res.render('index', {title: 'LC Supermercado', css:'css/index.css', productos: productos});
+        let banner = [
+            {
+                name: "banner1",
+                image: "banner1.jpg"
+            },
+            {
+                name: "banner2",
+                image: "banner2.jpg"
+            },
+            {
+                name: "banner3",
+                image: "banner3.jpg"
+            }
+        ]
+        res.render('index', {title: 'LC Supermercado', css:'css/index.css', productos: productos, banner: banner});
     },
 }
 

@@ -9,8 +9,7 @@
 }
 
 
-footer {
-    margin-top: 20px; 
+footer { 
     background: var(--color-rojo);
     color: #FFF;
     padding: 10px;

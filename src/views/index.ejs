@@ -3,17 +3,12 @@
     <%- include('./partials/header') %>
     <main>
         <div class="carrusel-container">
-            <h2 id="titulo-carrusel">¡Ofertas!</h2>
             <div class="carrusel">
                 <ul>
-                    <% for(let i = 0; i < 4; i++) { %>
+                    <% for(let i = 0; i < 3; i++) { %>
                         <li>
                             <div class="li-container">
-                                <img class="carrusel-img" src="/img/<%= productos[i].image %>" alt="<%= productos[i].name %>">
-                                <div class="producto-precio-carrusel">
-                                    <h4><%= productos[i].name %></h4>
-                                    <p><%= productos[i].price %></p>
-                                </div>
+                                <img class="carrusel-img" src="/img/<%= banner[i].image %>" alt="<%= banner[i].name %>">
                             </div>
                         </li>
                     <% } %>
@@ -21,14 +16,15 @@
             </div>
         </div>
         <section id="productos-container">
-            <h2>ÚLTIMAS NOVEDADES</h2>
+            <h2>Recomendados para vos</h2>
                 <% for(let i = 0; i < productos.length; i++) { %>
                     <article class="producto">
-                        <a href="/productDetail/<%= productos[i].id %>">
-                            <img src="<%= productos[i].image %>" alt="<%= productos[i].name %>">
-                            <div>
-                                <h4 class="producto-nombre"><%= productos[i].name %></h4>
-                                <p class="producto-precio"><%= productos[i].price %></p>
+                        <a class="producto-a" href="/productDetail/<%= productos[i].id %>">
+                            <img src="/img/<%= productos[i].image %>" alt="<%= productos[i].name %>">
+                            <div class="producto-nombre-precio-container">
+                                <p class="producto-nombre"><%= productos[i].name %></p>
+                                <p class="producto-descripcion"><%= productos[i].description%></p>
+                                <p class="producto-precio">$ <%= productos[i].price %></p>
                             </div>
                         </a>
                     </article>
