@@ -1,7 +1,8 @@
 [
   {
     "id": 1,
-    "name": "NATURA",
+    "marca": "NATURA",
+    "name": "Aceite De Girasol Natura",
     "description": "Aceite De Girasol Natura 1L",
     "image": "home-aceite.webp",
     "category": "Category 3",
@@ -9,7 +10,8 @@
   },
   {
     "id": 2,
-    "name": "CUISINE & CO NBE MP",
+    "marca": "CUISINE & CO NBE MP",
+    "name": "Arvejas Cuisine & Co",
     "description": "Arvejas Cuisine & Co 300gr",
     "image": "Arvejas.png",
     "category": "enlatados y envasados",
@@ -17,7 +19,8 @@
   },
   {
     "id": 3,
-    "name": "LUCCHETTI",
+    "marca": "LUCCHETTI",
+    "name": "Fideos Tallarín Lucchetti",
     "description": "Fideos Lucchetti Tallarín N5 X500g",
     "image": "Spaguetti.png",
     "category": "enlatados y envasados",
@@ -25,7 +28,8 @@
   },
   {
     "id": 4,
-    "name": "PATY",
+    "marca": "PATY",
+    "name": "Hamburguesas Paty",
     "description": "Hamburguesas Paty De Carne 4 U- 480 Gr",
     "image": "paty.png",
     "category": "enlatados y envasados",
@@ -33,7 +37,8 @@
   },
   {
     "id": 5,
-    "name": "POETT",
+    "marca": "POETT",
+    "name": "Poett Desinfectante",
     "description": "Poett Desinf. Frescura De Lavanda 1.8ml",
     "image": "Poett.png",
     "category": "Limpieza",
@@ -41,7 +46,8 @@
   },
   {
     "id": 6,
-    "name": "CUISINE & CO NBE MP",
+    "marca": "CUISINE & CO NBE MP",
+    "name": "Lentejas Cuisine & Co",
     "description": "Lentejas Cuisine & Co 300gr",
     "image": "Lentejas.png",
     "category": "enlatados y envasados",
@@ -49,7 +55,8 @@
   },
   {
     "id": 7,
-    "name": "SHERNI SHIRAZ",
+    "marca": "SHERNI SHIRAZ",
+    "name": "Vino Tinto Sherni Shiraz",
     "description": "Vino Tinto Sherni Shiraz 750ml",
     "image": "vino.png",
     "category": "frescos",
@@ -57,7 +64,8 @@
   },
   {
     "id": 8,
-    "name": "PRESTO PRONTA",
+    "marca": "PRESTO PRONTA",
+    "name": "Polenta Presto Pronta",
     "description": "Polenta Presto Pronta 500gr",
     "image": "Polenta.png",
     "category": "enlatados y envasados",
@@ -65,6 +73,7 @@
   },
   {
     "id": 9,
+    "marca": "Carne Picada",
     "name": "Carne Picada",
     "description": "Carne picada seleccionada, precio por Kg",
     "price": "3.495",

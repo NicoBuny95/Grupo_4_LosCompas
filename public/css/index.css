@@ -1,6 +1,7 @@
 :root {
   --color-beige: #fce5a0;
   --color-verde: #42A64A;
+  --color-verde-hover: #63C86C;
   --color-negro: #0B090C;
   --color-rojo: #D7162B;
   --color-rojo-oscuro: #722924;
@@ -101,6 +102,7 @@ main {
   max-height: 400px;
   min-height: 400px;
   overflow: hidden;
+  transition: all .3s;
 }
 
 .producto-a {
@@ -168,6 +170,15 @@ main {
 @media (min-width: 1000px) {
   .producto {
     width: 30%;
+    transition: all .3s;
+  }
+
+  .producto:hover {
+    box-shadow: 0px 0px 10px #727272;
+  }
+
+  .producto:hover .producto-precio {
+    font-size: 1.2rem;
   }
 }
 

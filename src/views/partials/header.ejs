@@ -49,13 +49,15 @@
             </a>
             <div class="buscador-usuario-D">
                 <div class="buscador-D">
-                    <input type="text" placeholder="¡Encontrá lo que buscás!">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></i></button>
+                    <form action="/search" method="GET">
+                        <input type="text" name="busqueda" placeholder="¡Encontrá lo que buscás!">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></i></button>
+                    </form>
                 </div>
                 <div class="usuario-carrito-D">
-                    <a class="usuario-D" href="/user/login">Iniciar Sesion <i class="fa-solid fa-user"></i></a>
-                    <a class="usuario-D" href="/user/register">Registrarme <i class="fa-regular fa-address-card"></i></a>
-                    <a class="carrito-D" href="/product/carrito">Carrito de Compras <i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
+                    <a class="usuario-D" href="/user/register"><p>Registrarme </p><i class="fa-regular fa-address-card"></i></a>
+                    <a class="carrito-D" href="/product/carrito"><p>Carrito de Compras </p><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </div>  
         </div>
