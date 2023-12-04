@@ -72,7 +72,7 @@ main {
 }
 
 .login-form-submit:hover {
-  background: var(--color-verde-oscuro);
+  background: var(--color-verde-hover);
 }
 
 .login-form-register {
@@ -83,6 +83,10 @@ main {
   gap: 5px;
   width: 100%;
   margin-top: -20px;
+}
+
+.login-form-submit a, .login-form-register a:visited {
+  color: var(--color-verde);
 }
 
 
