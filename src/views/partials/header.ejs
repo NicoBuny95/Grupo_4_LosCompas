@@ -31,7 +31,7 @@
                  
                     <ul>
                         <% categories.forEach(category => { %>
-                          <li><a href="/product/prodByCategory/<%= encodeURIComponent(category) %>"><%= category %></a></li>
+                          <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
                         <% }); %>
                       </ul>
                 <ul class="sobre-nosotros-contactanos">
@@ -64,7 +64,7 @@
             
             <ul>
                 <% categories.forEach(category => { %>
-                  <li><a href="/product/prodByCategory/<%= encodeURIComponent(category) %>"><%= category %></a></li>
+                  <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
                 <% }); %>
               </ul>
             

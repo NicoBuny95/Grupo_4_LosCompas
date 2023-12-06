@@ -5,7 +5,7 @@
     "name": "Aceite De Girasol Natura",
     "description": "Aceite De Girasol Natura 1L",
     "image": "home-aceite.webp",
-    "category": "enlatados y envasados",
+    "category": "Enlatados y Envasados",
     "price": "843,28"
   },
   {
@@ -14,7 +14,7 @@
     "name": "Arvejas Cuisine & Co",
     "description": "Arvejas Cuisine & Co 300gr",
     "image": "Arvejas.png",
-    "category": "enlatados y envasados",
+    "category": "Enlatados y Envasados",
     "price": "205"
   },
   {
@@ -23,7 +23,7 @@
     "name": "Fideos Tallarín Lucchetti",
     "description": "Fideos Lucchetti Tallarín N5 X500g",
     "image": "Spaguetti.png",
-    "category": "enlatados y envasados",
+    "category": "Enlatados y Envasados",
     "price": "1.005,97"
   },
   {
@@ -32,7 +32,7 @@
     "name": "Hamburguesas Paty",
     "description": "Hamburguesas Paty De Carne 4 U- 480 Gr",
     "image": "paty.png",
-    "category": "enlatados y envasados",
+    "category": "Enlatados y Envasados",
     "price": "2.368,97"
   },
   {
@@ -50,7 +50,7 @@
     "name": "Lentejas Cuisine & Co",
     "description": "Lentejas Cuisine & Co 300gr",
     "image": "Lentejas.png",
-    "category": "enlatados y envasados",
+    "category": "Enlatados y Envasados",
     "price": "469,76"
   },
   {
@@ -59,7 +59,7 @@
     "name": "Vino Tinto Sherni Shiraz",
     "description": "Vino Tinto Sherni Shiraz 750ml",
     "image": "vino.png",
-    "category": "frescos",
+    "category": "Enlatados y Envasados",
     "price": "8.732"
   },
   {
@@ -68,7 +68,7 @@
     "name": "Polenta Presto Pronta",
     "description": "Polenta Presto Pronta 500gr",
     "image": "Polenta.png",
-    "category": "enlatados y envasados",
+    "category": "Enlatados y Envasados",
     "price": "582"
   },
   {
@@ -77,7 +77,7 @@
     "name": "Carne Picada",
     "description": "Carne picada seleccionada, precio por Kg",
     "price": "3.495",
-    "category": "frescos",
+    "category": "Frescos",
     "image": "Carne-picada.webp"
   },
 
@@ -88,7 +88,7 @@
     "description": "Samsung Galaxy S23",
     "price": "300.495",
     "category": "Para el Hogar",
-    "image": ""
+    "image": "s23.webp"
   },
   {
     "id": 11,
@@ -96,6 +96,48 @@
     "description": "Noblex 4k",
     "price": "530.495",
     "category": "Para el Hogar",
-    "image": ""
+    "image": "samrt.webp"
+  },
+
+  {
+    "id": 12,
+    "name": "Pollo",
+    "description": "Pollo entero, precio por kg ",
+    "price": "3500",
+    "category": "Frescos",
+    "image": "pollo entero.webp"
+  },
+  {
+    "id": 13,
+    "name": "Pechuga Pollo",
+    "description": "Pechugas sin piel por kg ",
+    "price": "2200",
+    "category": "Frescos",
+    "image": "pechuga.webp"
+  },
+  {
+    "id": 14,
+    "name": "Merluza",
+    "description": "precio por kg ",
+    "price": "2800",
+    "category": "Frescos",
+    "image": "merluza.webp"
+  },
+  {
+    "id": 15,
+    "name": "Heladera",
+    "description": "Heladera electrolux 35fgr ",
+    "price": "2800",
+    "category": "Para el Hogar",
+    "image": "heladera.webp"
+  },
+  {
+    "id": 16,
+    "name": "Aire acondicionado",
+    "description": "aire acondicionado BGH 3000frigorias frio/calor ",
+    "price": "2800",
+    "category": "Para el Hogar",
+    "image": "aire.webp"
   }
+
 ]
