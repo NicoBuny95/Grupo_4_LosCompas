@@ -5,14 +5,9 @@
     "name": "Aceite De Girasol Natura",
     "description": "Aceite De Girasol Natura 1L",
     "image": "home-aceite.webp",
-<<<<<<< HEAD
-    "category": "enlatados y envasados",
-    "price": "843,28"
-=======
     "category": "Enlatados y Envasados",
     "price": "843,28",
     "descuento":0
->>>>>>> 2586a199a3c6be8442b599978bf375b31158865d
   },
   {
     "id": 2,

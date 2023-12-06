@@ -30,14 +30,6 @@
                     <h3>Categorias</h3>
                  
                     <ul>
-<<<<<<< HEAD
-                        <li><a href="">Frescos</a></li>
-                        <li><a href="">Enlatados y envasados</a></li>
-                        <li><a href="">Limpieza</a></li>
-                        <li><a href="">Para el hogar</a></li>
-                    </ul>
-                </nav>
-=======
                         <% categories.forEach(category => { %>
                           <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
                         <% }); %>
@@ -46,7 +38,6 @@
                     <li><a href="">Sobre Nosotros</a></li>
                     <li><a href="">Contactanos</a></li>
                 </ul>
->>>>>>> 2586a199a3c6be8442b599978bf375b31158865d
             </div>                    
         </nav>
     </div>
@@ -70,13 +61,11 @@
             </div>  
         </div>
         <nav id="nav-categorias-D">
-            
             <ul>
                 <% categories.forEach(category => { %>
                   <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
                 <% }); %>
               </ul>
-            
         </nav>
     </div>
 </header>
