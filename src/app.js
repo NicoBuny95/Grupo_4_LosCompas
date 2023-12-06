@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 
 
 app.use(express.static('public'));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
