@@ -9,7 +9,7 @@
         <% products.forEach(function(product) { %>
        
        <article class="producto">
-        <a class="producto-a" href="/productDetail/<%= product.id %>">
+        <a class="producto-a" href="/product/productDetail/<%= product.id %>">
             <img src="/img/<%= product.image %>" alt="<%= product.name %>">
             <div class="producto-nombre-precio-container">
                 <p class="producto-nombre"><%= product.name %></p>

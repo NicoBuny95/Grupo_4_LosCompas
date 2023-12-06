@@ -19,7 +19,7 @@
             <h2>Recomendados para vos</h2>
                 <% for(let i = 0; i < products.length; i++) { %>
                     <article class="producto">
-                        <a class="producto-a" href="/productDetail/<%= products[i].id %>">
+                        <a class="producto-a" href="product/productDetail/<%= products[i].id %>">
                             <img src="/img/<%= products[i].image %>" alt="<%= products[i].name %>">
                             <div class="producto-nombre-precio-container">
                                 <p class="producto-nombre"><%= products[i].name %></p>
