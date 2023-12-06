@@ -4,6 +4,11 @@ const path = require('path');
 let productosFilePath = path.join(__dirname, '../../data/products.json');
 let archivo = fs.readFileSync(productosFilePath, {encoding: 'utf-8'});
 let productos = JSON.parse(archivo);
+const producto = productos.map(producto => {
+    return producto;
+});
+
+
 
 let mainController = {
     index: (req, res) => {
@@ -21,7 +26,9 @@ let mainController = {
                 image: "banner3.jpg"
             }
         ]
-        res.render('index', {title: 'LC Supermercado', css:'css/index.css', productos: productos, banner: banner});
+        res.render('index', {title: 'LC Supermercado', 
+        css:'css/index.css', products:productos,
+         banner: banner});
     },
     search: (req, res) => {
         let busqueda = req.query.busqueda;

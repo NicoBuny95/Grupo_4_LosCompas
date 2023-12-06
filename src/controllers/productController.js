@@ -139,7 +139,30 @@ let productController = {
     res.render("carrito", { title: "Carrito", css: "/css/carrito.css" });
   },
 
-
+  searchByCategory: (req, res) => {
+    try {
+      const category = req.params.category;
+      const productsData = JSON.parse(fs.readFileSync("data/products.json"));
+      
+      const filteredProducts = productsData.filter(
+        (product) => product.category.toLowerCase() === category.toLowerCase()
+      );
+      
+      if (filteredProducts.length > 0) {
+        res.render("listaProd", {
+          title: `Productos en la categoría ${category}`,
+          css:'/css/index.css',
+          category: category,
+          products: filteredProducts,
+          
+        });
+      } else {
+        res.status(404).send(`No hay productos en la categoría ${category}`);
+      }
+    } catch (err) {
+      res.status(500).json({ error: "No se pudo realizar la búsqueda" });
+    }
+  }
 
 };
 

@@ -5,8 +5,14 @@
     "name": "Aceite De Girasol Natura",
     "description": "Aceite De Girasol Natura 1L",
     "image": "home-aceite.webp",
+<<<<<<< HEAD
     "category": "enlatados y envasados",
     "price": "843,28"
+=======
+    "category": "Enlatados y Envasados",
+    "price": "843,28",
+    "descuento":0
+>>>>>>> 2586a199a3c6be8442b599978bf375b31158865d
   },
   {
     "id": 2,
@@ -14,8 +20,9 @@
     "name": "Arvejas Cuisine & Co",
     "description": "Arvejas Cuisine & Co 300gr",
     "image": "Arvejas.png",
-    "category": "enlatados y envasados",
-    "price": "205"
+    "category": "Enlatados y Envasados",
+    "price": "205",
+    "descuento":0
   },
   {
     "id": 3,
@@ -23,8 +30,9 @@
     "name": "Fideos Tallarín Lucchetti",
     "description": "Fideos Lucchetti Tallarín N5 X500g",
     "image": "Spaguetti.png",
-    "category": "enlatados y envasados",
-    "price": "1.005,97"
+    "category": "Enlatados y Envasados",
+    "price": "1.005,97",
+    "descuento":0
   },
   {
     "id": 4,
@@ -32,8 +40,9 @@
     "name": "Hamburguesas Paty",
     "description": "Hamburguesas Paty De Carne 4 U- 480 Gr",
     "image": "paty.png",
-    "category": "enlatados y envasados",
-    "price": "2.368,97"
+    "category": "Enlatados y Envasados",
+    "price": "2.368,97",
+    "descuento":0
   },
   {
     "id": 5,
@@ -42,7 +51,8 @@
     "description": "Poett Desinf. Frescura De Lavanda 1.8ml",
     "image": "Poett.png",
     "category": "Limpieza",
-    "price": "748,11"
+    "price": "748,11",
+    "descuento":0
   },
   {
     "id": 6,
@@ -50,8 +60,9 @@
     "name": "Lentejas Cuisine & Co",
     "description": "Lentejas Cuisine & Co 300gr",
     "image": "Lentejas.png",
-    "category": "enlatados y envasados",
-    "price": "469,76"
+    "category": "Enlatados y Envasados",
+    "price": "469,76",
+    "descuento":0
   },
   {
     "id": 7,
@@ -59,8 +70,9 @@
     "name": "Vino Tinto Sherni Shiraz",
     "description": "Vino Tinto Sherni Shiraz 750ml",
     "image": "vino.png",
-    "category": "frescos",
-    "price": "8.732"
+    "category": "Enlatados y Envasados",
+    "price": "8.732",
+    "descuento":0
   },
   {
     "id": 8,
@@ -68,8 +80,9 @@
     "name": "Polenta Presto Pronta",
     "description": "Polenta Presto Pronta 500gr",
     "image": "Polenta.png",
-    "category": "enlatados y envasados",
-    "price": "582"
+    "category": "Enlatados y Envasados",
+    "price": "582",
+    "descuento":0
   },
   {
     "id": 9,
@@ -77,7 +90,82 @@
     "name": "Carne Picada",
     "description": "Carne picada seleccionada, precio por Kg",
     "price": "3.495",
-    "category": "frescos",
-    "image": "Carne-picada.webp"
+    "category": "Frescos",
+    "image": "Carne-picada.webp",
+    "descuento":0
+  },
+
+
+  {
+    "id": 10,
+    "name": "Celular",
+    "marca": "",
+    "description": "Samsung Galaxy S23",
+    "price": "300.495",
+    "category": "Para el Hogar",
+    "image": "s23.webp",
+    "descuento":0
+  },
+  {
+    "id": 11,
+    "name": "Smart TV",
+    "marca": "",
+    "description": "Noblex 4k",
+    "price": "530.495",
+    "category": "Para el Hogar",
+    "image": "samrt.webp",
+    "descuento":0
+  },
+
+  {
+    "id": 12,
+    "name": "Pollo",
+    "marca": "",
+    "description": "Pollo entero, precio por kg ",
+    "price": "3500",
+    "category": "Frescos",
+    "image": "pollo entero.webp",
+    "descuento":0
+  },
+  {
+    "id": 13,
+    "name": "Pechuga Pollo",
+    "marca": "",
+    "description": "Pechugas sin piel por kg ",
+    "price": "2200",
+    "category": "Frescos",
+    "image": "pechuga.webp",
+    "descuento":0
+  },
+  {
+    "id": 14,
+    "name": "Merluza",
+    "marca": "",
+    "description": "precio por kg ",
+    "price": "2800",
+    "category": "Frescos",
+    "image": "merluza.webp",
+    "descuento":0
+  },
+  {
+    "id": 15,
+    "name": "Heladera",
+    "marca": "",
+    "description": "Heladera electrolux 35fgr ",
+    "price": "2800",
+    "category": "Para el Hogar",
+    "image": "heladera.webp",
+    "descuento":0
+  },
+  {
+    "id": 16,
+    "name": "Aire acondicionado",
+    "marca": "",
+    "description": "aire acondicionado BGH 3000frigorias frio/calor ",
+    "price": "2800",
+    "category": "Para el Hogar",
+    "image": "aire.webp",
+    "descuento":0
   }
+
 ]

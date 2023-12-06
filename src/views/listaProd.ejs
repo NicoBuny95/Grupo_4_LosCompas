@@ -1,0 +1,33 @@
+<%- include('./partials/head') %>
+<body>
+   
+    <%- include('./partials/header') %>
+    <section id="productos-container">
+        <h2>Productos de la categoría <%= category %></h2>
+    
+    <% if (products.length > 0) { %>
+        <% products.forEach(function(product) { %>
+       
+       <article class="producto">
+        <a class="producto-a" href="/product/productDetail/<%= product.id %>">
+            <img src="/img/<%= product.image %>" alt="<%= product.name %>">
+            <div class="producto-nombre-precio-container">
+                <p class="producto-nombre"><%= product.name %></p>
+                <p class="producto-descripcion"><%= product.description %></p>
+                <p class="producto-precio"> Precio: $ <%= product.price %></p>
+            </div>
+        </a>
+    </article>
+              
+            <% }); %>
+    </section>  
+    <% } else { %>
+        <p>No hay productos en esta categoría.</p>
+    <% } %>
+
+
+    
+
+    <%- include('./partials/footer') %>
+</body>
+</html>

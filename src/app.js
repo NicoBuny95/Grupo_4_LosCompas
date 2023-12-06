@@ -7,12 +7,18 @@ const userRoutes = require('./routes/userRoutes');
 const productRoutes = require('./routes/productRoutes');
 const bodyParser = require('body-parser');
 const methodOverride = require("method-override")
-
+const fs = require("fs");
 
 // Middleware para parsear el cuerpo de las peticiones
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
-
+app.use((req, res, next) => {
+    res.locals.productsData = JSON.parse(fs.readFileSync("data/products.json"));
+    res.locals.categories = [...new Set( res.locals.productsData.map(product => product.category))];
+    res.locals.variableTres = 'Valor 3';
+  
+    next();
+  });
 
 
 app.use(express.static('public'));
@@ -27,5 +33,6 @@ app.use('/user', userRoutes);
 app.use('/product', productRoutes);
 
 
+  
 
 app.listen(PORT, () => console.log(`Server listening at port ${PORT}`));

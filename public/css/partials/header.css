@@ -306,6 +306,7 @@ header {
     flex-direction: row;
     align-items: center;
     gap: 5px;
+   
   }
 
   .usuario-carrito-D a {
