@@ -30,6 +30,10 @@ let mainController = {
         css:'css/index.css', products:productos,
          banner: banner});
     },
+    search: (req, res) => {
+        let busqueda = req.query.busqueda;
+        res.render('search', {title:'LC Supermercado', productos: productos, busqueda: busqueda, css:'css/search.css'});
+    },
 }
 
 module.exports = mainController;

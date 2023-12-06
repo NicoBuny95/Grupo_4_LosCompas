@@ -1,76 +1,150 @@
 :root {
-    --color-beige: #E9D186;
-    --color-verde: #42A64A;
-    --color-negro: #0B090C;
-    --color-rojo: #D7162B;
-    --color-rojo-oscuro: #722924;
-    --color-verde-oscuro: #176332;
-    --color-gris: #7C7484;
+  --color-beige: #E9D186;
+  --color-verde: #42A64A;
+  --color-verde-hover: #63C86C;
+  --color-negro: #0B090C;
+  --color-rojo: #D7162B;
+  --color-rojo-oscuro: #722924;
+  --color-verde-oscuro: #176332;
+  --color-gris: #7C7484;
+}
+
+footer {
+  background: var(--color-verde);
+  color: #FFF;
+  padding: 20px 10px 10px 10px;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: 'Open Sans', 'sans-serif';
+  gap: 30px;
+}
+
+.footer-container1 { 
+  display: flex;
+  flex-flow: column;
+  align-items: center stretch;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.footer-container1 div {
+  min-width: 40%;
+}
+
+.sobre-nosotros {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+#sobre-nosotros-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#sobre-nosotros-footer {
+  color: #FFF;
+}
+
+#sobre-nosotros-footer:visited {
+  color: #FFF;
+}
+
+.defensa-consumidor {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.defensa-consumidor-links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.defensa-consumidor a {
+  color: #FFF;
+}
+
+.defensa-consumidor h3, .defensa-consumidor-links {
+  width: 100%;
+}
+
+.sobre-nosotros h3, .defensa-consumidor h3 {
+  color: #EEEEEE;
+  text-align: center;
 }
 
 
-footer { 
-    background: var(--color-rojo);
-    color: #FFF;
-    padding: 10px;
-    display: flex;
-    flex-flow: row wrap;
-    align-items: flex-start;
-    justify-content: space-around;
+#copyright {
+  font-size: .9rem;
+}
+
+/* Tablet & Desktop Version */
+
+@media(min-width: 600px) {
+
+  footer {
+    flex-direction: column;
+    align-items: space-between;
+    justify-content: center;
   }
-  
-  footer div {
-    min-width: 40%;
+
+  .footer-container1 {
+    flex-direction: row;
+    width: 100%;
   }
-  
-  .sobre-nosotros-redes {
+
+  .sobre-nosotros {
+    flex-direction: column;
+    width: 50%;
+    align-items: center;
+    gap: 30px;
+    height: 100%;
+  }
+
+  .sobre-nosotros h3 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  #sobre-nosotros-footer {
+    font-size: 1.2rem;
+  }
+
+  .defensa-consumidor {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    gap: 20px;
+  }
+
+  .defensa-consumidor h3 {
+    text-align: center;
+    font-size: 1.5rem;
+  }
+
+  .defensa-consumidor-links {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 10px;
   }
-  
-  #sobre-nosotros-footer {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  #sobre-nosotros-footer {
-    color: #FFF;
-  }
-  
-  #sobre-nosotros-footer:visited {
-    color: #FFF;
-  }
-  
-  .defensa-consumidor {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .sobre-nosotros-redes h3, .defensa-consumidor h3 {
-    color: #EEEEEE;
-    margin-bottom: 10px;
-    margin-top: 20px;
-  }
-  
-  .redes-links {
+
+  .footer-container2 {
     display: flex;
     flex-direction: row;
-    gap: 17px;
-    margin-top: -2px;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
   }
-  
-  .redes-links a {
-    color: #FFF;
-  }
-  
-  .defensa-consumidor {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-  
-  .defensa-consumidor a {
-    color: #FFF;
-  }
+}

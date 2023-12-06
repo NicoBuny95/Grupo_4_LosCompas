@@ -1,6 +1,7 @@
 :root {
   --color-beige: #fce5a0;
   --color-verde: #42A64A;
+  --color-verde-hover: #63C86C;
   --color-negro: #0B090C;
   --color-rojo: #D7162B;
   --color-rojo-oscuro: #722924;
@@ -94,13 +95,14 @@ main {
 
 .producto {
   width: 70%;
-  box-shadow: 0px 0px 1px #727272;
+  box-shadow: 0px 0px 5px #333333;
   border-radius: 5px;
   padding: 10px;
   background: #FFF;
   max-height: 400px;
   min-height: 400px;
   overflow: hidden;
+  transition: all .3s;
 }
 
 .producto-a {
@@ -156,10 +158,13 @@ main {
     gap: 20px;
     padding: 10px;
     justify-content: space-evenly;
+    max-width: 1920px;
+    margin: 0 auto;
   }
 
   .producto {
     width: 40%;
+    margin-bottom: 20px;
   }
 }
 
@@ -167,7 +172,16 @@ main {
 
 @media (min-width: 1000px) {
   .producto {
-    width: 30%;
+    width: 20%;
+    transition: all .3s;
+  }
+
+  .producto:hover {
+    box-shadow: 0px 0px 5px var(--color-verde-hover);
+  }
+
+  .producto:hover .producto-precio {
+    font-size: 1.2rem;
   }
 }
 
