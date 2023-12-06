@@ -4,7 +4,7 @@
     "name": "NATURA",
     "description": "Aceite De Girasol Natura 1L",
     "image": "home-aceite.webp",
-    "category": "Category 3",
+    "category": "enlatados y envasados",
     "price": "843,28"
   },
   {
@@ -70,5 +70,23 @@
     "price": "3.495",
     "category": "frescos",
     "image": "Carne-picada.webp"
+  },
+
+
+  {
+    "id": 10,
+    "name": "Celular",
+    "description": "Samsung Galaxy S23",
+    "price": "300.495",
+    "category": "Para el Hogar",
+    "image": ""
+  },
+  {
+    "id": 11,
+    "name": "Smart TV",
+    "description": "Noblex 4k",
+    "price": "530.495",
+    "category": "Para el Hogar",
+    "image": ""
   }
 ]

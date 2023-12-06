@@ -282,7 +282,7 @@
     flex-direction: row;
     align-items: baseline;
     gap: 5px;
-    color: #fff;
+   
   }
 
   .usuario-D {
@@ -291,6 +291,8 @@
     padding: 5px;
     background: var(--color-rojo);
     height: 30px;
+    border-radius: 10%;
+
   }
 
   .carrito-D {
@@ -298,6 +300,7 @@
     gap: 10px;
     padding: 5px;
     background: var(--color-rojo);
+    border-radius: 10%;
   }
 
   #nav-categorias-D {

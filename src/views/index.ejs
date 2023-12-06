@@ -17,14 +17,14 @@
         </div>
         <section id="productos-container">
             <h2>Recomendados para vos</h2>
-                <% for(let i = 0; i < productos.length; i++) { %>
+                <% for(let i = 0; i < products.length; i++) { %>
                     <article class="producto">
-                        <a class="producto-a" href="/productDetail/<%= productos[i].id %>">
-                            <img src="/img/<%= productos[i].image %>" alt="<%= productos[i].name %>">
+                        <a class="producto-a" href="/productDetail/<%= products[i].id %>">
+                            <img src="/img/<%= products[i].image %>" alt="<%= products[i].name %>">
                             <div class="producto-nombre-precio-container">
-                                <p class="producto-nombre"><%= productos[i].name %></p>
-                                <p class="producto-descripcion"><%= productos[i].description%></p>
-                                <p class="producto-precio">$ <%= productos[i].price %></p>
+                                <p class="producto-nombre"><%= products[i].name %></p>
+                                <p class="producto-descripcion"><%= products[i].description%></p>
+                                <p class="producto-precio">$ <%= products[i].price %></p>
                             </div>
                         </a>
                     </article>
