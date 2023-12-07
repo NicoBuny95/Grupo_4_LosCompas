@@ -7,7 +7,7 @@
     "image": "home-aceite.webp",
     "category": "Enlatados y Envasados",
     "price": "843,28",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 2,
@@ -17,7 +17,7 @@
     "image": "Arvejas.png",
     "category": "Enlatados y Envasados",
     "price": "205",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 3,
@@ -27,7 +27,7 @@
     "image": "Spaguetti.png",
     "category": "Enlatados y Envasados",
     "price": "1.005,97",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 4,
@@ -37,7 +37,7 @@
     "image": "paty.png",
     "category": "Enlatados y Envasados",
     "price": "2.368,97",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 5,
@@ -47,7 +47,7 @@
     "image": "Poett.png",
     "category": "Limpieza",
     "price": "748,11",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 6,
@@ -57,7 +57,7 @@
     "image": "Lentejas.png",
     "category": "Enlatados y Envasados",
     "price": "469,76",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 7,
@@ -67,7 +67,7 @@
     "image": "vino.png",
     "category": "Enlatados y Envasados",
     "price": "8.732",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 8,
@@ -77,7 +77,7 @@
     "image": "Polenta.png",
     "category": "Enlatados y Envasados",
     "price": "582",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 9,
@@ -87,10 +87,8 @@
     "price": "3.495",
     "category": "Frescos",
     "image": "Carne-picada.webp",
-    "descuento":0
+    "descuento": 0
   },
-
-
   {
     "id": 10,
     "name": "Celular",
@@ -99,7 +97,7 @@
     "price": "300.495",
     "category": "Para el Hogar",
     "image": "s23.webp",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 11,
@@ -109,9 +107,8 @@
     "price": "530.495",
     "category": "Para el Hogar",
     "image": "samrt.webp",
-    "descuento":0
+    "descuento": 0
   },
-
   {
     "id": 12,
     "name": "Pollo",
@@ -120,7 +117,7 @@
     "price": "3500",
     "category": "Frescos",
     "image": "pollo entero.webp",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 13,
@@ -130,7 +127,7 @@
     "price": "2200",
     "category": "Frescos",
     "image": "pechuga.webp",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 14,
@@ -140,7 +137,7 @@
     "price": "2800",
     "category": "Frescos",
     "image": "merluza.webp",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 15,
@@ -150,7 +147,7 @@
     "price": "2800",
     "category": "Para el Hogar",
     "image": "heladera.webp",
-    "descuento":0
+    "descuento": 0
   },
   {
     "id": 16,
@@ -160,7 +157,6 @@
     "price": "2800",
     "category": "Para el Hogar",
     "image": "aire.webp",
-    "descuento":0
+    "descuento": 0
   }
-
 ]

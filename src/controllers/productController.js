@@ -1,7 +1,7 @@
 const fs = require("fs");
 
 let productController = {
-  allProducts: (req,res ) => {
+  allProducts: (req, res) => {
     const productsData = JSON.parse(fs.readFileSync("data/products.json"));
     res.json(productsData);
   },
@@ -45,10 +45,7 @@ let productController = {
       };
 
       productsData.push(newProduct);
-      fs.writeFileSync(
-        "data/products.json",
-        JSON.stringify(productsData, null, 2)
-      );
+      fs.writeFileSync("data/products.json", JSON.stringify(productsData, null, 2));
 
       res.render("addProduct", {
         title: "Agregar producto",
@@ -81,6 +78,7 @@ let productController = {
       //       "./data/products.json",
       //       JSON.stringify(updatedProducts, null, 2)
       //     );
+
       res.render("editProduct", {
         title: "Editar producto",
         css: "/css/addProduct.css",
@@ -92,22 +90,21 @@ let productController = {
   },
   editProduct: (req, res) => {
     try {
-        console.log("entre");
-        console.log(req.file);
       const productId = req.params.id;
       const productsData = JSON.parse(fs.readFileSync("data/products.json")); // Verifica la ruta del archivo JSON
       const updatedProduct = req.body;
       const updatedProducts = productsData.map((product) => {
         if (product.id == productId) {
-          return { ...product, ...updatedProduct };
+          for (const key in updatedProduct) {
+            if (updatedProduct.hasOwnProperty(key) && updatedProduct[key] !== "") {
+              product[key] = updatedProduct[key];
+            }
+          }
         }
         return product;
       });
-      fs.writeFileSync(
-        "./data/products.json",
-        JSON.stringify(updatedProducts, null, 2)
-      );
-      res.render("editProduct", {
+      fs.writeFileSync("./data/products.json", JSON.stringify(updatedProducts, null, 2));
+      res.status(200).render("editProduct", {
         title: "Editar producto",
         css: "/css/addProduct.css",
         productoE: updatedProduct,
@@ -121,19 +118,13 @@ let productController = {
     try {
       const productId = req.params.id;
       const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      const updatedProducts = productsData.filter(
-        (product) => product.id != productId
-      );
-      fs.writeFileSync(
-        "data/products.json",
-        JSON.stringify(updatedProducts, null, 2)
-      );
+      const updatedProducts = productsData.filter((product) => product.id != productId);
+      fs.writeFileSync("data/products.json", JSON.stringify(updatedProducts, null, 2));
       res.redirect("/");
     } catch (err) {
       res.status(500).json({ error: "No se pudo eliminar el producto" });
     }
   },
-
 
   carrito: (req, res) => {
     res.render("carrito", { title: "Carrito", css: "/css/carrito.css" });
@@ -143,18 +134,17 @@ let productController = {
     try {
       const category = req.params.category;
       const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      
+
       const filteredProducts = productsData.filter(
         (product) => product.category.toLowerCase() === category.toLowerCase()
       );
-      
+
       if (filteredProducts.length > 0) {
         res.render("listaProd", {
           title: `Productos en la categoría ${category}`,
-          css:'/css/index.css',
+          css: "/css/index.css",
           category: category,
           products: filteredProducts,
-          
         });
       } else {
         res.status(404).send(`No hay productos en la categoría ${category}`);
@@ -162,8 +152,7 @@ let productController = {
     } catch (err) {
       res.status(500).json({ error: "No se pudo realizar la búsqueda" });
     }
-  }
-
+  },
 };
 
 module.exports = productController;
