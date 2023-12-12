@@ -1,25 +1,5 @@
 [
   {
-    "id": 1,
-    "marca": "NATURA",
-    "name": "Aceite De Girasol Natura",
-    "description": "Aceite De Girasol Natura 1L",
-    "image": "home-aceite.webp",
-    "category": "Enlatados y Envasados",
-    "price": "843,28",
-    "descuento": 0
-  },
-  {
-    "id": 2,
-    "marca": "CUISINE & CO NBE MP",
-    "name": "Arvejas Cuisine & Co",
-    "description": "Arvejas Cuisine & Co 300gr",
-    "image": "Arvejas.png",
-    "category": "Enlatados y Envasados",
-    "price": "205",
-    "descuento": 0
-  },
-  {
     "id": 3,
     "marca": "LUCCHETTI",
     "name": "Fideos Tallarín Lucchetti",

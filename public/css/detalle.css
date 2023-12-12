@@ -27,7 +27,7 @@ main{
     align-content: center;
   }
   
-  .product-card a {
+.product-card a {
     text-decoration: none;
     color: inherit;
   }
@@ -46,14 +46,14 @@ main{
   border-radius: 0.25rem;
 }
   
-  .close-button {
-    background-color: #ebe9e9;
-    color: #ee0606;
-    padding: 0.5rem;
-    border-radius: 0.375rem;
-    font-size: 0.875rem;
-    cursor: pointer;
-  }
+.close-button {
+  background-color: #ebe9e9;
+  color: #ee0606;
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
   
   .product-details {
     padding: 0.125rem;
@@ -93,6 +93,11 @@ main{
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .product-actions button{
+    padding: 10px;
+    margin: 10px;
   }
   
   .product-price {
