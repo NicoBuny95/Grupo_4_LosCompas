@@ -34,14 +34,16 @@ let productController = {
   addProduct: (req, res) => {
     try {
       const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      const { name, description, price, category, image } = req.body;
+      const { name, marca, description, price, category, descuento } = req.body;
       let newProduct = {
         id: productsData.length + 1,
         name,
+        marca,
         description,
         price,
         category,
-        image,
+        image: req.file.filename,
+        descuento,
       };
 
       productsData.push(newProduct);
@@ -51,12 +53,6 @@ let productController = {
         title: "Agregar producto",
         css: "/css/addProduct.css",
       });
-
-      //   res.render("addProduct", {
-      //     title: "Agregar producto",
-      //     css: "/css/addProduct.css",
-      //   });
-      //   console.log(newProduct);
     } catch (err) {
       res.status(500).json({ error: "No se pudo crear el producto" });
     }

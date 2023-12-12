@@ -158,5 +158,15 @@
     "category": "Para el Hogar",
     "image": "aire.webp",
     "descuento": 0
+  },
+  {
+    "id": 17,
+    "name": "Arroz Gallo 1kg",
+    "marca": "Gallo",
+    "description": "Arroz Fino Gallo 1 kg",
+    "price": "1000",
+    "category": "Enlatados y Envasados",
+    "image": "1702384456604_img_.png",
+    "descuento": "10"
   }
 ]
