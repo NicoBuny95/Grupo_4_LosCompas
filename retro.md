@@ -78,4 +78,30 @@
 ### 4: Apreciaciones Finales
 
 - Ajustar los horarios para poder hacer más reuniones aunque sean breves.
-- 
+ 
+# Retrospectiva del Sprint 4 - Super Los Cumpas
+
+## Fecha: 12/12/2023
+
+### 1: ¿Qué hicimos bien durante este sprint?
+
+- Tuvimos una mejor organización y asignación de tareas de Trello.
+- Coordinamos bien con el grupo.
+- Cumplimos con los requisitos del sprint.
+
+### 2: ¿Qué podríamos haber hecho mejor?
+
+- Realizar la retro en tiempo estipulado.
+- Concluir con todas las tareas de Trello ya que nos quedaron algunas pendientes.
+
+### 3: Acciones para el próximo sprint
+
+- Continuar con la misma dinámica del grupo.
+- Integrar a un nuevo compañero al grupo.
+- Aplicar todo lo que aprendimos en el curso y el desafío personal y más- 
+
+### 4: Apreciaciones Finales
+
+- Ajustar los horarios para poder una weekly obligatoria. Y en caso de poder, reuniones más frecuentes.
+- Realizar la weekly.md.
+ 
