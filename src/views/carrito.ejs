@@ -1,0 +1,48 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+  <div class="container">
+    <h1>Mi Carrito</h1>
+    <div class="product-card">
+      <div class="asd">      
+      <div class="close-div">
+      <button class="close-button">X</button>
+      <a href="/product/productDetail/1">
+      </div>
+        <div class="product-image">
+          <img src="/img/products/home-aceite.webp" alt="product-image" height="200px" />
+        </div>
+      </a>
+      <h5 class="product-title">Aceite Natura</h5>
+    </div>
+        <div class="product-details">
+          
+          <div class="cont1">
+            <div class="product-quantity">
+              <button class="decrease-quantity-button">-</button>
+              <span class="quantity">1</span>
+              <button class="increase-quantity-button">+</button>
+            </div>
+            <div class="product-actions">
+              <span class="product-price">$599</span>
+            </div>
+          </div>
+        </div>
+      
+    </div>
+    <div class="cart">
+      <h2>Resumen del Carrito</h2>
+      <ul class="cart-items">
+        <li>
+          <span class="cart-quantity">Cantidad: 1</span>
+        </li>
+        
+      </ul>
+      <div class="cart-total">
+        <p>Total: <span id="cart-total-price">$0</span></p>
+      </div>
+      <button class="checkout-button">Realizar Pago</button>
+    </div>
+  </div>
+  <%- include('./partials/footer') %>
+</body>

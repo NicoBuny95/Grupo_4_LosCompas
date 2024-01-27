@@ -1,0 +1,58 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+  <main>
+    <div class="container-form">
+      <h1>Editar producto</h1>
+      <form action="/product/editProduct/<%= productoE.id %>/?_method=PUT" method="POST" class="registration-form">
+        <div class="form-group">
+          <input type="text" name="name" placeholder="" value="<%= productoE.name; %>">
+          <label for="name"> Nombre del producto</label>
+        </div>
+        <div class="form-group">          
+          <input name="description" placeholder="<%= productoE.description; %>" required rows="5" value = "<%= productoE.description; %>"></input>
+          <label for="description">Descripcion</label>
+        </div>
+        <div class="form-group">          
+          <input type="text" name="price" placeholder="" required value="<%= productoE.price; %>">
+          <label for="price">Precio</label>
+        </div>
+        <label for="category">Categoría</label>
+        <div class="form-select">
+          <div>
+            <input type="radio" value="Enlatados y Envasados" name="category" id="envasados" checked>
+            <label for="envasados">Enlatados y Envasados</label> 
+          </div>
+          <div>
+            <input type="radio" value="Frescos" name="category" id="frescos">
+            <label for="frescos">Frescos</label>
+          </div>
+          <div>
+            <input type="radio" value="Limpieza" name="category" id="limpieza">
+            <label for="limpieza">Limpieza</label>
+          </div>
+          <div>
+            <input type="radio" value="Para el Hogar" name="category" id="hogar"> 
+            <label for="hogar">Para el hogar</label>
+          </div>
+        </div>
+        <div class="form-image" placeholder="" required>
+          <img src="/img/products/<%= productoE.image %>" alt="Imagen del producto <%= productoE.name; %>" width="50px">
+          <label for="image"> Subir imagen:</label>          
+          <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .webp">
+          
+        </div>
+
+        <div class="product-add-actions">
+          <button type="submit" class="form-button">Agregar</button>
+          <button type="reset" class="form-button">Limpiar</button>
+        </div>
+      </form>
+
+    </div>
+
+ </main> 
+
+  <%- include('./partials/footer') %>
+</body>
+</html>

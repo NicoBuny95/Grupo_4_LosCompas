@@ -1,0 +1,25 @@
+<%- include('./partials/head'); %>
+<body>
+    <%- include('./partials/header'); %>
+    <main>
+        <h2>Resultados de: "<%= busqueda%>"</h2>
+        <ul class="results-container">
+            <% for(let i = 0; i < productos.length; i++) { %>
+                <% if(productos[i].name.toLowerCase().includes(busqueda.toLowerCase())) { %>
+                    <li class="producto">
+                        <a class="producto-a" href="/productDetail/<%= productos[i].id %>">
+                            <img src="/img/products/<%= productos[i].image %>" alt="<%= productos[i].name %>">
+                            <div class="producto-nombre-precio-container">
+                                <p class="producto-nombre"><%= productos[i].marca %></p>
+                                <p class="producto-descripcion"><%= productos[i].description%></p>
+                                <p class="producto-precio">$ <%= productos[i].price %></p>
+                            </div>
+                        </a>
+                    </li>
+                <% } %>
+            <% } %>
+        </ul>
+    </main>
+    <%- include('./partials/footer'); %>
+</body>
+</html>
