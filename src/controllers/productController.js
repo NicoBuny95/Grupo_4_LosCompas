@@ -1,5 +1,5 @@
 const fs = require("fs");
-
+// modificar el CRUD para squalice
 let productController = {
   allProducts: (req, res) => {
     const productsData = JSON.parse(fs.readFileSync("data/products.json"));
