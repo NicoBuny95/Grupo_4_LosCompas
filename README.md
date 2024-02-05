@@ -43,7 +43,7 @@ Nuestro equipo de "NuestroMercado" está formado por un grupo de apasionados pro
 - [Nicolas Herrera](https://github.com/NicoBuny95): Fundador y CEO. Encargado de la visión y estrategia del negocio.
 - [Ramiro Rivera](https://github.com/ramrivera-github): Gerente de Operaciones. Responsable de garantizar una logística eficiente y entrega puntual de los productos.
 - [Francisco Sequeira](https://github.com/franxdd): Desarrollador Web Principal. Encargado de la experiencia del usuario en el sitio web.
-
+- [Nicolas Salvatierra](https://github.com/NicoSalva30): Nuevo integrando, ayudando en las tareas de desarrollo Web.
 
 ## Sitios de Referencia
 
