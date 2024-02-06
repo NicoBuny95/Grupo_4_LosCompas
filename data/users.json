@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1,
+    "firstName": "Nicolas Angel",
+    "lastName": "Herrera",
+    "email": "nicoH@huffingtonpost.com",
+    "password": "Nico123",
+    "category": "Category 1",
+    "image": ""
+  },
+  {
+    "id": 2,
+    "firstName": "Fransisco",
+    "lastName": "Sequeira",
+    "email": "tyitzhak1@bbb.org",
+    "password": "Fran123",
+    "category": "Category 3",
+    "image": ""
+  },
+  {
+    "id": 3,
+    "firstName": "Ramiro",
+    "lastName": "Rivera",
+    "email": "hpechard2@upenn.edu",
+    "password": "Rami123",
+    "category": "Category 3",
+    "image": ""
+  },
+  {
+    "id": 5,
+    "firstName": "Ruby",
+    "lastName": "Cockram",
+    "email": "rcockram4@scribd.com",
+    "password": "oY7?9`b2G",
+    "category": "Category 2",
+    "image": ""
+  },
+  {
+    "id": 6,
+    "firstName": "Bearnard",
+    "lastName": "Tolomelli",
+    "email": "btolomelli5@gravatar.com",
+    "password": "mI6)g%Vx1Tu)oD!u",
+    "category": "Category 1",
+    "image": ""
+  },
+  {
+    "id": 7,
+    "firstName": "Ophelia",
+    "lastName": "Allmond",
+    "email": "oallmond6@friendfeed.com",
+    "password": "pW8@q4k#M4aJJnj",
+    "category": "Category 2",
+    "image": ""
+  },
+  {
+    "id": 8,
+    "firstName": "Bald",
+    "lastName": "Bacchus",
+    "email": "bbacchus7@unc.edu",
+    "password": "wN9~<!#GEQk)x&VA",
+    "category": "Category 2",
+    "image": ""
+  },
+  {
+    "id": 9,
+    "firstName": "Jessa",
+    "lastName": "Shelford",
+    "email": "jshelford8@tripod.com",
+    "password": "aR7\\Z*6fUB.ev\"i,",
+    "category": "Category 1",
+    "image": ""
+  },
+  {
+    "id": 10,
+    "firstName": "Antonietta",
+    "lastName": "Rust",
+    "email": "arust9@ibm.com",
+    "password": "rO2\\Xx$RABP",
+    "category": "Category 2",
+    "image": ""
+  }
+]
