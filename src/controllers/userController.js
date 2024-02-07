@@ -1,5 +1,7 @@
 const { validationResult } = require('express-validator');
 const fs = require("fs");
+const bcrypt = require("bcryptjs");
+
 
 let userController = {
     login: (req, res) => {
@@ -8,11 +10,11 @@ let userController = {
     loging: (req, res) => {
         const errors = validationResult(req);
         
-        if (errors.isEmpty()){
-            const userJSON = JSON.parse(fs.readFileSync("data/users.json"));
+        
+        if (errors.isEmpty()){                        
             let users;
             if (userJSON == ""){
-                users = [];
+                users = [];                
             } else {
                 users = JSON.parse(userJSON);
             }
@@ -37,10 +39,15 @@ let userController = {
         } else {
             return res.render("login", {errors: errors.errors});
         }
+        if (req.body.remember != undefined){
+            res.coockie("remember", usuarioALoguearse.email, { maxAge: 1800000})
+
+        };
     },
     register: (req, res) => {
         res.render('register', {title: 'Registrarme', css:'/css/registrar.css'});
-    },
+    }
+
 }
 
 module.exports = userController;

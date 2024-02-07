@@ -10,6 +10,8 @@ const methodOverride = require("method-override");
 const fs = require("fs");
 const session = require("express-session");
 const { body, validationResult } = require('express-validator');
+const cookie = require("coockie-parser");
+const cookieParser = require("cookie-parser");
 
 // Middleware para parsear el cuerpo de las peticiones
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,9 +23,10 @@ app.use((req, res, next) => {
 
   next();
 });
-app.use(session({secret:"Secreto"}));
+app.use(session({secret:"Secreto", resave: false, saveUninitialized: true}));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
+app.use(cookieParser());
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
