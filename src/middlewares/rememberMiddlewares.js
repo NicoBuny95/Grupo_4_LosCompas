@@ -1,4 +1,4 @@
-function rememberMiddleware (req, res, next) {
+/*function rememberMiddleware (req, res, next) {
     
     if (req.coockies.remember != undefined && req.session.usuarioALoguearse == undefined){
         let userJSON = fs.readFileSync("data/users.json", { encoding: "utf-8"});                    
@@ -25,4 +25,4 @@ function rememberMiddleware (req, res, next) {
     }
 
 
-module.exports = rememberMiddleware;
+module.exports = rememberMiddleware;*/
