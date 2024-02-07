@@ -1,6 +1,6 @@
 /*function rememberMiddleware (req, res, next) {
     
-    if (req.coockies.remember != undefined && req.session.usuarioALoguearse == undefined){
+    if (req.cookies.remember != undefined && req.session.usuarioLogueado == undefined){
         let userJSON = fs.readFileSync("data/users.json", { encoding: "utf-8"});                    
             let users;
             if (userJSON == ""){

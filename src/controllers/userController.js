@@ -19,6 +19,11 @@ let userController = {
         if (user && bcrypt.compareSync(password, user.password)) {
             req.session.user = user; // Guardar el usuario en la sesión
             console.log(user)
+            req.session.user = usuarioLogueado;
+
+            if (req.body.remember != undefined) {//verifico el checkbox "rember" y creo cookie del user
+                res.cookie("remember", usuarioLogueado.email, {maxAge: 180000})
+            };
             res.redirect('/'); // Redirigir a la página de perfil
         } else {
             res.render('login',{ title: 'Login', css: '/css/login.css' , user: req.session.user }); 
