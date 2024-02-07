@@ -1,5 +1,8 @@
 const express = require("express");
 const app = express();
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+
 const path = require("path");
 const PORT = 3001;
 const mainRoutes = require("./routes/mainRoutes");
@@ -8,6 +11,17 @@ const productRoutes = require("./routes/productRoutes");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const fs = require("fs");
+
+
+app.use(cookieParser());
+// Configurar sesiones
+app.use(session({
+  secret: 'secreto', 
+  resave: false,
+  saveUninitialized: false
+}));
+
+
 
 // Middleware para parsear el cuerpo de las peticiones
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -22,6 +36,7 @@ app.use((req, res, next) => {
 
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));

@@ -12,6 +12,7 @@ const producto = productos.map(producto => {
 
 let mainController = {
     index: (req, res) => {
+        
         let banner = [
             {
                 name: "banner1",
@@ -28,11 +29,13 @@ let mainController = {
         ]
         res.render('index', {title: 'LC Supermercado', 
         css:'css/index.css', products:productos,
-         banner: banner});
+         banner: banner , user: req.session.user });
     },
     search: (req, res) => {
+        
         let busqueda = req.query.busqueda;
-        res.render('search', {title:'LC Supermercado', productos: productos, busqueda: busqueda, css:'css/search.css'});
+        res.render('search', {title:'LC Supermercado', productos: productos,
+         busqueda: busqueda, css:'css/search.css', user: req.session.user });
     },
 }
 

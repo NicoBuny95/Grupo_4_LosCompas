@@ -3,7 +3,7 @@ const fs = require("fs");
 let productController = {
   allProducts: (req, res) => {
     const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-    res.json(productsData);
+    res.render({user: req.session.user},productsData)
   },
 
   detalle: (req, res) => {
@@ -16,20 +16,20 @@ let productController = {
         res.render("detalle", {
           title: "Detalle Producto",
           css: "/css/detalle.css",
-          product: product,
+          product: product, user: req.session.user 
         });
       } else {
         res.status(404).send("Producto no encontrado");
       }
     } catch (err) {
-      res.status(500).json({ error: "No se pudo obtener el producto" });
+      res.status(500).json({ error: "No se pudo obtener el producto" , user: req.session.user  });
     }
   },
   addView: (req, res) => {
     res.render("addProduct", {
       title: "Agregar producto",
-      css: "/css/addProduct.css",
-    });
+      css: "/css/addProduct.css"
+      , user: req.session.user });
   },
   addProduct: (req, res) => {
     try {
@@ -54,7 +54,7 @@ let productController = {
         css: "/css/addProduct.css",
       });
     } catch (err) {
-      res.status(500).json({ error: "No se pudo crear el producto" });
+      res.status(500).json({ error: "No se pudo crear el producto"  });
     }
   },
 
@@ -140,7 +140,7 @@ let productController = {
           title: `Productos en la categoría ${category}`,
           css: "/css/index.css",
           category: category,
-          products: filteredProducts,
+          products: filteredProducts, user: req.session.user 
         });
       } else {
         res.status(404).send(`No hay productos en la categoría ${category}`);

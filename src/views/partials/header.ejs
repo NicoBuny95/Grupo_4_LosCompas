@@ -54,8 +54,22 @@
                     </form>
                 </div>
                 <div class="usuario-carrito-D">
-                    <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
-                    <a class="usuario-D" href="/user/register"><p>Registrarme </p><i class="fa-regular fa-address-card"></i></a>
+                    <% if (user) { %>
+                        <div class="user-info">
+                           
+                            <p><%= user.firstName + " " +user.lastName  %></p> 
+                            <img src="img/users/<%= user.profileImage.filename %>" alt="perfil">
+                        </div>
+                        <div class="user-actions">
+                            <ul class="user-options">
+                                <li><a href="/user/logout">Cerrar Sesión</a></li>
+                                <li><a href="/user/profile">Ver Perfil</a></li>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                        <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
+                    <% } %>
+                   
                     <a class="carrito-D" href="/product/carrito"><p>Carrito de Compras </p><i class="fa-solid fa-cart-shopping"></i></a>
                 </div>
             </div>  

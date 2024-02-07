@@ -1,83 +1,118 @@
 [
   {
     "id": 1,
+    "username": "",
     "firstName": "Nicolas Angel",
     "lastName": "Herrera",
     "email": "nicoH@huffingtonpost.com",
     "password": "Nico123",
     "category": "Category 1",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 2,
+    "username": "",
     "firstName": "Fransisco",
     "lastName": "Sequeira",
     "email": "tyitzhak1@bbb.org",
     "password": "Fran123",
     "category": "Category 3",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 3,
+    "username": "",
     "firstName": "Ramiro",
     "lastName": "Rivera",
     "email": "hpechard2@upenn.edu",
     "password": "Rami123",
     "category": "Category 3",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 5,
+    "username": "",
     "firstName": "Ruby",
     "lastName": "Cockram",
     "email": "rcockram4@scribd.com",
     "password": "oY7?9`b2G",
     "category": "Category 2",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 6,
+    "username": "",
     "firstName": "Bearnard",
     "lastName": "Tolomelli",
     "email": "btolomelli5@gravatar.com",
     "password": "mI6)g%Vx1Tu)oD!u",
     "category": "Category 1",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 7,
+    "username": "",
     "firstName": "Ophelia",
     "lastName": "Allmond",
     "email": "oallmond6@friendfeed.com",
     "password": "pW8@q4k#M4aJJnj",
     "category": "Category 2",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 8,
+    "username": "",
     "firstName": "Bald",
     "lastName": "Bacchus",
     "email": "bbacchus7@unc.edu",
     "password": "wN9~<!#GEQk)x&VA",
     "category": "Category 2",
-    "image": ""
+    "profileImage": ""
   },
   {
     "id": 9,
+    "username": "",
     "firstName": "Jessa",
     "lastName": "Shelford",
     "email": "jshelford8@tripod.com",
     "password": "aR7\\Z*6fUB.ev\"i,",
     "category": "Category 1",
-    "image": ""
+    "profileImage": ""
+  },
+  {
+    "id": 9,
+    "username": "nherrera",
+    "firstName": "Nicolas Angel",
+    "lastName": "Herrera",
+    "email": "niconh912@gmail.com",
+    "password": "$2a$10$n20AaGZ89U.R6D.87RYMVuQggMnchvD9C2MxxZoIybQQeKXD/uh42",
+    "profileImage": {
+      "fieldname": "profileImage",
+      "originalname": "WhatsApp Image 2024-02-07 at 12.00.26.jpeg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "./public/img/users",
+      "filename": "1707320112908_img_.jpeg",
+      "path": "public\\img\\users\\1707320112908_img_.jpeg",
+      "size": 109541
+    }
   },
   {
     "id": 10,
-    "firstName": "Antonietta",
-    "lastName": "Rust",
-    "email": "arust9@ibm.com",
-    "password": "rO2\\Xx$RABP",
-    "category": "Category 2",
-    "image": ""
+    "username": "teru",
+    "firstName": "Esteban",
+    "lastName": "Trejo",
+    "email": "garanda@gmail.com",
+    "password": "$2a$10$/iu8sB0TFUXhoPlSAewJOefbhJNtQ1JYr0RRZ9jZkW6ARMF9eDwDe",
+    "profileImage": {
+      "fieldname": "profileImage",
+      "originalname": "WhatsApp Image 2024-02-07 at 12.00.26.jpeg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "./public/img/users",
+      "filename": "1707320173065_img_.jpeg",
+      "path": "public\\img\\users\\1707320173065_img_.jpeg",
+      "size": 109541
+    }
   }
 ]
