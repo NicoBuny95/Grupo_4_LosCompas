@@ -1,6 +1,7 @@
 const { validationResult } = require('express-validator');
 const fs = require("fs");
-const bcrypt = require("bcryptjs");
+let users = fs.readFileSync("data/users.json", { encoding: "utf-8"});                    
+
 
 
 let userController = {
@@ -12,7 +13,6 @@ let userController = {
         
         
         if (errors.isEmpty()){    
-            let userJSON = fs.readFileSync("data/users.json", { encoding: "utf-8"});                    
             let users;
             if (userJSON == ""){
                 users = [];                
@@ -36,7 +36,6 @@ let userController = {
             }
 
             req.session.usuarioALoguearse = usuarioALoguearse;
-
         } else {
             return res.render("login", {errors: errors.errors});
         }
