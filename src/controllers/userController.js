@@ -11,7 +11,8 @@ let userController = {
         const errors = validationResult(req);
         
         
-        if (errors.isEmpty()){                        
+        if (errors.isEmpty()){    
+            let userJSON = fs.readFileSync("data/users.json", { encoding: "utf-8"});                    
             let users;
             if (userJSON == ""){
                 users = [];                
