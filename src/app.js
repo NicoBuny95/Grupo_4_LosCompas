@@ -8,6 +8,8 @@ const productRoutes = require("./routes/productRoutes");
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const fs = require("fs");
+const session = require("express-session");
+const { body, validationResult } = require('express-validator');
 
 // Middleware para parsear el cuerpo de las peticiones
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -19,7 +21,7 @@ app.use((req, res, next) => {
 
   next();
 });
-
+app.use(session({secret:"Secreto"}));
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
 
