@@ -6,12 +6,11 @@ const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const path = require("path");
 //const PORT = 3001;
-const fs = require("fs");
 const PORT = process.env.PORT || 3001;
 const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
-
+const fs = require('fs');
 // Configurar cookie parser
 app.use(cookieParser());
 
