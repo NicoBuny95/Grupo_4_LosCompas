@@ -52,6 +52,7 @@ let productController = {
       res.render("addProduct", {
         title: "Agregar producto",
         css: "/css/addProduct.css",
+        user: req.session.user 
       });
     } catch (err) {
       res.status(500).json({ error: "No se pudo crear el producto"  });
@@ -79,6 +80,7 @@ let productController = {
         title: "Editar producto",
         css: "/css/addProduct.css",
         productoE: datosEditar[0],
+        user: req.session.user 
       }); // Usar updatedProduct en lugar de product
     } catch (err) {
       res.status(500).json({ error: "No se pudo actualizar el producto" });
@@ -104,6 +106,7 @@ let productController = {
         title: "Editar producto",
         css: "/css/addProduct.css",
         productoE: updatedProduct,
+        user: req.session.user 
       }); // Usar updatedProduct en lugar de product
     } catch (err) {
       res.status(500).json({ error: "No se pudo actualizar el producto" });
@@ -123,7 +126,7 @@ let productController = {
   },
 
   carrito: (req, res) => {
-    res.render("carrito", { title: "Carrito", css: "/css/carrito.css" });
+    res.render("carrito", { title: "Carrito", css: "/css/carrito.css"  ,user: req.session.user });
   },
 
   searchByCategory: (req, res) => {
@@ -140,7 +143,8 @@ let productController = {
           title: `Productos en la categoría ${category}`,
           css: "/css/index.css",
           category: category,
-          products: filteredProducts, user: req.session.user 
+          products: filteredProducts, 
+          user: req.session.user 
         });
       } else {
         res.status(404).send(`No hay productos en la categoría ${category}`);
