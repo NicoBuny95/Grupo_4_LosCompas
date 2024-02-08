@@ -414,14 +414,26 @@ header {
     display: block;
  
 }
-  .user-info img {
+
+
+ /* .user-info img {
       width: 30%; /* Ajusta el tamaño de la imagen del perfil según sea necesario */
-      height: 65px;
+ /*     height: 65px;
       border-radius: 50%; /* Para hacer la imagen del perfil redonda */
-      margin-right: 10px; /* Ajusta el margen derecho entre la imagen del perfil y el texto del nombre si es necesario */
+ /*     margin-right: 10px; /* Ajusta el margen derecho entre la imagen del perfil y el texto del nombre si es necesario */
       
-  }
+  
   
   
 
+}
+
+@media(min-width: 320px){
+  .user-info img {
+    width: 30%; /* Ajusta el tamaño de la imagen del perfil según sea necesario */
+    height: 65px;
+    border-radius: 50%; /* Para hacer la imagen del perfil redonda */
+    margin-right: 10px; /* Ajusta el margen derecho entre la imagen del perfil y el texto del nombre si es necesario */
+    
+}
 }
