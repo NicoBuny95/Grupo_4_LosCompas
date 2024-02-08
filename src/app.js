@@ -5,9 +5,9 @@ const cookieParser = require('cookie-parser');
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const path = require("path");
+//const PORT = 3001;
 const fs = require("fs");
-
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
@@ -70,8 +70,9 @@ app.use(express.static("public"));
 
 // Configurar método de override
 app.use(methodOverride("_method"));
+//app.use(express.json());
+//app.use(express.urlencoded({ extended: false }));
 
-// Configurar motor de vistas y directorio de vistas
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 
