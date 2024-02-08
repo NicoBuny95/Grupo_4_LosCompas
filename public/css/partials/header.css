@@ -403,6 +403,14 @@ header {
       
   }
   
+  .user-info:hover {
+    color: #02aa29; /* Cambia el color del texto al hacer hover */
+    transform: scale(1.1); /* Aumenta el tamaño del elemento al hacer hover */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra alrededor del elemento */
+    transition: all 0.3s ease; /* Agrega una transición suave a los cambios */
+    border-radius: 20px;
+  }
+
   .user-actions {
     display: none;
     
