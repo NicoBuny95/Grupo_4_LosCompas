@@ -437,6 +437,18 @@ header {
 }
 
 @media(min-width: 320px){
+
+  .user-actions {
+    display: none;
+    
+}
+
+
+
+.user-actions.show {
+    display: block;
+ 
+}
   .user-info img {
     width: 30%; /* Ajusta el tamaño de la imagen del perfil según sea necesario */
     height: 65px;
