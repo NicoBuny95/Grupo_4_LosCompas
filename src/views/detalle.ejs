@@ -1,0 +1,58 @@
+<%- include('./partials/head') %>
+<body>
+  <%- include('./partials/header') %>
+  <main>
+    
+      <div class="container">
+
+          <h2>Detalle del Producto</h2>
+          <div class="product-card">
+              <!--<a href="/product/productDetail"> -->
+                <div class="product-actions">
+                  <button value="Editar"><a href="/product/editProduct/<%= product.id %>"><i class="fa-solid fa-pen-to-square" tooltip="Editar producto"></i></a></button>
+                  <form action="/product/deleteProduct/<%= product.id %>?_method=DELETE" method="POST">
+                    <button value="Eliminar" type="submit" class="delete-product-button">
+                      <i class="fa-solid fa-trash" tooltip="Eliminar producto"></i>
+                    </button>
+                  </form>
+                  <button value="Agregar"><a href="/product/addProduct"><i class="fa-solid fa-plus" tooltip="Agregar producto"></i></a> </button>
+
+                </div>
+                <div class="product-details">
+                  <h4>Categoría: <%= product.category %></h4>
+                </div>
+                  <div class="product-image">
+                      <img src="/img/products/<%= product.image %>" alt="product-image" height="200px"/>
+                  <!--<button class="close-button">X</button> -->
+                
+                  </div>
+                  <div class="product-details">
+                      <h3 class="product-title"><%= product.name %></h3>
+                      <div class="product-actions">
+                        <span class="product-price">$ <%= product.price %></span>
+                      </div>
+                      <div class="cont1">
+                          <div class="product-quantity">
+                              <button class="decrease-quantity-button">-</button>
+                              <span class="quantity">1</span>
+                              <button class="increase-quantity-button">+</button>
+                              <button class="add-to-cart-button">Agregar</button>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="product-details">
+                      <h3>Descripcion</h3>
+                      <p>
+                        <%= product.description %>
+                      </p>
+      
+                  </div>
+              <!--</a> -->
+          </div>
+      </div>
+
+ </main> 
+
+  <%- include('./partials/footer') %>  
+</body>
+</html>

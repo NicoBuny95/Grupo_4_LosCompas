@@ -1,0 +1,86 @@
+<header>
+    <div class="header-mobile">
+        <nav class="logo-buscador-usuario-carrito">
+            <div>
+                <a href="/product/carrito" class="carrito">
+                    <i id="iconoCarrito" class="fa-solid fa-cart-shopping"></i>
+                    <p>Carrito</p>
+                </a>
+            </div> 
+            <a id="logo-header-link" href="/">
+                <img id="logo-header" src="/img/Logo.png" alt="Logo Los Compas">
+            </a>
+            <a class="menu-icono" href="#menu-hamburguesa">
+                <i class="fa-solid fa-bars fa-2xl"></i>
+            </a>
+            <a href="#" class="menu-icono-cerrar">
+                <i class="fa-regular fa-rectangle-xmark"></i>
+            </a>
+            <div id="menu-hamburguesa" class="menu-hamburguesa">
+                <h2>Menu</h2>
+                <div class="ventana-busqueda">
+                     <input type="text" placeholder="¡Encontrá lo que buscás!">
+                    <button id="boton-lupa-ventana"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </div>
+                <ul id="user-options">
+                    <li><a href="/user/login">Iniciar sesion</a></li>
+                    <li><a href="/user/register">Registrate</a></li>
+                </ul>
+                <nav class="categorias">                   
+                    <h3>Categorias</h3>
+                 
+                    <ul>
+                        <% categories.forEach(category => { %>
+                          <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
+                        <% }); %>
+                      </ul>
+                <ul class="sobre-nosotros-contactanos">
+                    <li><a href="">Sobre Nosotros</a></li>
+                    <li><a href="">Contactanos</a></li>
+                </ul>
+            </div>                    
+        </nav>
+    </div>
+    <div class="header-desktop">
+        <div class="logo-buscador-usuario-carrito-D">
+            <a id="logo-header-link-D" href="/">
+                <img id="logo-header-D" src="/img/Logo.png" alt="Logo Los Compas">
+            </a>
+            <div class="buscador-usuario-D">
+                <div class="buscador-D">
+                    <form action="/search" method="GET">
+                        <input type="text" name="busqueda" placeholder="¡Encontrá lo que buscás!">
+                        <button><i class="fa-solid fa-magnifying-glass"></i></i></button>
+                    </form>
+                </div>
+                <div class="usuario-carrito-D">
+                    <a class="carrito-D" href="/product/carrito"><p>Carrito </p><i class="fa-solid fa-cart-shopping"></i></a>
+                    <% if (user) { %>
+                        <div class="user-info">
+                           
+                            <p><%= user.firstName + " " +user.lastName  %></p> 
+                            <img src="/img/users/<%= user.profileImage %>" alt="perfil">
+                        </div>
+                        <div class="user-actions">
+                            <ul class="user-options">
+                                <li><a href="/user/logout">Cerrar Sesión</a></li>
+                                <li><a href="/user/profile">Ver Perfil</a></li>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                        <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
+                    <% } %>
+                   
+                    
+                </div>
+            </div>  
+        </div>
+        <nav id="nav-categorias-D">
+            <ul>
+                <% categories.forEach(category => { %>
+                  <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
+                <% }); %>
+              </ul>
+        </nav>
+    </div>
+</header>
