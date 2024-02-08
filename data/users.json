@@ -21,13 +21,22 @@
   },
   {
     "id": 3,
-    "username": "",
+    "username": "Rami",
     "firstName": "Ramiro",
     "lastName": "Rivera",
-    "email": "hpechard2@upenn.edu",
-    "password": "Rami123",
+    "email": "ramrivera7@gmail.com",
+    "password": "$2a$10$f82BkzZqs8tvGU/7mwXllOdEK/Pfe3MIOxZJErBnYMism84B0Oly.",
     "category": "Category 3",
-    "profileImage": ""
+    "profileImage": {
+      "fieldname": "profileImage",
+      "originalname": "ramiro.jpeg",
+      "encoding": "7bit",
+      "mimetype": "image/jpeg",
+      "destination": "./public/img/users",
+      "filename": "ramiro.jpeg",
+      "path": "public\\img\\users\\ramiro.jpeg",
+      "size": 109541
+    }
   },
   {
     "id": 5,
@@ -115,4 +124,5 @@
       "size": 109541
     }
   }
+  
 ]
