@@ -7,6 +7,14 @@
     "email": "niconh912@gmail.com",
     "password": "$2a$10$iKFcFKcDFC0MYOTRoiTyvue9IlVvU1npFq1IxYWB/MN/iY6rOhr5q",
     "profileImage": "1707398044851_img_.jpg"
+  },
+  {
+    "id": 2,
+    "username": "rami",
+    "firstName": "Ramiro Marcelo",
+    "lastName": "Rivera",
+    "email": "ramrivera7@gmail.com",
+    "password": "$2a$10$DrhhOUYWJ9TdZLVwpuFqCux3Rk9rNB4VUzFGS1hAj66WDNZJRCqiK",
+    "profileImage": "1707402329096_img_.jpeg"
   }
-  
 ]
