@@ -34,19 +34,26 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.STRING(55),
             allowNull: true
         },
-
-//        active: {
-//            type: dataTypes.BOOLEAN,
-//            allowNull: false
-//        },
+        users_active: {
+            type: dataTypes.BOOLEAN,
+            allowNull: false
+        },
     }
     let config = {
-        timestamps: false, //true,
-//        createdAt: 'created_at',
-//        updatedAt: 'updated_at',
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
         tableName: 'users'
     }
 
     const User = sequelize.define(alias, cols, config);
+
+    User.associate =  function(models) {
+        User.hasMany(models.User_Type, {
+            as: 'user_type',
+            foreignKey : "user_types_id"
+        })
+    }; 
+
     return User;
 }

@@ -23,7 +23,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: true
         },
         categories_id: {
-            type: dataTypes.INTEGER(10).UNSIGNED,,
+            type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
         },
         products_price: {
@@ -34,19 +34,28 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.SMALLINT(5).UNSIGNED,
             allowNull: true
         },
-
-//        active: {
-//            type: dataTypes.BOOLEAN,
-//            allowNull: false
-//        },
+        products_active: {
+            type: dataTypes.BOOLEAN,
+            allowNull: false
+        },
     }
     let config = {
-        timestamps: false, //true,
-//        createdAt: 'created_at',
-//        updatedAt: 'updated_at',
-        tableName: 'users'
+        timestamps: true,
+        createdAt: 'created_at',
+        updatedAt: 'updated_at',
+        tableName: 'products'
     }
 
-    const User = sequelize.define(alias, cols, config);
-    return User;
+    Product.associate =  function(models) {
+        Product.belongsTo(models.Mark, {
+            as: 'mark',
+            foreignKey : "marks_id"
+        });
+        Product.belongsTo(models.Category, {
+            as: "category",            
+            foreignKey: "categories_id"            
+        })
+    }; 
+    const Product = sequelize.define(alias, cols, config);
+    return Product;
 }
