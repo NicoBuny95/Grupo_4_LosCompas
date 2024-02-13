@@ -19,12 +19,12 @@
             <h2>Recomendados para vos</h2>
                 <% for(let i = 0; i < products.length; i++) { %>
                     <article class="producto">
-                        <a class="producto-a" href="product/productDetail/<%= products[i].id %>">
-                            <img src="/img/products/<%= products[i].image %>" alt="<%= products[i].name %>">
+                        <a class="producto-a" href="product/productDetail/<%= products[i].products_id %>">
+                            <img src="/img/products/<%= products[i].products_image %>" alt="<%= products[i].products_name %>">
                             <div class="producto-nombre-precio-container">
-                                <p class="producto-nombre"><%= products[i].name %></p>
-                                <p class="producto-descripcion"><%= products[i].description%></p>
-                                <p class="producto-precio">$ <%= products[i].price %></p>
+                                <p class="producto-nombre"><%= products[i].products_name %></p>
+                                <p class="producto-descripcion"><%= products[i].products_description%></p>
+                                <p class="producto-precio">$ <%= products[i].products_price %></p>
                             </div>
                         </a>
                     </article>

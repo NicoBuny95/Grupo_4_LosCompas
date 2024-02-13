@@ -41,10 +41,11 @@ module.exports = (sequelize, dataTypes) => {
     }
     let config = {
         timestamps: true,
-        createdAt: 'created_at',
-        updatedAt: 'updated_at',
+        createdAt: 'products_created_at',
+        updatedAt: 'products_updated_at',
         tableName: 'products'
     }
+    const Product = sequelize.define(alias, cols, config);
 
     Product.associate =  function(models) {
         Product.belongsTo(models.Mark, {
@@ -56,6 +57,6 @@ module.exports = (sequelize, dataTypes) => {
             foreignKey: "categories_id"            
         })
     }; 
-    const Product = sequelize.define(alias, cols, config);
+    
     return Product;
 }

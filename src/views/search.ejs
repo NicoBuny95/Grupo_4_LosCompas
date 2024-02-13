@@ -5,14 +5,14 @@
         <h2>Resultados de: "<%= busqueda%>"</h2>
         <ul class="results-container">
             <% for(let i = 0; i < productos.length; i++) { %>
-                <% if(productos[i].name.toLowerCase().includes(busqueda.toLowerCase())) { %>
+                <% if(productos[i].products_name.toLowerCase().includes(busqueda.toLowerCase())) { %>
                     <li class="producto">
-                        <a class="producto-a" href="/productDetail/<%= productos[i].id %>">
-                            <img src="/img/products/<%= productos[i].image %>" alt="<%= productos[i].name %>">
+                        <a class="producto-a" href="/productDetail/<%= productos[i].products_id %>">
+                            <img src="/img/products/<%= productos[i].products_image %>" alt="<%= productos[i].products_name %>">
                             <div class="producto-nombre-precio-container">
-                                <p class="producto-nombre"><%= productos[i].marca %></p>
-                                <p class="producto-descripcion"><%= productos[i].description%></p>
-                                <p class="producto-precio">$ <%= productos[i].price %></p>
+                                <p class="producto-nombre"><%= productos[i].products_name %></p>
+                                <p class="producto-descripcion"><%= productos[i].products_description%></p>
+                                <p class="producto-precio">$ <%= productos[i].products_price %></p>
                             </div>
                         </a>
                     </li>

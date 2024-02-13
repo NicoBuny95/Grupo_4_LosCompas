@@ -78,7 +78,7 @@
         <nav id="nav-categorias-D">
             <ul>
                 <% categories.forEach(category => { %>
-                  <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
+                  <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %></a></li>
                 <% }); %>
               </ul>
         </nav>

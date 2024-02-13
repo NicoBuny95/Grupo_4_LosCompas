@@ -6,7 +6,7 @@ module.exports = (sequelize, dataTypes) => {
             primaryKey: true,
             autoIncrement: true
         },
-        category_description: {
+        categories_description: {
             type: dataTypes.STRING(75),
             allowNull: false
         },
@@ -16,7 +16,7 @@ module.exports = (sequelize, dataTypes) => {
         tableName: 'categories'
     }
 
-    const Genre = sequelize.define(alias, cols, config);
+    const Category = sequelize.define(alias, cols, config);
 
     Category.associate =  function(models) {
         Category.hasMany(models.Product, {

@@ -27,7 +27,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false
         },
         user_types_id: {
-            type: dataTypes.INT(10).UNSIGNED,
+            type: dataTypes.INTEGER(10).UNSIGNED,
             allowNull: false
         },
         users_image: {

@@ -130,16 +130,6 @@
     "descuento": 0
   },
   {
-    "id": 16,
-    "name": "Aire acondicionado",
-    "marca": "",
-    "description": "aire acondicionado BGH 3000frigorias frio/calor ",
-    "price": "2800",
-    "category": "Para el Hogar",
-    "image": "aire.webp",
-    "descuento": 0
-  },
-  {
     "id": 17,
     "name": "Arroz Gallo 1kg",
     "marca": "Gallo",
@@ -148,15 +138,5 @@
     "category": "Enlatados y Envasados",
     "image": "1702384456604_img_.png",
     "descuento": "10"
-  },
-  {
-    "id": 16,
-    "name": "Peroncho",
-    "marca": "kñl",
-    "description": "lñkñ",
-    "price": "45",
-    "category": "Enlatados y Envasados",
-    "image": "1707228426429_img_.jpg",
-    "descuento": "2"
   }
 ]
