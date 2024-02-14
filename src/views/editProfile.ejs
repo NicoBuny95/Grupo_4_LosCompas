@@ -1,0 +1,25 @@
+<body>
+    <h1>Editar Usuario</h1>
+    <form action="/user/editProfile/<%= user.users_id%>/?_method=PUT" method="POST">
+        <!-- Input para el nombre de usuario -->
+        <label for="username">Nombre de usuario:</label>
+        <input type="text" id="username" name="username" value="<%= user.users_username %>">
+        
+        <!-- Input para el nombre -->
+        <label for="firstName">Nombre:</label>
+        <input type="text" id="firstName" name="firstName" value="<%= user.users_firstName %>">
+        
+        <!-- Input para el apellido -->
+        <label for="lastName">Apellido:</label>
+        <input type="text" id="lastName" name="lastName" value="<%= user.users_lastName %>">
+        
+        <!-- Input para el correo electrónico -->
+        <label for="email">Correo electrónico:</label>
+        <input type="email" id="email" name="email" value="<%= user.users_email %>">
+        
+
+
+        <!-- Botón para enviar el formulario -->
+        <button type="submit">Guardar cambios</button>
+    </form>
+</body>

@@ -1,0 +1,86 @@
+:root {
+    --color-beige: #fce5a0;
+    --color-verde: #42A64A;
+    --color-verde-hover: #63C86C;
+    --color-negro: #0B090C;
+    --color-rojo: #D7162B;
+    --color-rojo-oscuro: #722924;
+    --color-verde-oscuro: #176332;
+    --color-gris: #7C7484;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: var(--color-beige); /* Utilizando variable de color */
+    font-family: Arial, sans-serif;
+}
+
+.profile-container {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding: 20px;
+}
+
+.card {
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 60%;
+}
+
+.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin: 20px;
+}
+
+.card-content {
+    width: 100%;
+   
+}
+
+.card h1 {
+    margin-bottom: 20px;
+    color: var(--color-negro); /* Utilizando variable de color */
+}
+
+.card p {
+    margin: 10px 0;
+    color: var(--color-gris); /* Utilizando variable de color */
+}
+
+.options-container {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.option {
+    padding: 10px 20px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    background-color: var(--color-verde); /* Utilizando variable de color */
+    color: #ffffff;
+    text-align: center;
+}
+
+.option:hover {
+    background-color: var(--color-verde-hover); /* Utilizando variable de color */
+}

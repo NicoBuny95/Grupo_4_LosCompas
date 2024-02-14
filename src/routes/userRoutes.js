@@ -17,5 +17,7 @@ router.get('/register', userController.registerView);
 router.post('/register', upload.profile.single('profileImage'), userController.saveUser);
 router.get('/logout',  userController.logout);
 router.post('/logout',  userController.logout);
-
+router.get('/profile', requireAuth , userController.profileView);
+router.get('/editProfile/:id', requireAuth , userController.editUserView);
+router.put('/editProfile/:id', requireAuth , userController.modifyUser);
 module.exports = router;

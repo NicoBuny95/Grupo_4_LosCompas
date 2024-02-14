@@ -63,6 +63,72 @@ let userController = {
     ,
     
 
+    profileView: (req, res) => {
+        // Suponiendo que tienes acceso al objeto de usuario desde la sesión
+        const user = req.session.user;
+
+        // Renderizar la vista de perfil y pasar el objeto de usuario como contexto
+        res.render('profile', { title: 'Perfil de Usuario', css: '/css/profile.css', user: user });
+    },
+    
+   
+    editUserView: async (req, res) => {
+        try {
+            const userId = req.params.id;
+            const userEdit = await db.User.findByPk(userId);
+
+    
+            if (!userEdit) {
+                return res.status(404).send("Usuario no encontrado");
+            }
+    
+            res.render("editProfile", {
+                title: "Editar usuario",
+                user: req.session.user
+            });
+        } catch (err) {
+            console.error("Error al obtener datos del usuario:", err);
+            res.status(500).json({ error: "No se pudo obtener el usuario para editar" });
+        }
+    },
+    
+    
+    modifyUser: async (req, res) => {
+        try {
+            // Obtener el ID del usuario que se va a modificar
+            const userId = req.params.id;
+    
+            // Obtener los datos modificados del cuerpo de la solicitud
+            const { username, firstName, lastName, email } = req.body;
+    
+            // Actualizar el usuario en la base de datos
+            const [updatedRows] = await db.User.update({
+                users_username: username,
+                users_firstName: firstName,
+                users_lastName: lastName,
+                users_email: email,
+                // Otros campos que puedas necesitar actualizar
+            }, {
+                where: {
+                    users_id: userId // Condición para seleccionar el usuario a actualizar
+                }
+            });
+    
+            if (updatedRows === 0) {
+                return res.status(404).send("Usuario no encontrado");
+            }
+    
+            // Obtener los datos actualizados del usuario
+            const user = await db.User.findByPk(userId);
+    
+            // Redirigir o responder según sea necesario
+            res.render('profile', { title: 'Perfil de Usuario', css: '/css/profile.css', user: user});
+        } catch (error) {
+            console.error("Error al modificar usuario:", error);
+            res.status(500).send("No se pudo modificar el usuario");
+        }
+    }
+,    
     registerView: (req, res) => {
         res.render('register', { title: 'Registrarme', css: '/css/registrar.css' , user: req.session.user });
     },

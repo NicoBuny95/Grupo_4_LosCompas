@@ -1,0 +1,21 @@
+<%- include('./partials/head') %>
+<body>
+    <%- include('./partials/header') %>
+    <div class="profile-container">
+        <div class="card">
+            <div><img src="/img/users/<%= user.users_image %>" alt="Profile Image" class="profile-image"></div>
+            <div class="card-content">
+                <h1>Mi Perfil</h1>
+                <p><strong>Nombre de Usuario:</strong> <%= user.users_username  %></p>
+                <p><strong>Nombre:</strong> <%= user.users_firstName  %></p>
+                <p><strong>Apellido:</strong> <%=  user.users_lastName %></p>
+                <p><strong>Email:</strong> <%= user.users_email %></p>
+            </div>
+            <div class="options-container">
+                <a href="/user/editProfile/<%=user.users_id%>" class="option">Modificar Datos</a>
+                <a href="/cambiar-contraseña" class="option">Cambiar Contraseña</a>
+            </div>
+        </div>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
