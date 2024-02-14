@@ -130,16 +130,6 @@
     "descuento": 0
   },
   {
-    "id": 16,
-    "name": "Aire acondicionado",
-    "marca": "",
-    "description": "aire acondicionado BGH 3000frigorias frio/calor ",
-    "price": "2800",
-    "category": "Para el Hogar",
-    "image": "aire.webp",
-    "descuento": 0
-  },
-  {
     "id": 17,
     "name": "Arroz Gallo 1kg",
     "marca": "Gallo",

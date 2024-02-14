@@ -1,17 +1,25 @@
 const fs = require('fs');
 const path = require('path');
+const db = require('../database/models')
 
-let productosFilePath = path.join(__dirname, '../../data/products.json');
-let archivo = fs.readFileSync(productosFilePath, {encoding: 'utf-8'});
-let productos = JSON.parse(archivo);
-const producto = productos.map(producto => {
-    return producto;
-});
-
-
+//let productosFilePath = path.join(__dirname, '../../data/products.json');
+//let archivo = fs.readFileSync(productosFilePath, {encoding: 'utf-8'});
+//let productos = JSON.parse(archivo);
+//const producto = productos.map(producto => {
+//    return producto;
+//});
+let productos;
+db.Product.findAll({include: ['category', 'mark']})
+            .then(products => {
+                productos = products;
+                const producto = productos.map(producto => {
+                    return producto;
+                })
+            })
 
 let mainController = {
     index: (req, res) => {
+        
         let banner = [
             {
                 name: "banner1",
@@ -28,11 +36,13 @@ let mainController = {
         ]
         res.render('index', {title: 'LC Supermercado', 
         css:'css/index.css', products:productos,
-         banner: banner});
+         banner: banner , user: req.session.user });
     },
     search: (req, res) => {
+        
         let busqueda = req.query.busqueda;
-        res.render('search', {title:'LC Supermercado', productos: productos, busqueda: busqueda, css:'css/search.css'});
+        res.render('search', {title:'LC Supermercado', productos: productos,
+         busqueda: busqueda, css:'css/search.css', user: req.session.user });
     },
 }
 

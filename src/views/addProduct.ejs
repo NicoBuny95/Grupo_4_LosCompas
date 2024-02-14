@@ -9,10 +9,15 @@
           <input type="text" name="name" placeholder="" required>
           <label for="name"> Nombre del producto</label>
         </div>
-        <div class="form-group">
-          <input type="text" name="marca" placeholder="" required>
-          <label for="marca"> Marca del producto</label>
-        </div>        
+        <div class="form-select">
+          <label for="marca">Marca del producto</label>
+          <select name="marca" id="marca"> 
+            <option value="0">Seleccione una marca ...</option>       
+          <% for( let i = 0; i < marcas.length; i++ ) { %>
+            <option value="<%= marcas[i].marks_id %>"><%= marcas[i].marks_description %></option>
+          <% } %>
+          </select>
+        </div>
         <div class="form-group">          
           <input name="description" placeholder="" required></input>
           <label for="description">Descripcion</label>
@@ -27,22 +32,12 @@
         </div>
         <label for="category">Categoría</label>
         <div class="form-select">
-          <div>
-            <input type="radio" value="Enlatados y Envasados" name="category" id="envasados" checked>
-            <label for="envasados">Envasados</label> 
-          </div>
-          <div>
-            <input type="radio" value="Frescos" name="category" id="frescos">
-            <label for="frescos">Frescos</label>
-          </div>
-          <div>
-            <input type="radio" value="Limpieza" name="category" id="limpieza">
-            <label for="limpieza">Limpieza</label>
-          </div>
-          <div>
-            <input type="radio" value="Para el Hogar" name="category" id="hogar"> 
-            <label for="hogar">Para el hogar</label>
-          </div>
+          <% for( let i = 0; i < categorias.length; i++ ) { %>
+            <div>
+              <input type="radio" value="<%= categorias[i].categories_id %>" name="category" id="<%= categorias[i].categories_id %>"> 
+              <label for="<%= categorias[i].categories_id %>"><%= categorias[i].categories_description %></label>
+            </div>            
+          <% } %>
         </div>
         <div class="form-image" placeholder="" required>
           <label for="image"> Subir imagen:</label>          
@@ -58,6 +53,6 @@
 
  </main> 
 
-  <%- include('./partials/footer') %>
+  <%- include('./partials/footer') %>  
 </body>
 </html>

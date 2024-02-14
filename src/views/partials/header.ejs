@@ -54,16 +54,31 @@
                     </form>
                 </div>
                 <div class="usuario-carrito-D">
-                    <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
-                    <a class="usuario-D" href="/user/register"><p>Registrarme </p><i class="fa-regular fa-address-card"></i></a>
-                    <a class="carrito-D" href="/product/carrito"><p>Carrito de Compras </p><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="carrito-D" href="/product/carrito"><p>Carrito </p><i class="fa-solid fa-cart-shopping"></i></a>
+                    <% if (user) { %>
+                        <div class="user-info">
+                           
+                            <p><%= user.users_firstName + " " +user.users_lastName  %></p> 
+                            <img src="/img/users/<%= user.users_image %>" alt="perfil">
+                        </div>
+                        <div class="user-actions">
+                            <ul class="user-options">
+                                <li><a href="/user/logout">Cerrar Sesión</a></li>
+                                <li><a href="/user/profile">Ver Perfil</a></li>
+                            </ul>
+                        </div>
+                    <% } else { %>
+                        <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
+                    <% } %>
+                   
+                    
                 </div>
             </div>  
         </div>
         <nav id="nav-categorias-D">
             <ul>
                 <% categories.forEach(category => { %>
-                  <li><a href="/product/prodByCategory/<%= category %>"><%= category %></a></li>
+                  <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %></a></li>
                 <% }); %>
               </ul>
         </nav>
