@@ -85,8 +85,8 @@ let productController = {
       css:'css/index.css', products:productos,
       banner: banner , user: req.session.user });
     } catch (err) {      
-      res.status(500).json({ error: "No se pudo crear el producto"  });
-      //res.send(err)
+      //res.status(500).json({ error: "No se pudo crear el producto"  });
+      res.send(err)
     }
   },
 

@@ -17,7 +17,7 @@ router.get('/carrito', requireAuth,productController.carrito);
 router.get('/addProduct',requireAuth, productController.addView);
 router.post('/addProduct', requireAuth,upload.product.single("image"), productController.addProduct);
 router.get('/editProduct/:id',requireAuth, productController.editView)
-router.put('/editProduct/:id',requireAuth, productController.editProduct)
+router.put('/editProduct/:id',requireAuth,upload.product.single("image"), productController.editProduct)
 router.delete('/deleteProduct/:id',requireAuth, productController.deleteProduct)
 router.get('/prodByCategory/:category', productController.searchByCategory)
 module.exports = router;
