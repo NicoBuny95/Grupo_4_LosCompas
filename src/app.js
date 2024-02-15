@@ -59,10 +59,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 // Middleware para obtener datos de productos y categorías
-app.use(async (req, res, next) => {
+app.use( async(req, res, next) => {
   //res.locals.productsData = JSON.parse(fs.readFileSync("data/products.json"));
   //res.locals.categories = [...new Set(res.locals.productsData.map((product) => product.category))];
-  res.locals.productsData = await db.Product.findAll();
+  //res.locals.productsData = await db.Product.findAll();
   res.locals.categories = await db.Category.findAll();
   res.locals.variableTres = "Valor 3";
   next();
