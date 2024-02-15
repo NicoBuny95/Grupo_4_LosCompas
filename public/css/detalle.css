@@ -11,11 +11,18 @@
 }
 
 main{
-  background-color: var(--color-gris-claro);
+  background-image: url("/img/Gondolas.jpg");
+  }
+
+h3{
+  text-align: center;
+}
+h3.product-title{
+  font-size: 25px;
 }
 
 .product-card {
-    width: 70%;
+    width: 35%;
     padding: 10px;
     background-color: whitesmoke;
     border: 1px solid #e5e5e5;
@@ -57,7 +64,7 @@ main{
   
   .product-details {
     padding: 0.125rem;
-    width: 90%;
+    width: 100%;
   }
   
   .product-title {
@@ -91,13 +98,14 @@ main{
   
   .product-actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
   }
 
   .product-actions button{
-    padding: 10px;
-    margin: 10px;
+    width: 100px;
+    padding: 5px;
+    margin: 0px;
   }
   
   .product-price {
@@ -126,13 +134,16 @@ main{
   }
   .product-quantity {
       border: 1px solid #ccc; /* Un borde para el contenedor */
-      border-radius: 10px; /* Establece el radio de las esquinas para redondear el contenedor */
-      display: inline-block;
-      padding: 10px;
+      border-radius: 20px; /* Establece el radio de las esquinas para redondear el contenedor */
+      display: flex;
+      padding: 1%;
+      width: 11rem;
+      margin: auto;
   }
   
   .decrease-quantity-button,
   .increase-quantity-button {
+      margin: 3%;
       border: 1px solid #ccc; /* Un borde para los botones */
       border-radius: 50%; /* Establece el radio de las esquinas para que los botones sean redondos */
       padding: 5px 10px; /* Ajusta el relleno de los botones según tus preferencias */
@@ -156,6 +167,14 @@ main{
     display:flex;  
     align-items:center;
     width: 100%;
+    margin: auto;
   }
   
-  
+  .fa-solid{
+    font-size: 1.5rem;
+    color: rgb(73, 32, 110);
+  }
+
+  span.quantity{
+    margin: auto;
+  }
