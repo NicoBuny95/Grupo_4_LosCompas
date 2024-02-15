@@ -16,7 +16,7 @@
 
 main{
  /* background-image: url("/img/Gondolas.jpg");*/
- background-color: #d6d5d6
+ background-color: #f3f3f3;
   }
 
 h3{
@@ -27,7 +27,13 @@ h3.product-title{
 }
 
 h2{
-  color: rgb(0, 0, 0);
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  width: 90%;
+  color: #444444;
+  font-size: 2rem;
   /*text-shadow: 0 4px 4px #3f3f3f;*/
 }
 
