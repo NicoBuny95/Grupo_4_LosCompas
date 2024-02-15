@@ -1,3 +1,7 @@
+*{
+  font-family: 'Open Sans', 'sans-serif';
+}
+
 :root {
   --color-beige: #E9D186;
   --color-verde: #42A64A;
