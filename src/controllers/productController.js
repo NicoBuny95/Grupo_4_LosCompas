@@ -182,7 +182,12 @@ let productController = {
   },
 
   carrito: (req, res) => {
-    res.render("carrito", { title: "Carrito", css: "/css/carrito.css"  ,user: req.session.user });
+    if (req.session.cart && req.session.cart.length > 0) {
+    res.render("carrito", { title: "Mi Carrito", css: "/css/carrito.css", 
+    cart: req.session.cart, user: req.session.user });
+    } else{
+      res.render('carrito', {title: "Mi Carrito", css: "/css/carrito.css", cart: null , user: req.session.user});
+    }
   },
 
   searchByCategory: async (req, res) => {
@@ -213,6 +218,71 @@ let productController = {
       res.status(500).json({ error: "No se pudo realizar la búsqueda" });
     }
   },
+
+  addToCart: async (req, res) => {
+    try {
+      const productId = req.params.id; // Obtener el ID del producto a agregar
+      // Verificar si el producto está en el carrito
+      if (!req.session.cart) {
+        req.session.cart = [];
+      }
+  
+      const productIndex = req.session.cart.findIndex(item => item.products_id === productId);
+      if (productIndex !== -1) {
+        // Si el producto ya está en el carrito, redirigir a la página del carrito
+        return res.redirect('/carrito');
+      }
+  
+      // El producto no está en el carrito, agregarlo
+      const product = await db.Product.findByPk(productId);
+      if (!product) {
+        return res.status(404).send("Producto no encontrado");
+      }
+  
+      req.session.cart.push(product);
+  
+      // Redirigir a la página del carrito
+      res.render("carrito", { title: "Mi Carrito", css: "/css/carrito.css", cart: req.session.cart, user: req.session.user });
+    } catch (err) {
+      res.status(500).json({ error: "No se pudo agregar el producto al carrito" });
+    }
+  }
+,  
+
+  
+removeFromCart: (req, res) => {
+  try {
+    const productId = req.body.productId;
+    const cart = req.session.cart;
+
+    // Filtrar el carrito para eliminar el producto con el ID especificado
+    req.session.cart = cart.filter(item => item.products_id !== productId);
+
+    // Respuesta exitosa
+    res.render("carrito", { title: "Mi Carrito", css: "/css/carrito.css", cart: req.session.cart, user: req.session.user });
+  } catch (err) {
+    // Manejar errores
+    res.status(500).json({ error: 'Error al eliminar el producto del carrito' });
+  }
+},
+
+clearCart: (req, res) => {
+  try {
+    // Limpiar todo el carrito
+    req.session.cart = [];
+
+    // Respuesta exitosa
+    res.status(200).json({ message: 'Carrito limpiado correctamente' });
+  } catch (err) {
+    // Manejar errores
+    res.status(500).json({ error: 'Error al limpiar el carrito' });
+  }
+}
+
+
+  
 };
+
+
 
 module.exports = productController;
