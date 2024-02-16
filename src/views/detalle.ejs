@@ -15,8 +15,12 @@
                       <i class="fa-solid fa-trash" tooltip="Eliminar producto"></i>
                     </button>
                   </form>
-                  <button value="Agregar"><a href="/product/addProduct"><i class="fa-solid fa-plus" tooltip="Agregar producto"></i></a> </button>
-
+                  <form action="/product/addCarrito/<%= product.products_id %>" method="POST">
+                    <input type="hidden" name="productId" value="<%= product.products_id %>">
+                    <button type="submit" class="add-to-cart-button">Agregar al Carrito</button>
+                  </form>
+                  
+                  
                 </div>
                 <div class="product-details">
                   <h4>Categoría: <%= product.category.categories_description %></h4>
@@ -37,7 +41,7 @@
                               <button class="decrease-quantity-button">-</button>
                               <span class="quantity">1</span>
                               <button class="increase-quantity-button">+</button>
-                              <button class="add-to-cart-button">Agregar</button>
+                            
                           </div>
                       </div>
                   </div>

@@ -26,3 +26,32 @@ document.addEventListener("load", function() {
     });
   });
   
+  document.getElementById('cart-table').addEventListener('click', function(event) {
+    const target = event.target;
+    if (target.classList.contains('sumar') || target.classList.contains('restar')) {
+        const tdElement = target.parentElement;
+        const precioElement = tdElement.previousElementSibling;
+        const cantidadElement = tdElement.querySelector('.cantidad-productos');
+        const precio = parseFloat(precioElement.innerText);
+        let cantidad = parseInt(cantidadElement.innerText);
+        
+        if (target.classList.contains('sumar')) {
+            cantidad++;
+        } else if (target.classList.contains('restar') && cantidad > 1) {
+            cantidad--;
+        }
+        
+        cantidadElement.innerText = cantidad;
+
+        // Calculamos el total nuevamente cuando se cambia la cantidad
+        let total = 0;
+        const rows = document.querySelectorAll('#cart-table tbody tr');
+        rows.forEach(row => {
+            const precioProducto = parseFloat(row.querySelector('.precio-producto').innerText);
+            const cantidadProducto = parseInt(row.querySelector('.cantidad-productos').innerText);
+            total += precioProducto * cantidadProducto;
+        });
+        document.getElementById('total-amount').innerText = total.toFixed(2);
+    }
+
+});
