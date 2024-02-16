@@ -1,11 +1,21 @@
+:root {
+  --color-beige: #E9D186;
+  --color-verde: #42A64A;
+  --color-verde-hover: #63C86C;
+  --color-negro: #0B090C;
+  --color-rojo: #D7162B;
+  --color-rojo-oscuro: #722924;
+  --color-verde-oscuro: #176332;
+  --color-gris: #7C7484;
+  --color-gris-claro: #e4e4e4;
+}
 
 .container-form{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 10px;
-  
+  margin: 20px 10px;  
 }
 
 .registration-form h1 {
@@ -37,16 +47,27 @@
   border: 1px solid var(--color-gris);
 }
 
-.form-select, .form-image{
+.form-select{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
+  width: 50%;
+  margin-bottom: 20px;
+  }
+
+.form-image{
+  display: flex;
+  flex-direction:column;
   padding: 15px;
+  align-items: center;
 }
 
 .form-select div{
   padding: 7px ;
 }
 
+.product-price{
+  color: var(--color-verde)
+}
 
 .form-button {
   width: 48%;
