@@ -1,6 +1,7 @@
 const fs = require("fs");
 const db = require('../database/models');
 const { log, Console } = require("console");
+
 let productController = {
   allProducts: (req, res) => {
     //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
@@ -80,10 +81,8 @@ let productController = {
     /*  productsData.push(newProduct);
       fs.writeFileSync("data/products.json", JSON.stringify(productsData, null, 2));
     */
-      await db.Product.create(newProduct)
-      res.render('index', {title: 'LC Supermercado', 
-      css:'css/index.css', products:productos,
-      banner: banner , user: req.session.user });
+      await db.Product.create(newProduct)      
+      res.redirect('/');
     } catch (err) {      
       //res.status(500).json({ error: "No se pudo crear el producto"  });
       res.send(err)
@@ -173,9 +172,7 @@ let productController = {
             products_id: req.params.id
         }
     })    
-    res.render('index', {title: 'LC Supermercado', 
-    css:'css/index.css', products:productos,
-     banner: banner , user: req.session.user });
+    res.redirect('/');
     } catch (err) {
       res.status(500).json({ error: "No se pudo eliminar el producto" });
     }
@@ -282,7 +279,6 @@ clearCart: (req, res) => {
 
   
 };
-
 
 
 module.exports = productController;

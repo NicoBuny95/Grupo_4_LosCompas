@@ -84,7 +84,8 @@ let userController = {
     
             res.render("editProfile", {
                 title: "Editar usuario",
-                user: req.session.user
+                //user: req.session.user
+                user: userEdit
             });
         } catch (err) {
             console.error("Error al obtener datos del usuario:", err);

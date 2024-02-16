@@ -1,3 +1,7 @@
+*{
+  font-family: 'Open Sans', 'sans-serif';
+}
+
 :root {
   --color-beige: #E9D186;
   --color-verde: #42A64A;
@@ -11,7 +15,8 @@
 }
 
 main{
-  background-image: url("/img/Gondolas.jpg");
+ /* background-image: url("/img/Gondolas.jpg");*/
+ background-color: #f3f3f3;
   }
 
 h3{
@@ -19,6 +24,17 @@ h3{
 }
 h3.product-title{
   font-size: 25px;
+}
+
+h2{
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding-left: 30px;
+  width: 90%;
+  color: #444444;
+  font-size: 2rem;
+  /*text-shadow: 0 4px 4px #3f3f3f;*/
 }
 
 .product-card {
