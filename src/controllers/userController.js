@@ -97,6 +97,8 @@ let userController = {
         try {
             // Obtener el ID del usuario que se va a modificar
             const userId = req.params.id;
+           // Obtener los datos actualizados del usuario
+            const user = await db.User.findByPk(userId);
     
             // Obtener los datos modificados del cuerpo de la solicitud
             const { username, firstName, lastName, email } = req.body;
@@ -118,9 +120,7 @@ let userController = {
                 return res.status(404).send("Usuario no encontrado");
             }
     
-            // Obtener los datos actualizados del usuario
-            const user = await db.User.findByPk(userId);
-    
+          
             // Redirigir o responder según sea necesario
             res.render('profile', { title: 'Perfil de Usuario', css: '/css/profile.css', user: user});
         } catch (error) {
