@@ -1,4 +1,7 @@
+<%- include('./partials/head') %>
 <body>
+  <%- include('./partials/header') %>
+  <main>
     <h1>Editar Usuario</h1>
     <form action="/user/editProfile/<%= user.users_id%>/?_method=PUT" method="POST">
         <!-- Input para el nombre de usuario -->
@@ -22,4 +25,7 @@
         <!-- Botón para enviar el formulario -->
         <button type="submit">Guardar cambios</button>
     </form>
+</main>    
+<%- include('./partials/footer') %>
 </body>
+</html>

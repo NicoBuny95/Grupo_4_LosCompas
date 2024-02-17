@@ -1,7 +1,7 @@
 <%- include('./partials/head') %>
 <body>
   <%- include('./partials/header') %>
-  <main>
+  <main >
     <div class="container-form">
       <h1>Editar producto</h1>
       <form action="/product/editProduct/<%= productoE.products_id %>/?_method=PUT" method="POST" class="registration-form">
@@ -23,7 +23,7 @@
           <label for="description">Descripcion</label>
         </div>
         <div class="form-group">          
-          <input type="text" name="price" placeholder="" required value="<%= productoE.products_price; %>">
+          <input type="text" name="price" placeholder="" required value="$<%= productoE.products_price; %>">
           <label for="price">Precio</label>
         </div>
         <label for="category">Categoría</label>
