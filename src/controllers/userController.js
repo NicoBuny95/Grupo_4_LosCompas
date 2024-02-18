@@ -3,6 +3,7 @@ const fs = require('fs');
 const db = require('../database/models');
 const sequelize = db.Sequelize;
 //const users = JSON.parse(fs.readFileSync("data/users.json"));
+const { validationResult } = require('express-validator');
 
 let userController = {
     loginView: (req, res) => {
@@ -84,9 +85,8 @@ let userController = {
     
             res.render("editProfile", {
                 title: "Editar usuario",
-                //user: req.session.user
-                user: userEdit,
-                
+                css: '/css/profile.css',
+                user: req.session.user
             });
         } catch (err) {
             console.error("Error al obtener datos del usuario:", err);
@@ -136,6 +136,15 @@ let userController = {
     },
 
     saveUser: async(req, res) => {
+
+          // Manejo de errores de validación
+          const errors = validationResult(req);
+          const errorMessages = errors.array()
+          if (!errors.isEmpty()) {
+            console.log(errors)
+            console.log(errorMessages)
+              return res.render('register',{ title: 'Registrarme',css: '/css/registrar.css', errorMessages: errorMessages });
+          }
         try {
             // Leer el archivo JSON de usuarios actual
             //const users = JSON.parse(fs.readFileSync('data/users.json'));             
