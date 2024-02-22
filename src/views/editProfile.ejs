@@ -4,7 +4,7 @@
   <main>
     <h1>Editar Usuario</h1>
     <form action="/user/editProfile/<%= user.users_id%>/?_method=PUT" method="POST">
-        <!-- Input para el nombre de usuario -->
+      <div class="card-body">
         <label for="username">Nombre de usuario:</label>
         <input type="text" id="username" name="username" value="<%= user.users_username %>">
         
@@ -19,11 +19,12 @@
         <!-- Input para el correo electrónico -->
         <label for="email">Correo electrónico:</label>
         <input type="email" id="email" name="email" value="<%= user.users_email %>">
-        
+      </div>  
 
 
-        <!-- Botón para enviar el formulario -->
+      <div class="card-bttn">  <!-- Botón para enviar el formulario -->
         <button type="submit">Guardar cambios</button>
+      </div>
     </form>
 </main>    
 <%- include('./partials/footer') %>

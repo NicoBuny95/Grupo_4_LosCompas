@@ -85,7 +85,7 @@ let userController = {
     
             res.render("editProfile", {
                 title: "Editar usuario",
-                css: '/css/profile.css',
+                css: '/css/profile2.css',
                 user: req.session.user
             });
         } catch (err) {
