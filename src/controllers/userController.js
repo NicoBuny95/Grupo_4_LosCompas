@@ -9,11 +9,11 @@ let userController = {
     loginView: (req, res) => {
         res.render('login', { title: 'Login', css: '/css/login.css' , user: req.session.user });
     },
-    loging: (req, res) => {
+    /*loging: (req, res) => {
         let infoLog = req.body;
 
         res.redirect('/');
-    },
+    },*/
 
     login: async (req, res) => {
         try {
@@ -30,6 +30,7 @@ let userController = {
             if (!user) {
                  res.status(401).render('login', { title: 'Login', css: '/css/login.css', error: "Correo electrónico o contraseña incorrectos." });
             }
+            console.log(user)
     
             // Comparar la contraseña proporcionada con la contraseña almacenada en la base de datos
             const passwordMatch = await bcrypt.compareSync(password, user[0].users_password);
@@ -37,7 +38,7 @@ let userController = {
             if (passwordMatch) {
                 // Guardar el usuario en la sesión
                 req.session.user = user[0];
-                console.log(user);
+                //console.log(user);
     
                 // Si el usuario marcó la opción "recordarme", configurar la cookie
                 if (remember) {
