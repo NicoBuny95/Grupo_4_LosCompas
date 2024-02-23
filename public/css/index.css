@@ -1,14 +1,3 @@
-:root {
-  --color-beige: #fce5a0;
-  --color-verde: #42A64A;
-  --color-verde-hover: #63C86C;
-  --color-negro: #0B090C;
-  --color-rojo: #D7162B;
-  --color-rojo-oscuro: #722924;
-  --color-verde-oscuro: #176332;
-  --color-gris: #7C7484;
-}
-
 
 /* CARRUSEL MOBILE */
 
@@ -67,7 +56,7 @@
 /* MAIN MOBILE */
 
 main {
-  font-family: "Open Sans", "sans-serif";
+  /*font-family: "Open Sans", "sans-serif";*/
   background-color: #f3f3f3;
   padding-bottom: 50px;
 }

@@ -14,6 +14,9 @@ const requireAuth = (req, res, next) => {
 router.get('/allProducts', productController.allProducts);
 router.get('/productDetail/:id', productController.detalle);
 router.get('/carrito', requireAuth,productController.carrito);
+router.get('/addcarrito/:id', productController.addToCart);
+router.post('/addcarrito/:id', productController.addToCart);
+router.delete('/removeCarrito/:id', productController.removeFromCart);
 router.get('/addProduct',requireAuth, productController.addView);
 router.post('/addProduct', requireAuth,upload.product.single("image"), productController.addProduct);
 router.get('/editProduct/:id',requireAuth, productController.editView)

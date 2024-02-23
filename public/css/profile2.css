@@ -2,13 +2,18 @@
         *{font-family: 'Roboto', sans-serif; margin: 0;}
         body{ background: rgb(245, 247, 238);}
 
-        .profile-container{
+        /*form{
             height: 100vh;
             display: grid;
             justify-content: center;
             place-items: center;            
+        }*/
+        h1{
+            display: flex;
+            justify-content: center;
         }
-        .card{
+
+        form{
             display: flex;
             flex-direction: column;
             align-items: center;            
@@ -17,7 +22,8 @@
             background:linear-gradient(rgb(245 215 189) 30%, rgb(255, 255, 255) 30%);
             box-shadow: 0 0 25px darkred ;
             border-radius: 10px;
-            padding: 50px 16px;
+            padding: 50px 16px 50px;
+            margin-bottom: 100px;
         }
         .img-container{
             position: relative;
@@ -32,9 +38,11 @@
             border: 4px solid rgb(250, 238, 227);
             box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
-        .card_body{ text-align: center; padding: 20px; }
-        .card_body h2{ color: peru; margin-bottom: 5px;}
-        .card_body p{color: gray; margin-top: 5px;}
+        .card-body{ padding: 20px; display: flex; flex-wrap: wrap;
+        
+        }
+        label { color: peru; margin-bottom: 5px;}
+        input {color: gray; margin-top: 5px;}
         .card_redes{
             width: 100%;
             display: flex;
@@ -57,21 +65,16 @@
             color: peru;
         }
 
-        .options-container{
-            padding-top: 25px;
-            display: flex;
-            justify-content: space-between;
-        }
-        .options-container .option{
+        button{
             padding: 8px 20px;
             border-radius: 25px;
             color: #fff;
             text-decoration: none;
             margin: 0 20px;
             background: linear-gradient(to left,rgb(245 215 189) 0%,rgb(237, 166, 104) 100%);
-            transition: all 5ms ease;
+            transition: all 0.5s ease;
         }
-        .option:hover{
+        button:hover{
             padding: 8px 30px;
             background: linear-gradient(to left,rgb(255, 161, 79) 0%,rgb(237, 166, 104) 100%);
         }

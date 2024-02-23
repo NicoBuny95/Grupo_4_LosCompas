@@ -3,16 +3,17 @@ const fs = require('fs');
 const db = require('../database/models');
 const sequelize = db.Sequelize;
 //const users = JSON.parse(fs.readFileSync("data/users.json"));
+const { validationResult } = require('express-validator');
 
 let userController = {
     loginView: (req, res) => {
         res.render('login', { title: 'Login', css: '/css/login.css' , user: req.session.user });
     },
-    loging: (req, res) => {
+    /*loging: (req, res) => {
         let infoLog = req.body;
 
         res.redirect('/');
-    },
+    },*/
 
     login: async (req, res) => {
         try {
@@ -29,6 +30,7 @@ let userController = {
             if (!user) {
                  res.status(401).render('login', { title: 'Login', css: '/css/login.css', error: "Correo electrónico o contraseña incorrectos." });
             }
+            console.log(user)
     
             // Comparar la contraseña proporcionada con la contraseña almacenada en la base de datos
             const passwordMatch = await bcrypt.compareSync(password, user[0].users_password);
@@ -36,7 +38,7 @@ let userController = {
             if (passwordMatch) {
                 // Guardar el usuario en la sesión
                 req.session.user = user[0];
-                console.log(user);
+                //console.log(user);
     
                 // Si el usuario marcó la opción "recordarme", configurar la cookie
                 if (remember) {
@@ -84,8 +86,8 @@ let userController = {
     
             res.render("editProfile", {
                 title: "Editar usuario",
-                //user: req.session.user
-                user: userEdit
+                css: '/css/profile2.css',
+                user: req.session.user
             });
         } catch (err) {
             console.error("Error al obtener datos del usuario:", err);
@@ -98,6 +100,8 @@ let userController = {
         try {
             // Obtener el ID del usuario que se va a modificar
             const userId = req.params.id;
+           // Obtener los datos actualizados del usuario
+            const user = await db.User.findByPk(userId);
     
             // Obtener los datos modificados del cuerpo de la solicitud
             const { username, firstName, lastName, email } = req.body;
@@ -119,9 +123,7 @@ let userController = {
                 return res.status(404).send("Usuario no encontrado");
             }
     
-            // Obtener los datos actualizados del usuario
-            const user = await db.User.findByPk(userId);
-    
+          
             // Redirigir o responder según sea necesario
             res.render('profile', { title: 'Perfil de Usuario', css: '/css/profile.css', user: user});
         } catch (error) {
@@ -135,6 +137,15 @@ let userController = {
     },
 
     saveUser: async(req, res) => {
+
+          // Manejo de errores de validación
+          const errors = validationResult(req);
+          const errorMessages = errors.array()
+          if (!errors.isEmpty()) {
+            console.log(errors)
+            console.log(errorMessages)
+              return res.render('register',{ title: 'Registrarme',css: '/css/registrar.css', errorMessages: errorMessages });
+          }
         try {
             // Leer el archivo JSON de usuarios actual
             //const users = JSON.parse(fs.readFileSync('data/users.json'));             
