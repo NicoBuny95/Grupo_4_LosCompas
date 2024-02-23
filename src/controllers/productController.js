@@ -125,16 +125,28 @@ let productController = {
       fs.writeFileSync("./data/products.json", JSON.stringify(updatedProducts, null, 2));
       */
       const { name, marca, description, price, category, descuento } = req.body;
-      let editProduct = {
-        //id: productsData.length + 1,
-        products_name: name,
-        marks_id: marca,
-        products_description: description,
-        products_price: price,
-        categories_id: category,
-        //products_image: req.file.filename,
-        products_discount: descuento,
-      };
+      if (req.file.filename){
+        let editProduct = {
+          products_name: name,
+          marks_id: marca,
+          products_description: description,
+          products_price: price,
+          categories_id: category,          
+          products_image: req.file.filename,
+          products_discount: descuento,
+        };
+  
+      } else {
+        let editProduct = {          
+          products_name: name,
+          marks_id: marca,
+          products_description: description,
+          products_price: price,
+          categories_id: category,
+          products_discount: descuento,
+        };
+  
+      }
       await db.Product.update(editProduct,{
         where:{
             products_id: req.params.id
