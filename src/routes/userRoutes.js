@@ -3,6 +3,7 @@ const router = express.Router();
 const userController = require('../controllers/userController');
 const upload = require('../middlewares/multer');
 const validateUserRegistration= require('../middlewares/validacionFormUser');
+const validateLogin = require('../middlewares/validationFormLogin');
 
 
 const requireAuth = (req, res, next) => {
@@ -17,7 +18,7 @@ const requireAuth = (req, res, next) => {
 
   
 router.get('/login', userController.loginView);
-router.post('/login', userController.login);
+router.post('/login', userController.login, validateLogin);
 router.get('/register', userController.registerView);
 router.post('/register', upload.profile.single('profileImage'),validateUserRegistration, userController.saveUser);
 router.get('/logout',  userController.logout);

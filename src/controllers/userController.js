@@ -16,6 +16,16 @@ let userController = {
     },*/
 
     login: async (req, res) => {
+
+         // Manejo de errores de validación
+         const errors = validationResult(req);
+         const errorMessages = errors.array()
+         if (!errors.isEmpty()) {
+           console.log(errors)
+           console.log(errorMessages)
+             return res.render('login',{ title: 'Login',css: '/css/login.css', errorMessages: errorMessages });
+         }
+        
         try {
             const { email, password, remember } = req.body;
     
@@ -27,10 +37,10 @@ let userController = {
                 }})
             
             // Verificar si se encontró un usuario con el correo electrónico proporcionado
-            if (!user) {
+            /*if (!user) {
                  res.status(401).render('login', { title: 'Login', css: '/css/login.css', error: "Correo electrónico o contraseña incorrectos." });
-            }
-            console.log(user)
+            }*/
+            
     
             // Comparar la contraseña proporcionada con la contraseña almacenada en la base de datos
             const passwordMatch = await bcrypt.compareSync(password, user[0].users_password);
