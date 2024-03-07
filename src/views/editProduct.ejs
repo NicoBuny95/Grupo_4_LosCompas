@@ -4,7 +4,7 @@
   <main >
     <div class="container-form">
       <h1>Editar producto</h1>
-      <form action="/product/editProduct/<%= productoE.products_id %>/?_method=PUT" method="POST" class="registration-form">
+      <form action="/product/editProduct/<%= productoE.products_id %>/?_method=PUT" method="POST" class="registration-form" enctype="multipart/form-data">
         <div class="form-group">
           <input type="text" name="name" placeholder="" value="<%= productoE.products_name; %>">
           <label for="name"> Nombre del producto</label>

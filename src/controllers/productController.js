@@ -1,4 +1,4 @@
-const fs = require("fs");
+//const fs = require("fs");
 const db = require('../database/models');
 const { log, Console } = require("console");
 
@@ -125,28 +125,19 @@ let productController = {
       fs.writeFileSync("./data/products.json", JSON.stringify(updatedProducts, null, 2));
       */
       const { name, marca, description, price, category, descuento } = req.body;
-      if (req.file.filename){
+//      console.log(req.file.filename);
+
         let editProduct = {
           products_name: name,
           marks_id: marca,
           products_description: description,
           products_price: price,
           categories_id: category,          
-          products_image: req.file.filename,
-          products_discount: descuento,
-        };
-  
-      } else {
-        let editProduct = {          
-          products_name: name,
-          marks_id: marca,
-          products_description: description,
-          products_price: price,
-          categories_id: category,
-          products_discount: descuento,
-        };
-  
-      }
+          products_discount: descuento,    
+        }
+
+    
+      //res.render (req.file)
       await db.Product.update(editProduct,{
         where:{
             products_id: req.params.id
