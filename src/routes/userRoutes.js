@@ -18,7 +18,7 @@ const requireAuth = (req, res, next) => {
 
   
 router.get('/login', userController.loginView);
-router.post('/login', userController.login, validateLogin);
+router.post('/login', validateLogin, userController.login);
 router.get('/register', userController.registerView);
 router.post('/register', upload.profile.single('profileImage'),validateUserRegistration, userController.saveUser);
 router.get('/logout',  userController.logout);

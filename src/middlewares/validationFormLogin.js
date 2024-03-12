@@ -12,8 +12,8 @@ const validateLogin = [
                          // Buscar un usuario con el correo electrónico proporcionado
                          const user = await db.User.findOne({ where: { users_email: value } });
                          
-                         if (user) {
-                             throw new Error('El correo electrónico ya está registrado');
+                         if (!user) {
+                             throw new Error('El correo electrónico no se encuentra registrado');
                          }
                      }),
     check('password').notEmpty().withMessage('La contraseña es obligatoria')

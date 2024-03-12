@@ -65,7 +65,7 @@ let productController = {
   addProduct: async (req, res) => {
     try {
       //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      const { name, marca, description, price, category, descuento } = req.body;
+      const { name, marca, description, price, category, discount } = req.body;
       let newProduct = {
         //id: productsData.length + 1,
         products_name: name,
@@ -74,7 +74,7 @@ let productController = {
         products_price: price,
         categories_id: category,
         products_image: req.file.filename,
-        products_discount: descuento,
+        products_discount: discount,
         products_active : 1,
       };
 
@@ -133,7 +133,7 @@ let productController = {
           products_description: description,
           products_price: price,
           categories_id: category,          
-          products_discount: descuento,    
+          products_discount: discount,    
         }
 
     
@@ -279,9 +279,6 @@ clearCart: (req, res) => {
   }
 }
 
-
-  
 };
-
 
 module.exports = productController;

@@ -1,30 +1,30 @@
-document.getElementById('registration-form').addEventListener('change', function(event) {
-    var usernameInput = document.getElementById('username');
-    var firstNameInput = document.getElementById('firstName');
-    var lastNameInput = document.getElementById('lastName');
-    var emailInput = document.getElementById('email');
-    var passwordInput = document.getElementById('password');
-    var confirmPasswordInput = document.getElementById('confirm-password');
-    var profileImageInput = document.getElementById('profileImage');
-    var errorUsername = document.getElementById('error-username');
-    var errorFirstName = document.getElementById('error-firstName');
-    var errorLastName = document.getElementById('error-lastName');
-    var errorEmail = document.getElementById('error-email');
-    var errorPassword = document.getElementById('error-password');
-    var errorConfirmPassword = document.getElementById('error-confirm-password');
-    var errorProfileImage = document.getElementById('error-profileImage');
+//Capturas de elementos input
+var nameInput = document.getElementById('name');
+var marcaInput = document.getElementById('marca');
+var descriptionInput = document.getElementById('description');
+var priceInput = document.getElementById('price');
+var discountInput = document.getElementById('descuento');
+var categoryInput = document.getElementById('category');
+var imageInput = document.getElementById('image');
+//Captura de elemneto span para los mensajes de error
+var errorName = document.getElementById('error-name');
+var errorMarca = document.getElementById('error-marca');
+var errorDescription = document.getElementById('error-description');
+var errorPrice = document.getElementById('error-price');
+var errorDiscount = document.getElementById('error-discount');
+var errorCategory = document.getElementById('error-category');
+var errorImage = document.getElementById('error-image');
+// Reiniciar los mensajes de error
+errorName.innerHTML = '';
+errorMarca.innerHTML = '';
+errorDescription.innerHTML = '';
+errorPrice.innerHTML = '';
+errorDiscount.innerHTML = '';
+errorCategory.innerHTML = '';
+errorImage.innerHTML = '';
 
-    // Reiniciar los mensajes de error
-    errorUsername.innerHTML = '';
-    errorFirstName.innerHTML = '';
-    errorLastName.innerHTML = '';
-    errorEmail.innerHTML = '';
-    errorPassword.innerHTML = '';
-    errorConfirmPassword.innerHTML = '';
-    errorProfileImage.innerHTML = '';
 
-
-
+    document.getElementById('registration-form').addEventListener('change', function(event) {
 
      // Validar Username
      if (validator.isEmpty(usernameInput.value)) {
@@ -99,8 +99,5 @@ if (profileImageInput.files.length === 0) {
         .catch(error => {
             console.error('Error al cargar la imagen por defecto:', error);
         });
-}
-
-
-   
+} 
 });

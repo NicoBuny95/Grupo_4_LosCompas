@@ -8,6 +8,7 @@
         <div class="form-group">
           <input type="text" name="name" placeholder="" required>
           <label for="name"> Nombre del producto</label>
+          <div class="error-message" id="error-name"></div>
         </div>
         <div class="form-select">
           <label for="marca">Marca del producto</label>
@@ -17,18 +18,22 @@
             <option value="<%= marcas[i].marks_id %>"><%= marcas[i].marks_description %></option>
           <% } %>
           </select>
+          <div class="error-message" id="error-marca"></div>
         </div>
         <div class="form-group">          
           <input name="description" placeholder="" required></input>
           <label for="description">Descripcion</label>
+          <div class="error-message" id="error-description"></div>
         </div>
         <div class="form-group">          
           <input type="text" name="price" placeholder="" required>
           <label for="price">Precio</label>
+          <div class="error-message" id="error-price"></div>
         </div>
         <div class="form-group">          
-          <input type="text" name="descuento" placeholder="" required>
-          <label for="descuento">Descuento</label>
+          <input type="text" name="discount" placeholder="" required>
+          <label for="discount">Descuento</label>
+          <div class="error-message" id="error-discount"></div>
         </div>
         <label for="category">Categoría</label>
         <div class="form-select">
@@ -38,10 +43,12 @@
               <label for="<%= categorias[i].categories_id %>"><%= categorias[i].categories_description %></label>
             </div>            
           <% } %>
+          <div class="error-message" id="error-category"></div>
         </div>
         <div class="form-image" placeholder="" required>
           <label for="image"> Subir imagen:</label>          
-          <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .webp">          
+          <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .webp"> 
+          <div class="error-message" id="error-image"></div>         
         </div>
         <div class="product-add-actions">
           <button type="submit" class="form-button">Agregar</button>
