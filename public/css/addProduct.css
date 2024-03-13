@@ -105,3 +105,9 @@
 .input-group input::placeholder {
   color: transparent; /* Hace que el placeholder sea transparente */
 }
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}

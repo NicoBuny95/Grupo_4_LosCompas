@@ -4,6 +4,7 @@ const db = require('../database/models');
 const sequelize = db.Sequelize;
 //const users = JSON.parse(fs.readFileSync("data/users.json"));
 const { validationResult } = require('express-validator');
+const { error } = require('console');
 
 let userController = {
     loginView: (req, res) => {
@@ -143,20 +144,31 @@ let userController = {
     }
 ,    
     registerView: (req, res) => {
-        res.render('register', { title: 'Registrarme', css: '/css/registrar.css' , user: req.session.user });
+        const errorMessages = []
+        res.render('register', { title: 'Registrarme', css: '/css/registrar.css' , user: req.session.user, errorMessages: errorMessages });
     },
 
     saveUser: async(req, res) => {
 
           // Manejo de errores de validación
-          const errors = validationResult(req);
-          const errorMessages = errors.array()
-          if (!errors.isEmpty()) {
-            console.log(errors)
-            console.log(errorMessages)
-              return res.render('register',{ title: 'Registrarme',css: '/css/registrar.css', errorMessages: errorMessages });
+          const resultValidation = validationResult(req);
+        //   const errorMessages = errors.array()
+        //   if (!errors.isEmpty()) {
+        //     console.log(errors)
+        //     console.log(errorMessages)
+        //     return res.render('register',{ title: 'Registrarme',css: '/css/registrar.css', errorMessages: errorMessages });
+        //   }
+          if (resultValidation.errors.length > 0) {
+            console.log("Mapped: ", resultValidation.mapped())
+            return res.render("register",  {
+              errors: resultValidation.mapped(),
+              oldData: req.body,
+              title: 'Registrarme',
+              css: '/css/registrar.css'
+            });
           }
-        try {
+
+          try {
             // Leer el archivo JSON de usuarios actual
             //const users = JSON.parse(fs.readFileSync('data/users.json'));             
             const { username, firstName, lastName, email, password } = req.body;
@@ -183,8 +195,8 @@ let userController = {
             // Guardar el array actualizado en el archivo JSON de usuarios
             //fs.writeFileSync('data/users.json', JSON.stringify(users, null, 2));
             await db.User.create(user);
-
-          res.render('register', { title: 'Registrarme', css: '/css/registrar.css' , user: req.session.user});
+            //errorMessages.push({msg: 'USUARIO CARGADO EXITOSAMENTE'})
+          res.render('register', { title: 'Registrarme', css: '/css/registrar.css' , user: req.session.user, errorMessages: errorMessages });
 
         } catch (err) {
             //res.status(500).json({ error: "No se pudo crear el usuario" });

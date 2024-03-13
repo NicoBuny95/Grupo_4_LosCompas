@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const productController = require('../controllers/productController');
+const validateProduct = require('../middlewares/validacionFormProduct');
 const upload = require("../middlewares/multer");
-
 
 const requireAuth = (req, res, next) => {
     if (req.session.user) {
@@ -18,9 +18,9 @@ router.get('/addcarrito/:id', productController.addToCart);
 router.post('/addcarrito/:id', productController.addToCart);
 router.delete('/removeCarrito/:id', productController.removeFromCart);
 router.get('/addProduct',requireAuth, productController.addView);
-router.post('/addProduct', requireAuth,upload.product.single("image"), productController.addProduct);
+router.post('/addProduct', requireAuth,upload.product.single("image"),validateProduct, productController.addProduct);
 router.get('/editProduct/:id',requireAuth, productController.editView)
-router.put('/editProduct/:id',requireAuth,upload.product.single("image"), productController.editProduct)
+router.put('/editProduct/:id',requireAuth,upload.product.single("image"),validateProduct, productController.editProduct)
 router.delete('/deleteProduct/:id',requireAuth, productController.deleteProduct)
 router.get('/prodByCategory/:category', productController.searchByCategory)
 module.exports = router;

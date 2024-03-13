@@ -5,7 +5,6 @@ const upload = require('../middlewares/multer');
 const validateUserRegistration= require('../middlewares/validacionFormUser');
 const validateLogin = require('../middlewares/validationFormLogin');
 
-
 const requireAuth = (req, res, next) => {
     if (req.session.user) {
       next();
@@ -14,9 +13,6 @@ const requireAuth = (req, res, next) => {
     }
   };
 
-
-
-  
 router.get('/login', userController.loginView);
 router.post('/login', validateLogin, userController.login);
 router.get('/register', userController.registerView);

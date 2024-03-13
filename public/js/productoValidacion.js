@@ -1,3 +1,4 @@
+window.addEventListener('load',()=> {
 //Capturas de elementos input
 var nameInput = document.getElementById('name');
 var marcaInput = document.getElementById('marca');
@@ -23,25 +24,30 @@ errorDiscount.innerHTML = '';
 errorCategory.innerHTML = '';
 errorImage.innerHTML = '';
 
+document.getElementById('registration-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+    if (!errorName ){}
+});
 
-    document.getElementById('registration-form').addEventListener('change', function(event) {
+// Validar Username
+document.getElementById('name').addEventListener('blur', function() {
+    if (validator.isEmpty(nameInput.value)) {
+        errorName.innerHTML = 'Este campo es obligatorio.'
+    } else if (!validator.isLength(nameInput.value, { min: 5 })) {        
+        errorName.innerHTML = 'El nombre debe tener al menos 5 caracteres.';
+    } else {errorName.innerHTML = ""} 
 
-     // Validar Username
-     if (validator.isEmpty(usernameInput.value)) {
-        event.preventDefault();
-        errorUsername.innerHTML = 'Este campo es obligatorio.';
-       
-    }
-    // Validar el campo de nombre 
+})
+// Validar el campo de nombre 
+document.getElementById('registration-form').addEventListener('blur', function(event) {
     if (validator.isEmpty(firstNameInput.value)) {
-        event.preventDefault();
         errorFirstName.innerHTML = 'Este campo es obligatorio.';
     }
     else if (!validator.isLength(firstNameInput.value, { min: 2 })) {
         event.preventDefault();
         errorFirstName.innerHTML = 'El nombre debe tener al menos 2 caracteres.';
     }
-
+})
     // Validar el campo de apellido
     if (validator.isEmpty(lastNameInput.value)) {
         event.preventDefault();
@@ -99,5 +105,5 @@ if (profileImageInput.files.length === 0) {
         .catch(error => {
             console.error('Error al cargar la imagen por defecto:', error);
         });
-} 
+};
 });
