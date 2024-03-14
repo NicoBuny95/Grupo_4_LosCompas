@@ -1,6 +1,10 @@
 //const fs = require("fs");
 const db = require('../database/models');
 const { log, Console } = require("console");
+const { validationResult } = require('express-validator');
+
+//async function categorias() {return cat = await db.Category.findAll()};
+//async function marcas () {return  mar = await db.Mark.findAll()};
 
 let productController = {
   allProducts: (req, res) => {
@@ -51,18 +55,35 @@ let productController = {
     }
   },
   addView: (req, res) => {
-    db.Mark.findAll()
-    .then(marcas => {
-      db.Category.findAll()
-      .then(categorias =>{
+    //db.Mark.findAll()
+    //.then(marcas => {
+    //  db.Category.findAll()
+    //  .then(categorias =>{
         res.render("addProduct", {
           title: "Agregar producto",
           css: "/css/addProduct.css"
-          , user: req.session.user, marcas: marcas, categorias: categorias });  
-      })
-    })
+          , user: req.session.user, marcas: res.locals.marks, categorias: res.locals.categories });  
+    //  })
+    //})
   },
   addProduct: async (req, res) => {
+
+    //Se capturán los errores y se renderiza en nuevamente pasando la lista de errores 
+    const resultValidation = validationResult(req);
+    if (resultValidation.errors.length > 0) {
+      console.log("Mapped: ", resultValidation.mapped())
+      return res.render("addProduct", {
+        title: "Agregar producto",
+        css: "/css/addProduct.css",
+        user: req.session.user,
+        marcas: res.locals.marks,
+        categorias: res.locals.categories,
+        errors: resultValidation.mapped(),
+        oldData: req.body
+       });
+    }
+
+    //Se guarda el nuevo producto en la base de datos
     try {
       //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
       const { name, marca, description, price, category, discount } = req.body;
@@ -95,12 +116,14 @@ let productController = {
       //const productsData = JSON.parse(fs.readFileSync("data/products.json")); // Verifica la ruta del archivo JSON
       //let datosEditar = productsData.filter((e) => productId == e.id);
       const productEdit = await db.Product.findByPk(productId);
-      const categorias = await db.Category.findAll();
-      const marcas = await db.Mark.findAll();
+      //const categorias = await db.Category.findAll();
+      //const marcas = await db.Mark.findAll();
       res.render("editProduct", {
         title: "Editar producto",
         css: "/css/addProduct.css",
-        productoE: productEdit, categorias, marcas,
+        productoE: productEdit,
+        marcas: res.locals.marks,
+        categorias: res.locals.categories,
         user: req.session.user 
       }); // Usar updatedProduct en lugar de product
     } catch (err) {
@@ -151,12 +174,12 @@ let productController = {
 
       }); // Usar updatedProduct en lugar de product*/
       const productEdit = await db.Product.findByPk(req.params.id);
-      const categorias = await db.Category.findAll();
-      const marcas = await db.Mark.findAll();
       res.render("editProduct", {
         title: "Editar producto",
         css: "/css/addProduct.css",
-        productoE: productEdit, categorias, marcas,
+        productoE: productEdit, 
+        categorias: res.locals.categories,
+        marcas: res.locals.marks,
         user: req.session.user })
     } catch (err) {
       //res.status(500).json({ error: "No se pudo actualizar el producto" });

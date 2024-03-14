@@ -13,7 +13,7 @@
                 class="<%= locals.errors && errors.name 
                 ? 'is-invalid' 
                 : null 
-            %>" value="<%= locals.oldData ? oldData.username : null %>" >
+                %>" value="<%= locals.oldData ? oldData.username : null %>" >
                 <label for="username">Nombre de Usuario</label>
                 <div class="error-message" id="error-username"></div>
                 <% if (locals.errors && errors.username) { %>

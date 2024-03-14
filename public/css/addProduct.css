@@ -111,3 +111,10 @@
   font-size: 0.8em;
   margin-top: 5px;
 }
+.is-invalid {
+  background-color: rgb(238, 184, 184);
+}
+.error-msg {
+  color: rgb(159, 22, 45);
+  font-size: 0.8em;
+}

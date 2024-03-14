@@ -159,7 +159,7 @@ let userController = {
         //     return res.render('register',{ title: 'Registrarme',css: '/css/registrar.css', errorMessages: errorMessages });
         //   }
           if (resultValidation.errors.length > 0) {
-            console.log("Mapped: ", resultValidation.mapped())
+            //console.log("Mapped: ", resultValidation.mapped())
             return res.render("register",  {
               errors: resultValidation.mapped(),
               oldData: req.body,

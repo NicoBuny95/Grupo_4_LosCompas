@@ -64,6 +64,7 @@ app.use( async(req, res, next) => {
   //res.locals.categories = [...new Set(res.locals.productsData.map((product) => product.category))];
   //res.locals.productsData = await db.Product.findAll();
   res.locals.categories = await db.Category.findAll();
+  res.locals.marks = await db.Mark.findAll();
   res.locals.variableTres = "Valor 3";
   next();
 });
