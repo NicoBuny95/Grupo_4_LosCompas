@@ -114,3 +114,16 @@ main {
     width: 50%;
   }
 }
+
+.error-message {
+  color: var(--color-rojo);
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+.is-invalid {
+  background-color: rgb(238, 184, 184);
+}
+.error-msg {
+  color: var(--color-rojo-oscuro);
+  font-size: 0.8em;
+}

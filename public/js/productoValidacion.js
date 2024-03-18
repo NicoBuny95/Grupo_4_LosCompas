@@ -29,66 +29,42 @@ document.getElementById('registration-form').addEventListener('submit', function
     if (!errorName ){}
 });
 
-// Validar Username
+// Validar el campo Name
 document.getElementById('name').addEventListener('blur', function() {
     if (validator.isEmpty(nameInput.value)) {
-        errorName.innerHTML = 'Este campo es obligatorio.'
+        errorName.innerHTML = 'El nombre del producto es un campo obligatorio.'
     } else if (!validator.isLength(nameInput.value, { min: 5 })) {        
         errorName.innerHTML = 'El nombre debe tener al menos 5 caracteres.';
     } else {errorName.innerHTML = ""} 
 
 })
-// Validar el campo de nombre 
-document.getElementById('registration-form').addEventListener('blur', function(event) {
-    if (validator.isEmpty(firstNameInput.value)) {
-        errorFirstName.innerHTML = 'Este campo es obligatorio.';
+// Validar el campo de Descripcion 
+document.getElementById('description').addEventListener('blur', function() {
+    if (validator.isEmpty(descriptionInput.value)) {
+        errorDescription.innerHTML = 'La descripción del producto es un campo obligatorio.';
     }
-    else if (!validator.isLength(firstNameInput.value, { min: 2 })) {
-        event.preventDefault();
-        errorFirstName.innerHTML = 'El nombre debe tener al menos 2 caracteres.';
-    }
+    else if (!validator.isLength(descriptionInput.value, { min: 20 })) {        
+        errorDescription.innerHTML = 'El nombre debe tener al menos 20 caracteres.';
+    }else {errorDescription.innerHTML = ""}
 })
-    // Validar el campo de apellido
-    if (validator.isEmpty(lastNameInput.value)) {
-        event.preventDefault();
-        errorLastName.innerHTML = 'Este campo es obligatorio.';
+    // Validar el campo de Precio
+    if (validator.isEmpty(priceInput.value)) {        
+        errorPrice.innerHTML = 'El precio del producto es un campo obligatorio.';
     }
-   else if (!validator.isLength(lastNameInput.value, { min: 2 })) {
-        event.preventDefault();
-        errorLastName.innerHTML = 'El apellido debe tener al menos 2 caracteres.';
-    }
+    else if (!validator.isNumeric(priceInput.value)) {        
+        errorPrice.innerHTML = 'El precio debe ser un valor numérico.';
+    }else {errorPrice.innerHTML = ""}
 
-    // Validar el campo de correo electrónico
-    if (validator.isEmpty(emailInput.value)) {
-        event.preventDefault();
-        errorEmail.innerHTML = 'Este campo es obligatorio.';
+    // Validar el campo de Descuento
+    if (validator.isEmpty(discountInput.value)) {
+        errorDiscount.innerHTML = 'Este campo es obligatorio.';
     }
-    else if (!validator.isEmail(emailInput.value)) {
-        event.preventDefault();
-        errorEmail.innerHTML = 'Introduce un correo electrónico válido.';
-    }
+    else if (!validator.isNumeric(discountInput.value)) {        
+        errorDiscount.innerHTML = 'El descuento debe ser numérico.';
+    }else {errorDiscount.innerHTML = ""}
 
-    // Validar el campo de contraseña
-    if (validator.isEmpty(passwordInput.value)) {
-        event.preventDefault();
-        errorPassword.innerHTML = 'Este campo es obligatorio.';
-    }
-    else if (!validator.isLength(passwordInput.value, { min: 8 })) {
-        event.preventDefault();
-        errorPassword.innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
-    } else if (!validator.matches(passwordInput.value, /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.-])[A-Za-z\d@$!%*?&.-]{8,}$/)) {
-        event.preventDefault();
-        errorPassword.innerHTML = 'La contraseña debe tener letras mayúsculas, minúsculas, un número y un carácter especial.';
-    }
-
-    // Validar el campo de confirmar contraseña
-    if (passwordInput.value !== confirmPasswordInput.value) {
-        event.preventDefault();
-        errorConfirmPassword.innerHTML = 'Las contraseñas no coinciden.';
-    }
-
-  // Verificar si se ha seleccionado una imagen
-if (profileImageInput.files.length === 0) {
+    // Verificar si se ha seleccionado una imagen
+    if (imageInput.files.length === 0) {
     // Si no se ha seleccionado ninguna imagen, asigna una imagen por defecto
     var defaultImagePath = '/img/users/defaultProfile.jpg'; 
 
