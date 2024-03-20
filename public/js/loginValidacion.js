@@ -1,35 +1,49 @@
 window.addEventListener('load', function() {
-    // Capturas de elementos input
-    var emailInput = document.getElementById('email');
-    var passwordInput = document.getElementById('password');
-    // Captura de elemento span para los mensajes de error
-    var errorEmail = document.getElementById('error-email');
-    var errorPassword = document.getElementById('error-password');
-    // Reiniciar los mensajes de error
-    errorEmail.innerHTML = '';
-    errorPassword.innerHTML = '';
+ 
+    if (typeof validator !== 'undefined') {
+        // Capturas de elementos input
+        var emailInput = document.getElementById('email');
+        var passwordInput = document.getElementById('password');
+   
+        var errorEmail = document.getElementById('error-email');
+        var errorPassword = document.getElementById('error-password');
 
-    document.getElementById('login-form').addEventListener('submit', function(event) {
-        event.preventDefault();
-    });
-
-    // Validar el campo Email
-    emailInput.addEventListener('blur', function() {
-        if (validator.isEmpty(emailInput.value)) {
-            errorEmail.innerHTML = 'El email del usuario es un campo obligatorio.';
-        } else if (!validator.isEmail(emailInput.value)) {
-            errorEmail.innerHTML = 'El email no es correcto.';
-        } else {
-            errorEmail.innerHTML = "";
+        function validateEmail() {
+            errorEmail.innerHTML = '';
+            if (validator.isEmpty(emailInput.value)) {
+                errorEmail.innerHTML = 'El email del usuario es un campo obligatorio.';
+                return false;
+            } else if (!validator.isEmail(emailInput.value)) {
+                errorEmail.innerHTML = 'El email no es válido.';
+                return false;
+            }
+            return true;
         }
-    });
 
-    // Validar el campo de Password 
-    passwordInput.addEventListener('blur', function() {
-        if (validator.isEmpty(passwordInput.value)) {
-            errorPassword.innerHTML = 'EL password es un campo obligatorio.';
-        } else {
+    
+        function validatePassword() {
             errorPassword.innerHTML = '';
+            if (validator.isEmpty(passwordInput.value)) {
+                errorPassword.innerHTML = 'El password es un campo obligatorio.';
+                return false;
+            }
+            return true;
         }
-    });
+
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            var isEmailValid = validateEmail();
+            var isPasswordValid = validatePassword();
+
+            // Evitar el envío del formulario si hay errores
+            if (!isEmailValid || !isPasswordValid) {
+                event.preventDefault();
+            }
+        });
+
+        
+        emailInput.addEventListener('blur', validateEmail);
+        passwordInput.addEventListener('blur', validatePassword);
+    } else {
+        console.error('La biblioteca "validator" no está definida. Asegúrate de incluirla en tu página.');
+    }
 });

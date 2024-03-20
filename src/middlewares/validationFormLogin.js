@@ -11,7 +11,7 @@ const validateLogin = [
         // Buscar el usuario en la base de datos
         const user = await db.User.findOne({ where: { users_email: value } });
         if (!user) {
-          throw new Error('El correo electrónico no se encuentra registrado');
+          throw new Error('El correo electrónico no pertenece a un usuario registrado');
         }
         return true;
       } catch (error) {
