@@ -2,7 +2,11 @@
 
 <body>
     <%- include('./partials/header') %>
-
+    <% if (typeof success !== 'undefined') { %>
+        <div class="alert alert-success" id="success-message" role="alert">
+          <%= success %>
+        </div>
+      <% } %>
 
     <div class="container-form">
         <form action="/user/register" method="POST" id="registration-form" class="registration-form" enctype="multipart/form-data">
@@ -17,7 +21,7 @@
                 <label for="username">Nombre de Usuario</label>
                 <div class="error-message" id="error-username"></div>
                 <% if (locals.errors && errors.username) { %>
-                    <div class= "error-msg">
+                    <div class= "error-msg"  id="error-user-msg">
                         <%= errors.username.msg %>               
                     </div>
                 <% } %>
@@ -33,7 +37,7 @@
                 <label for="firstName">Nombre</label>
                 <div class="error-message" id="error-firstName"></div> 
                 <% if (locals.errors && errors.firstName) { %>
-                    <div class= "error-msg">
+                    <div class= "error-msg" id="error-firstName-msg">
                         <%= errors.firstName.msg %>               
                     </div>
                 <% } %>
@@ -48,7 +52,7 @@
                 <label for="lastName">Apellido</label>
                 <div class="error-message" id="error-lastName"></div>
                 <% if (locals.errors && errors.lastName) { %>
-                    <div class= "error-msg">
+                    <div class= "error-msg" id="error-lastName-msg">
                         <%= errors.lastName.msg %>               
                     </div>
                 <% } %>
@@ -63,7 +67,7 @@
                  <label for="email">Correo Electrónico</label>
                  <div class="error-message" id="error-email"></div>
                  <% if (locals.errors && errors.email) { %>
-                    <div class= "error-msg">
+                    <div class= "error-msg" id="error-email-msg">
                         <%= errors.email.msg %>               
                     </div>
                 <% } %>
@@ -105,6 +109,60 @@
     </div>
      
   <%- include('./partials/footer') %>
+
+  <script>
+    window.onload = function() {
+      
+        const successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+
+        const errorUsername = document.getElementById('error-user-msg');
+        const userInput = document.getElementById('username');
+        if (errorUsername) {
+            setTimeout(function() {
+                errorUsername.style.display = 'none';
+                userInput.style.backgroundColor = 'white';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+
+        const errorFirstName = document.getElementById('error-firstName-msg');
+        const firstNamedInput = document.getElementById('firstName');
+        if (errorFirstName) {
+            setTimeout(function() {
+                errorFirstName.style.display = 'none';  
+                passwordInput.style.backgroundColor = 'white';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+
+
+        const errorLastName = document.getElementById('error-lastName-msg');
+        const lastNameInput = document.getElementById('lastName');
+        if (errorLastName) {
+            setTimeout(function() {
+                errorLastName.style.display = 'none';  
+                lastNameInput.style.backgroundColor = 'white';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+
+        const errorEmail = document.getElementById('error-email-msg');
+        const emailInput = document.getElementById('emailName');
+        if (errorLastName) {
+            setTimeout(function() {
+                errorLastName.style.display = 'none';  
+                emailInput.style.backgroundColor = 'white';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+    };
+    
+    
+    
+
+    
+</script>
   <script src="/js/registroValidacion.js"></script> 
 </body>
 

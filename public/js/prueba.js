@@ -54,4 +54,6 @@ document.addEventListener("load", function() {
         document.getElementById('total-amount').innerText = total.toFixed(2);
     }
 
-});
+  
+    
+});  

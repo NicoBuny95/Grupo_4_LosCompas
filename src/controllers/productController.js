@@ -12,7 +12,7 @@ let productController = {
     //res.render({user: req.session.user},productsData)
     db.Product.findAll()
     .then(productsData => {
-      console.log(productsData);
+
       res.render({user: req.session.user},productsData)
     })
 
@@ -40,7 +40,7 @@ let productController = {
       .then(producto => {
         if (producto) {
           //res.render('moviesDetail.ejs', {movie});
-          console.log(producto);
+
           res.render("detalle", {
             title: "Detalle Producto",
             css: "/css/detalle.css",

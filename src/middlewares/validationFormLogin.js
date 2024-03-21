@@ -25,7 +25,7 @@ const validateLogin = [
         // Buscar el usuario en la base de datos
         const user = await db.User.findOne({ where: { users_email: req.body.email } });
         if (!user) {
-          throw new Error('El correo electrónico no se encuentra registrado');
+          throw new Error('La contraseña proporcionada no es valida para este usuario');
         }
         // Comparar la contraseña proporcionada con la contraseña almacenada en la base de datos
         const passwordMatch = await bcrypt.compare(value, user.users_password);

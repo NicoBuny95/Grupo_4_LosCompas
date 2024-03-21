@@ -11,6 +11,8 @@ const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const fs = require('fs');
+const flash = require('connect-flash');
+
 // Configurar cookie parser
 app.use(cookieParser());
 
@@ -20,6 +22,15 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(flash());
+
+// Middleware para pasar mensajes flash a todas las vistas
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
 
 const db = require('../src/database/models')
 

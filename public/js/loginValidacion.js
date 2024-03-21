@@ -34,7 +34,6 @@ window.addEventListener('load', function() {
             var isEmailValid = validateEmail();
             var isPasswordValid = validatePassword();
 
-            // Evitar el envío del formulario si hay errores
             if (!isEmailValid || !isPasswordValid) {
                 event.preventDefault();
             }
@@ -46,4 +45,5 @@ window.addEventListener('load', function() {
     } else {
         console.error('La biblioteca "validator" no está definida. Asegúrate de incluirla en tu página.');
     }
+    
 });
