@@ -1,10 +1,9 @@
 window.addEventListener('load', function() {
- 
     if (typeof validator !== 'undefined') {
         // Capturas de elementos input
         var emailInput = document.getElementById('email');
         var passwordInput = document.getElementById('password');
-   
+        
         var errorEmail = document.getElementById('error-email');
         var errorPassword = document.getElementById('error-password');
 
@@ -20,7 +19,6 @@ window.addEventListener('load', function() {
             return true;
         }
 
-    
         function validatePassword() {
             errorPassword.innerHTML = '';
             if (validator.isEmpty(passwordInput.value)) {
@@ -30,20 +28,24 @@ window.addEventListener('load', function() {
             return true;
         }
 
-        document.getElementById('login-form').addEventListener('submit', function(event) {
+        function validateForm() {
             var isEmailValid = validateEmail();
             var isPasswordValid = validatePassword();
 
-            if (!isEmailValid || !isPasswordValid) {
+            return isEmailValid && isPasswordValid;
+        }
+
+        // Validación en tiempo real al escribir en los campos de entrada
+        emailInput.addEventListener('input', validateEmail);
+        passwordInput.addEventListener('input', validatePassword);
+
+        // Manejar la validación en el envío del formulario
+        document.getElementById('login-form').addEventListener('submit', function(event) {
+            if (!validateForm()) {
                 event.preventDefault();
             }
         });
-
-        
-        emailInput.addEventListener('blur', validateEmail);
-        passwordInput.addEventListener('blur', validatePassword);
     } else {
         console.error('La biblioteca "validator" no está definida. Asegúrate de incluirla en tu página.');
     }
-    
 });

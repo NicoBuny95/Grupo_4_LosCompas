@@ -1,85 +1,81 @@
-window.addEventListener('load',()=> {
-//Capturas de elementos input
-var nameInput = document.getElementById('name');
-var marcaInput = document.getElementById('marca');
-var descriptionInput = document.getElementById('description');
-var priceInput = document.getElementById('price');
-var discountInput = document.getElementById('descuento');
-var categoryInput = document.getElementById('category');
-var imageInput = document.getElementById('image');
-//Captura de elemneto span para los mensajes de error
-var errorName = document.getElementById('error-name');
-var errorMarca = document.getElementById('error-marca');
-var errorDescription = document.getElementById('error-description');
-var errorPrice = document.getElementById('error-price');
-var errorDiscount = document.getElementById('error-discount');
-var errorCategory = document.getElementById('error-category');
-var errorImage = document.getElementById('error-image');
-// Reiniciar los mensajes de error
-errorName.innerHTML = '';
-errorMarca.innerHTML = '';
-errorDescription.innerHTML = '';
-errorPrice.innerHTML = '';
-errorDiscount.innerHTML = '';
-errorCategory.innerHTML = '';
-errorImage.innerHTML = '';
 
-document.getElementById('registration-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    if (!errorName ){}
+document.getElementById('registration-form').addEventListener('input', function(event) {
+    var inputId = event.target.id; 
+    var inputElement = event.target; 
+    var errorElement = document.getElementById('error-' + inputId);
+
+    errorElement.innerHTML = ''; 
+
+    // Validar el campo según su ID
+    switch (inputId) {
+        case 'name':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'El nombre del producto es un campo obligatorio.';
+            } else if (!validator.isLength(inputElement.value, { min: 5 })) {
+                errorElement.innerHTML = 'El nombre debe tener al menos 5 caracteres.';
+            }
+            break;
+        case 'description':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'La descripción del producto es un campo obligatorio.';
+            } else if (!validator.isLength(inputElement.value, { min: 20 })) {
+                errorElement.innerHTML = 'La descripción debe tener al menos 20 caracteres.';
+            }
+            break;
+        case 'price':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'El precio del producto es un campo obligatorio.';
+            } else if (!validator.isNumeric(inputElement.value)) {
+                errorElement.innerHTML = 'El precio debe ser un valor numérico.';
+            }
+            break;
+        case 'discount':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'El descuento del producto es un campo obligatorio.';
+            } else if (!validator.isNumeric(inputElement.value)) {
+                errorElement.innerHTML = 'El descuento debe ser un valor numérico.';
+            }
+            break;
+        default:
+            break;
+    }
 });
 
-// Validar el campo Name
-document.getElementById('name').addEventListener('blur', function() {
-    if (validator.isEmpty(nameInput.value)) {
-        errorName.innerHTML = 'El nombre del producto es un campo obligatorio.'
-    } else if (!validator.isLength(nameInput.value, { min: 5 })) {        
-        errorName.innerHTML = 'El nombre debe tener al menos 5 caracteres.';
-    } else {errorName.innerHTML = ""} 
 
-})
-// Validar el campo de Descripcion 
-document.getElementById('description').addEventListener('blur', function() {
-    if (validator.isEmpty(descriptionInput.value)) {
-        errorDescription.innerHTML = 'La descripción del producto es un campo obligatorio.';
-    }
-    else if (!validator.isLength(descriptionInput.value, { min: 20 })) {        
-        errorDescription.innerHTML = 'El nombre debe tener al menos 20 caracteres.';
-    }else {errorDescription.innerHTML = ""}
-})
-    // Validar el campo de Precio
-    if (validator.isEmpty(priceInput.value)) {        
-        errorPrice.innerHTML = 'El precio del producto es un campo obligatorio.';
-    }
-    else if (!validator.isNumeric(priceInput.value)) {        
-        errorPrice.innerHTML = 'El precio debe ser un valor numérico.';
-    }else {errorPrice.innerHTML = ""}
+document.getElementById('image').addEventListener('change', function(event) {
+    var errorElement = document.getElementById('error-image'); 
+    var imageInput = event.target; 
 
-    // Validar el campo de Descuento
-    if (validator.isEmpty(discountInput.value)) {
-        errorDiscount.innerHTML = 'Este campo es obligatorio.';
-    }
-    else if (!validator.isNumeric(discountInput.value)) {        
-        errorDiscount.innerHTML = 'El descuento debe ser numérico.';
-    }else {errorDiscount.innerHTML = ""}
+    errorElement.innerHTML = ''; 
 
-    // Verificar si se ha seleccionado una imagen
-    if (imageInput.files.length === 0) {
-    // Si no se ha seleccionado ninguna imagen, asigna una imagen por defecto
+    var allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif']; 
+
+    // Obtener la extensión del archivo seleccionado
+    var fileExtension = imageInput.files[0].name.split('.').pop().toLowerCase();
+
+    // Comprobar si la extensión está permitida
+    if (!allowedExtensions.includes('.' + fileExtension)) {
+        errorElement.innerHTML = 'Formato de imagen no válido. Por favor, selecciona una imagen con formato JPG, JPEG, PNG o GIF.';
+        imageInput.value = ''; 
+    }
+});
+
+
+var imageInput = document.getElementById('image');
+if (imageInput.files.length === 0) {
     var defaultImagePath = '/img/users/defaultProfile.jpg'; 
 
-    // Realizar una solicitud para cargar la imagen por defecto
+   
     fetch(defaultImagePath)
-        .then(response => response.blob()) // Convertir la respuesta en un blob (buffer)
+        .then(response => response.blob())
         .then(blob => {
-            // Crear un objeto File a partir del blob y asignarlo al campo de imagen de perfil
+          
             var defaultImage = new File([blob], 'default-image.jpg', { type: 'image/jpeg' });
             var defaultImageFileList = new DataTransfer();
             defaultImageFileList.items.add(defaultImage);
-            profileImageInput.files = defaultImageFileList.files;
+            imageInput.files = defaultImageFileList.files;
         })
         .catch(error => {
             console.error('Error al cargar la imagen por defecto:', error);
         });
-};
-});
+}

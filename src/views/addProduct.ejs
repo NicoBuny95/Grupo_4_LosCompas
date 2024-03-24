@@ -39,7 +39,7 @@
         <% } %>
         </div>
         <div class="form-group">          
-          <input name="description" placeholder="" 
+          <input name="description"  id="description"placeholder="" 
           class="<%= locals.errors && errors.name
                 ? 'is-invalid' 
                 : null 
@@ -54,7 +54,7 @@
         <% } %>
         </div>
         <div class="form-group">          
-          <input type="text" name="price" placeholder="" 
+          <input type="text" name="price" id="price" placeholder="" 
           class="<%= locals.errors && errors.name 
                 ? 'is-invalid' 
                 : null 
@@ -68,7 +68,7 @@
         <% } %>
         </div>
         <div class="form-group">          
-          <input type="text" name="discount" placeholder="" 
+          <input type="text" name="discount" id="discount" placeholder="" 
           class="<%= locals.errors && errors.name 
                 ? 'is-invalid' 
                 : null 
@@ -122,6 +122,6 @@
 
   <%- include('./partials/footer') %>  
   
-  <!-- <script src="/js/productoValidacion.js"></script> -->
+  <script src="/js/productoValidacion.js"></script> 
 </body>
 </html>

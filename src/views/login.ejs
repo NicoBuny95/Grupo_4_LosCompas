@@ -1,8 +1,8 @@
 <%- include('./partials/head')%>
 <body>
-  <%-include('./partials/header'); %>
+   <%-include('./partials/header'); %>
 
-   <% if (typeof success !== 'undefined') { %>
+   <!-- <% if (typeof success !== 'undefined') { %>
     <div class="alert alert-success" id="success-message" role="alert">
       <%= success %>
     </div>
@@ -12,7 +12,7 @@
     <div class="alert alert-danger" role="alert">
       <%= error %>
     </div>
-  <% } %>
+  <% } %>  -->
   <div class="container"> 
     
   <main>
@@ -67,12 +67,12 @@
   
   <script>
     window.onload = function() {
-        const successMessage = document.getElementById('success-message');
-        if (successMessage) {
-            setTimeout(function() {
-                successMessage.style.display = 'none';
-            }, 5000); // 5000 milisegundos = 5 segundos
-        }
+    //     const successMessage = document.getElementById('success-message');
+    //     if (successMessage) {
+    //         setTimeout(function() {
+    //             successMessage.style.display = 'none';
+    //         }, 5000); // 5000 milisegundos = 5 segundos
+    //     }
 
         const errorEmailMessage = document.getElementById('error-email-message');
         const emailnput = document.getElementById('email');

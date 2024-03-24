@@ -1,94 +1,77 @@
-document.getElementById('registration-form').addEventListener('change', function(event) {
-    var usernameInput = document.getElementById('username');
-    var firstNameInput = document.getElementById('firstName');
-    var lastNameInput = document.getElementById('lastName');
-    var emailInput = document.getElementById('email');
-    var passwordInput = document.getElementById('password');
-    var confirmPasswordInput = document.getElementById('confirm-password');
-    var profileImageInput = document.getElementById('profileImage');
-    var errorUsername = document.getElementById('error-username');
-    var errorFirstName = document.getElementById('error-firstName');
-    var errorLastName = document.getElementById('error-lastName');
-    var errorEmail = document.getElementById('error-email');
-    var errorPassword = document.getElementById('error-password');
-    var errorConfirmPassword = document.getElementById('error-confirm-password');
-    var errorProfileImage = document.getElementById('error-profileImage');
+document.getElementById('registration-form').addEventListener('input', function(event) {
+    var inputId = event.target.id; 
+    var inputElement = event.target;
+    var errorElement = document.getElementById('error-' + inputId);
 
-    // Reiniciar los mensajes de error
-    errorUsername.innerHTML = '';
-    errorFirstName.innerHTML = '';
-    errorLastName.innerHTML = '';
-    errorEmail.innerHTML = '';
-    errorPassword.innerHTML = '';
-    errorConfirmPassword.innerHTML = '';
-    errorProfileImage.innerHTML = '';
+    errorElement.innerHTML = '';
 
+    // Validar el campo según su ID
+    switch (inputId) {
+        case 'username':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'Este campo es obligatorio.';
+            }
+            break;
+        case 'firstName':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'Este campo es obligatorio.';
+            } else if (!validator.isLength(inputElement.value, { min: 2 })) {
+                errorElement.innerHTML = 'El nombre debe tener al menos 2 caracteres.';
+            }
+            break;
+        case 'lastName':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'Este campo es obligatorio.';
+            } else if (!validator.isLength(inputElement.value, { min: 2 })) {
+                errorElement.innerHTML = 'El apellido debe tener al menos 2 caracteres.';
+            }
+            break;
+        case 'email':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'Este campo es obligatorio.';
+            } else if (!validator.isEmail(inputElement.value)) {
+                errorElement.innerHTML = 'Introduce un correo electrónico válido.';
+            }
+            break;
+        case 'password':
+            if (validator.isEmpty(inputElement.value)) {
+                errorElement.innerHTML = 'Este campo es obligatorio.';
+            } else if (!validator.isLength(inputElement.value, { min: 8 })) {
+                errorElement.innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
+            } else if (!validator.matches(inputElement.value, /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.-])[A-Za-z\d@$!%*?&.-]{8,}$/)) {
+                errorElement.innerHTML = 'La contraseña debe tener letras mayúsculas, minúsculas, un número y un carácter especial.';
+            }
+            break;
+        case 'confirm-password':
+            var passwordInput = document.getElementById('password');
+            if (inputElement.value !== passwordInput.value) {
+                errorElement.innerHTML = 'Las contraseñas no coinciden.';
+            }
+            break;
+        default:
+            break;
+    }
+});
+document.getElementById('profileImage').addEventListener('change', function(event) {
 
+    var errorElement = document.getElementById('error-profileImage'); 
+    var allowedExtensions = ['.jpg', '.jpeg', '.png', '.gif'];
+    errorElement.innerHTML = '';
 
+    var fileExtension = profileImageInput.files[0].name.split('.').pop().toLowerCase();
 
-     // Validar Username
-     if (validator.isEmpty(usernameInput.value)) {
-        event.preventDefault();
-        errorUsername.innerHTML = 'Este campo es obligatorio.';
-       
+    if (!allowedExtensions.includes('.' + fileExtension)) {
+        errorElement.innerHTML = 'Formato de imagen no válido. Por favor, selecciona una imagen con formato JPG, JPEG, PNG o GIF.';
+        profileImageInput.value = ''; 
     }
-    // Validar el campo de nombre 
-    if (validator.isEmpty(firstNameInput.value)) {
-        event.preventDefault();
-        errorFirstName.innerHTML = 'Este campo es obligatorio.';
-    }
-    else if (!validator.isLength(firstNameInput.value, { min: 2 })) {
-        event.preventDefault();
-        errorFirstName.innerHTML = 'El nombre debe tener al menos 2 caracteres.';
-    }
+});
 
-    // Validar el campo de apellido
-    if (validator.isEmpty(lastNameInput.value)) {
-        event.preventDefault();
-        errorLastName.innerHTML = 'Este campo es obligatorio.';
-    }
-   else if (!validator.isLength(lastNameInput.value, { min: 2 })) {
-        event.preventDefault();
-        errorLastName.innerHTML = 'El apellido debe tener al menos 2 caracteres.';
-    }
-
-    // Validar el campo de correo electrónico
-    if (validator.isEmpty(emailInput.value)) {
-        event.preventDefault();
-        errorEmail.innerHTML = 'Este campo es obligatorio.';
-    }
-    else if (!validator.isEmail(emailInput.value)) {
-        event.preventDefault();
-        errorEmail.innerHTML = 'Introduce un correo electrónico válido.';
-    }
-
-    // Validar el campo de contraseña
-    if (validator.isEmpty(passwordInput.value)) {
-        event.preventDefault();
-        errorPassword.innerHTML = 'Este campo es obligatorio.';
-    }
-    else if (!validator.isLength(passwordInput.value, { min: 8 })) {
-        event.preventDefault();
-        errorPassword.innerHTML = 'La contraseña debe tener al menos 8 caracteres.';
-    } else if (!validator.matches(passwordInput.value, /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&.-])[A-Za-z\d@$!%*?&.-]{8,}$/)) {
-        event.preventDefault();
-        errorPassword.innerHTML = 'La contraseña debe tener letras mayúsculas, minúsculas, un número y un carácter especial.';
-    }
-
-    // Validar el campo de confirmar contraseña
-    if (passwordInput.value !== confirmPasswordInput.value) {
-        event.preventDefault();
-        errorConfirmPassword.innerHTML = 'Las contraseñas no coinciden.';
-    }
-
-  // Verificar si se ha seleccionado una imagen
+var profileImageInput = document.getElementById('profileImage');
 if (profileImageInput.files.length === 0) {
-    // Si no se ha seleccionado ninguna imagen, asigna una imagen por defecto
     var defaultImagePath = '/img/users/defaultProfile.jpg'; 
 
-    // Realizar una solicitud para cargar la imagen por defecto
     fetch(defaultImagePath)
-        .then(response => response.blob()) // Convertir la respuesta en un blob (buffer)
+        .then(response => response.blob()) 
         .then(blob => {
             // Crear un objeto File a partir del blob y asignarlo al campo de imagen de perfil
             var defaultImage = new File([blob], 'default-image.jpg', { type: 'image/jpeg' });
@@ -100,7 +83,3 @@ if (profileImageInput.files.length === 0) {
             console.error('Error al cargar la imagen por defecto:', error);
         });
 }
-
-
-   
-});

@@ -216,6 +216,10 @@ header {
     display: block;
   }
 
+  .user-info img {
+    display: none;
+  }
+
   .logo-buscador-usuario-carrito-D {
     display: flex;
     flex-direction: row;
@@ -301,11 +305,11 @@ header {
   }
 
   .usuario-carrito-D {
-    width: 100%;
+   
     display: flex;
     flex-direction: row;
     align-items: center;
-    gap: 5px;
+    gap: 35px;
    
   }
 
@@ -385,7 +389,7 @@ header {
   }
 
   .usuario-carrito-D {
-    justify-content: space-between;
+  
     align-items: center;
   }
 
@@ -404,26 +408,22 @@ header {
   }
   
   .user-info:hover {
-    color: #02aa29; /* Cambia el color del texto al hacer hover */
+   
     transform: scale(1.1); /* Aumenta el tamaño del elemento al hacer hover */
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Agrega una sombra alrededor del elemento */
     transition: all 0.3s ease; /* Agrega una transición suave a los cambios */
-    border-radius: 20px;
+    border-radius: 10px;
   }
 
-  .user-actions {
-    display: none;
-    
+  .user-content {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre el texto y la imagen */
 }
 
-
-
-.user-actions.show {
-    display: block;
- 
+.user-info img {
+  display: block;
 }
-
-
  /* .user-info img {
       width: 30%; /* Ajusta el tamaño de la imagen del perfil según sea necesario */
  /*     height: 65px;

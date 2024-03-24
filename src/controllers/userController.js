@@ -22,7 +22,6 @@ let userController = {
 
   login: async (req, res) => {
     try {
-      // Manejo de errores de validación
       const resultValidation = validationResult(req);
 
       // const errorMessages = errors.mapped()
@@ -78,14 +77,17 @@ let userController = {
           };
           res.cookie("remember_user", user[0].users_email, cookieOptions);
         }
+ 
+        //  res.render('/', {
+        //   title: "registrarme",
+        //   css: "/css/register.css"
+        //   //success: "¡Inicio de sesión exitoso!",
+        // });
 
-        return res.render("login", {
-          title: "Login",
-          css: "/css/login.css",
-          success: "¡Inicio de sesión exitoso!",
-        });
+        res.redirect('/');
+
       } else {
-        return res
+          res
           .status(401)
           .render("login", {
             title: "Login",
@@ -107,10 +109,9 @@ let userController = {
   },
 
   profileView: (req, res) => {
-    // Suponiendo que tienes acceso al objeto de usuario desde la sesión
+  
     const user = req.session.user;
 
-    // Renderizar la vista de perfil y pasar el objeto de usuario como contexto
     res.render("profile", {
       title: "Perfil de Usuario",
       css: "/css/profile.css",
@@ -142,26 +143,26 @@ let userController = {
 
   modifyUser: async (req, res) => {
     try {
-      // Obtener el ID del usuario que se va a modificar
+      
       const userId = req.params.id;
-      // Obtener los datos actualizados del usuario
+      
       const user = await db.User.findByPk(userId);
 
-      // Obtener los datos modificados del cuerpo de la solicitud
+     
       const { username, firstName, lastName, email } = req.body;
 
-      // Actualizar el usuario en la base de datos
+    
       const [updatedRows] = await db.User.update(
         {
           users_username: username,
           users_firstName: firstName,
           users_lastName: lastName,
           users_email: email,
-          // Otros campos que puedas necesitar actualizar
+        
         },
         {
           where: {
-            users_id: userId, // Condición para seleccionar el usuario a actualizar
+            users_id: userId, 
           },
         }
       );
@@ -170,7 +171,6 @@ let userController = {
         return res.status(404).send("Usuario no encontrado");
       }
 
-      // Redirigir o responder según sea necesario
       res.render("profile", {
         title: "Perfil de Usuario",
         css: "/css/profile.css",
@@ -193,7 +193,6 @@ let userController = {
   },
 
   saveUser: async (req, res) => {
-    // Manejo de errores de validación
     const resultValidation = validationResult(req);
     //   const errorMessages = errors.array()
     //   if (!errors.isEmpty()) {
@@ -239,16 +238,14 @@ let userController = {
       //fs.writeFileSync('data/users.json', JSON.stringify(users, null, 2));
       await db.User.create(user);
       const successMessage = "¡Usuario creado con éxito!"
-      //errorMessages.push({msg: 'USUARIO CARGADO EXITOSAMENTE'})
 
       return res.render("register", {
         title: "Registrarme",
         css: "/css/registrar.css",
         errorMessages: ["ASD"],
-        success: successMessage,
+       success: successMessage,
       });
     } catch (err) {
-      //res.status(500).json({ error: "No se pudo crear el usuario" });
       res.send(err);
     }
   },

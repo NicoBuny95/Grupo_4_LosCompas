@@ -40,11 +40,10 @@
 
 .form-group input{
   width: 100% ;
-  padding: 10px;
-  padding-left: 35px;
-  padding-top: 25px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
   border: 1px solid var(--color-gris);
+  
 }
 
 .form-select{
@@ -86,20 +85,19 @@
 
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label {
-    transform: translateY(-150%);
-    font-size: 12px;
-    color: var(--color-gris);
+  transform: translateY(-40%);
+  font-size: 12px;
+  color: var(--color-gris);
 }
 
 .form-group label {
-    position: absolute;
-    left: 35px;
-    top: 60%;
-    transform: translateY(-50%);
-    transition: all 0.3s ease;
-
-    font-size: small;
-  
+  position: absolute;
+  left: 20px; 
+  top: 10px; 
+  transition: all 0.3s ease;
+  font-size: small;
+  pointer-events: none; 
+  color: var(--color-gris);
 }
 
 .input-group input::placeholder {

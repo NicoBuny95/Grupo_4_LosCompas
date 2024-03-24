@@ -275,11 +275,10 @@ let productController = {
   
 removeFromCart: (req, res) => {
   try {
-    const productId = req.body.productId;
+    const productId = req.params.id;
     const cart = req.session.cart;
-
-    // Filtrar el carrito para eliminar el producto con el ID especificado
-    req.session.cart = cart.filter(item => item.products_id !== productId);
+ 
+    req.session.cart = cart.filter(item => item.products_id == productId);
 
     // Respuesta exitosa
     res.render("carrito", { title: "Mi Carrito", css: "/css/carrito.css", cart: req.session.cart, user: req.session.user });
