@@ -7,13 +7,80 @@ const { validationResult } = require('express-validator');
 //async function marcas () {return  mar = await db.Mark.findAll()};
 
 let productController = {
+
+  getDashboardTotals: async (req, res) => {
+    try {
+       
+        const totalProducts = await db.Product.count();
+        const totalUsers = await db.User.count();
+        const totalCategories = await db.Category.count();
+
+        res.json([
+            { title: 'Total de productos', quantity: totalProducts },
+            { title: 'Total de usuarios', quantity: totalUsers },
+            { title: 'Total de categorías', quantity: totalCategories }
+        ]);
+    } catch (error) {
+        console.error('Error al obtener los totales del dashboard:', error);
+        res.status(500).json({ error: 'Error al obtener los totales del dashboard' });
+    }
+},
+
+
+CategoriesWithTotalProducts: async (req, res) => {
+  try {
+    const categories = await db.Category.findAll({
+      include: [{
+        model: db.Product,
+        attributes: ['products_id'],
+        as: 'product' // Así se llama la asociación en el modelo Category
+      }]
+    });
+
+    const categoriesWithTotalProducts = categories.map(category => ({
+      id: category.categories_id, // Usamos categories_id para el ID de la categoría
+      name: category.categories_description, // Usamos categories_description para el nombre de la categoría
+      totalProducts: category.product.length // Usamos product para acceder a la asociación definida en el modelo Category
+    }));
+
+    res.json(categoriesWithTotalProducts);
+  } catch (error) {
+    res.status(500).json({ error: "Error al obtener las categorías con el total de productos" });
+  }
+},
+
+LastCreatedProduct: async (req, res) => {
+  try {
+      const lastProduct = await db.Product.findOne({
+          order: [['products_created_at', 'DESC']]
+      });
+
+      res.json(lastProduct);
+  } catch (error) {
+      res.status(500).json({ error: "Error al obtener el último producto creado" });
+  }
+},
+
+allProductsJson: (req, res) => {
+  db.Product.findAll()
+    .then(productsData => {
+      res.json(productsData); // Cambiado a res.json() para enviar datos JSON
+    })
+    .catch(error => {
+      console.error('Error al obtener todos los productos:', error);
+      res.status(500).json({ error: 'Error al obtener todos los productos' });
+    });
+  },
+
+
   allProducts: (req, res) => {
     //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
     //res.render({user: req.session.user},productsData)
     db.Product.findAll()
     .then(productsData => {
 
-      res.render({user: req.session.user},productsData)
+      res.render({user: req.session.user})
+      res.json(productsData);
     })
 
   },
@@ -187,6 +254,35 @@ let productController = {
     }
   },
 
+
+  editProductJson: async (req, res) => {
+    try {
+        const { name, marca, description, price, category, discount } = req.body;
+
+        let editProduct = {
+            products_name: name,
+            marks_id: marca,
+            products_description: description,
+            products_price: price,
+            categories_id: category,
+            products_discount: discount,
+        }
+
+        await db.Product.update(editProduct, {
+            where: {
+                products_id: req.params.id
+            }
+        });
+
+        const updatedProduct = await db.Product.findByPk(req.params.id);
+
+        res.status(200).json({ success: true, product: updatedProduct });
+    } catch (err) {
+        res.status(500).json({ success: false, error: "No se pudo actualizar el producto" });
+    }
+}
+,
+
   deleteProduct: async(req, res) => {    
     try {
       
@@ -203,6 +299,20 @@ let productController = {
       res.status(500).json({ error: "No se pudo eliminar el producto" });
     }
   },
+
+
+  deleteProductJson: async(req, res) => {    
+    try {
+        await db.Product.destroy({
+            where: {
+                products_id: req.params.id
+            }
+        });
+        res.status(200).json({ message: "Producto eliminado correctamente" });
+    } catch (err) {
+        res.status(500).json({ error: "No se pudo eliminar el producto" });
+    }
+},
 
   carrito: (req, res) => {
     if (req.session.cart && req.session.cart.length > 0) {

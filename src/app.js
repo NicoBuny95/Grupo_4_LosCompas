@@ -12,7 +12,8 @@ const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const fs = require('fs');
 const flash = require('connect-flash');
-
+const cors = require('cors');
+app.use(cors());
 // Configurar cookie parser
 app.use(cookieParser());
 
@@ -80,7 +81,6 @@ app.use( async(req, res, next) => {
   next();
 });
 
-// Configurar carpeta de archivos estáticos
 app.use(express.static("public"));
 
 // Configurar método de override
