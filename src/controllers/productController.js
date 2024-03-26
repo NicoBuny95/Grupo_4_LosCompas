@@ -2,7 +2,6 @@
 const db = require('../database/models');
 const { log, Console } = require("console");
 const { validationResult } = require('express-validator');
-
 //async function categorias() {return cat = await db.Category.findAll()};
 //async function marcas () {return  mar = await db.Mark.findAll()};
 
@@ -38,9 +37,9 @@ CategoriesWithTotalProducts: async (req, res) => {
     });
 
     const categoriesWithTotalProducts = categories.map(category => ({
-      id: category.categories_id, // Usamos categories_id para el ID de la categoría
-      name: category.categories_description, // Usamos categories_description para el nombre de la categoría
-      totalProducts: category.product.length // Usamos product para acceder a la asociación definida en el modelo Category
+      id: category.categories_id, 
+      name: category.categories_description, 
+      totalProducts: category.product.length 
     }));
 
     res.json(categoriesWithTotalProducts);
@@ -64,7 +63,7 @@ LastCreatedProduct: async (req, res) => {
 allProductsJson: (req, res) => {
   db.Product.findAll()
     .then(productsData => {
-      res.json(productsData); // Cambiado a res.json() para enviar datos JSON
+      res.json(productsData); 
     })
     .catch(error => {
       console.error('Error al obtener todos los productos:', error);
@@ -121,6 +120,7 @@ allProductsJson: (req, res) => {
       res.status(500).json({ error: "No se pudo obtener el producto" , user: req.session.user  });
     }
   },
+
   addView: (req, res) => {
     //db.Mark.findAll()
     //.then(marcas => {
@@ -149,8 +149,6 @@ allProductsJson: (req, res) => {
         oldData: req.body
        });
     }
-
-    //Se guarda el nuevo producto en la base de datos
     try {
       //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
       const { name, marca, description, price, category, discount } = req.body;
@@ -226,7 +224,6 @@ allProductsJson: (req, res) => {
           products_discount: discount,    
         }
 
-    
       //res.render (req.file)
       await db.Product.update(editProduct,{
         where:{
@@ -280,12 +277,10 @@ allProductsJson: (req, res) => {
     } catch (err) {
         res.status(500).json({ success: false, error: "No se pudo actualizar el producto" });
     }
-}
-,
+},
 
   deleteProduct: async(req, res) => {    
     try {
-      
       //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
       //const updatedProducts = productsData.filter((product) => product.id != productId);
       //fs.writeFileSync("data/products.json", JSON.stringify(updatedProducts, null, 2));
@@ -379,10 +374,8 @@ allProductsJson: (req, res) => {
     } catch (err) {
       res.status(500).json({ error: "No se pudo agregar el producto al carrito" });
     }
-  }
-,  
+  },  
 
-  
 removeFromCart: (req, res) => {
   try {
     const productId = req.params.id;
@@ -403,14 +396,11 @@ clearCart: (req, res) => {
     // Limpiar todo el carrito
     req.session.cart = [];
 
-    // Respuesta exitosa
     res.status(200).json({ message: 'Carrito limpiado correctamente' });
   } catch (err) {
-    // Manejar errores
     res.status(500).json({ error: 'Error al limpiar el carrito' });
   }
 }
-
 };
 
 module.exports = productController;

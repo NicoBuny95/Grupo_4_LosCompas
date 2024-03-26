@@ -1,14 +1,33 @@
 import React from 'react';
-import imagenFondo from '../assets/images/404.png';
-
+import  '../assets/css/Error404.css';
 function NotFound(){
-    return(
-        <div className="text-center">
-            <h1>404 Not Found</h1>
-            <img className="img-fluid px-3 px-sm-4 mt-3 mb-4" style={{width: 30 +'rem'}} src={imagenFondo} alt=" Star Wars - Mandalorian "/>
-        </div>
+    return (
+  
         
-    )
+
+        <div class="container">
+        <section class="page_404">
+          <div class="container">
+            <div class="row">
+              <div class="col-sm-12 ">
+                <div class="col-sm-10 col-sm-offset-1  text-center">
+                  <div class="four_zero_four_bg">
+                    <h1 class="text-center">404</h1>
+                  </div>
+                  <div class="contant_box_404">
+                    <h3 class="h2">Parece que estás perdido</h3>
+                    <p>"La pagina no existe ".</p>
+                    <a href="/" class="link_404">
+                      Volver al inicio
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+</div>
+    );
 }
 
 

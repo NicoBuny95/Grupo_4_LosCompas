@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-        *{font-family: 'Roboto', sans-serif; margin: 0;}
+
         body{ background: rgb(245, 247, 238);}
 
         .profile-container{
@@ -12,10 +11,10 @@
             display: flex;
             flex-direction: column;
             align-items: center;            
-            width: 300px;
+            width: 500px;
             margin: 0 auto;
-            background:linear-gradient(rgb(245 215 189) 30%, rgb(255, 255, 255) 30%);
-            box-shadow: 0 0 25px darkred ;
+            background:linear-gradient(rgb(241, 213, 134) 30%, rgb(255, 255, 255) 30%);
+            box-shadow: 0 0 25px rgb(233, 189, 67) ;
             border-radius: 10px;
             padding: 50px 16px;
         }
@@ -33,7 +32,7 @@
             box-shadow: 0 5px 20px rgba(0,0,0,0.4);
         }
         .card_body{ text-align: center; padding: 20px; }
-        .card_body h2{ color: peru; margin-bottom: 5px;}
+        .card_body h2{ color: rgb(18, 236, 55); margin-bottom: 5px;}
         .card_body p{color: gray; margin-top: 5px;}
         .card_redes{
             width: 100%;

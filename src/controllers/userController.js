@@ -111,8 +111,6 @@ let userController = {
             });
         }
 
-       
-
     } catch (error) {
         console.error("Error en el inicio de sesión:", error);
         return res.status(500).render("login", {
@@ -122,7 +120,6 @@ let userController = {
         });
     }
 },
-
 
   profileView: (req, res) => {
   
@@ -161,13 +158,8 @@ let userController = {
     try {
       
       const userId = req.params.id;
-      
       const user = await db.User.findByPk(userId);
-
-     
       const { username, firstName, lastName, email } = req.body;
-
-    
       const [updatedRows] = await db.User.update(
         {
           users_username: username,
@@ -197,6 +189,7 @@ let userController = {
       res.status(500).send("No se pudo modificar el usuario");
     }
   },
+
   registerView: (req, res) => {
     const errorMessages = [];
     res.render("register", {
@@ -227,12 +220,9 @@ let userController = {
     }
 
     try {
-      // Leer el archivo JSON de usuarios actual
       //const users = JSON.parse(fs.readFileSync('data/users.json'));
       const { username, firstName, lastName, email, password } = req.body;
-
       const hashedPassword = bcrypt.hashSync(password, 10);
-
       const user = {
         //id: users.length + 1,
         users_username: username,
@@ -246,9 +236,7 @@ let userController = {
         //profileImage:req.file.filename
       };
 
-
       //users.push(user);
-      // Guardar el array actualizado en el archivo JSON de usuarios
       //fs.writeFileSync('data/users.json', JSON.stringify(users, null, 2));
       await db.User.create(user);
       const successMessage = "¡Usuario creado con éxito!"
