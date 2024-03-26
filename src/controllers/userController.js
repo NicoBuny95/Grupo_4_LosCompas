@@ -7,6 +7,39 @@ const { validationResult } = require("express-validator");
 const { error, log } = require("console");
 
 let userController = {
+
+  getAllUsers: async (req, res) => {
+    try {
+      const users = await db.User.findAll();
+      res.json(users);
+    } catch (error) {
+      console.error('Error al obtener todos los usuarios:', error);
+      res.status(500).json({ error: 'Error al obtener todos los usuarios' });
+    }
+  },
+  addUser: async (req, res) => {
+   
+
+      const { username, firstName, lastName, email, password } = req.body;
+
+      const hashedPassword = bcrypt.hashSync(password, 10);
+
+      const newUser = {
+        users_username: username,
+        users_firstName: firstName,
+        users_lastName: lastName,
+        users_email: email,
+        users_password: hashedPassword,
+        user_types_id: 3,
+        users_active: 1,
+      };
+
+      await db.User.create(newUser);
+      res.status(201).json({ message: 'Usuario creado exitosamente' });
+ 
+  },
+
+
   loginView: (req, res) => {
     res.render("login", {
       title: "Login",
@@ -14,99 +47,82 @@ let userController = {
       user: req.session.user,
     });
   },
-  /*loging: (req, res) => {
-        let infoLog = req.body;
-
-        res.redirect('/');
-    },*/
 
   login: async (req, res) => {
     try {
-      const resultValidation = validationResult(req);
+        const resultValidation = validationResult(req);
 
-      // const errorMessages = errors.mapped()
-      // if (!errors.isEmpty()) {
-      //     console.log(errors)
-      //     console.log(errorMessages)
-      //     return res.render('login', { title: 'Login', css: '/css/login.css', errorMessages: errorMessages });
-      // }
+        if (resultValidation.errors.length > 0) {
+            return res.render("login", {
+                errors: resultValidation.mapped(),
+                oldData: req.body,
+                title: "login",
+                css: "/css/login.css",
+            });
+        }
 
-      if (resultValidation.errors.length > 0) {
-        //console.log("Mapped: ", resultValidation.mapped())
-        return res.render("login", {
-          errors: resultValidation.mapped(),
-          oldData: req.body,
-          title: "login",
-          css: "/css/login.css",
-        });
-      }
+        const { email, password, remember } = req.body;
 
-      const { email, password, remember } = req.body;
-
-      const user = await db.User.findAll({
-        where: {
-          users_email: { [db.Sequelize.Op.like]: email },
-        },
+        const user = await db.User.findOne({
+          where: {
+              users_email: { [db.Sequelize.Op.like]: email },
+              users_active: true,
+          }
       });
 
-      // Verificar si se encontró un usuario con el correo electrónico proporcionado
-      if (user.length === 0) {
-        return res
-          .status(401)
-          .render("login", {
-            title: "Login",
-            css: "/css/login.css",
-            error: "Correo electrónico o contraseña incorrectos.",
-          });
-      }
-
-      const passwordMatch = await bcrypt.compareSync(
-        password,
-        user[0].users_password
-      );
-
-      if (passwordMatch) {
-        // Guardar el usuario en la sesión
-        req.session.user = user[0];
-
-        // Si el usuario marcó la opción "recordarme"
-        if (remember) {
-          const cookieOptions = {
-            maxAge: 30 * 24 * 60 * 60 * 1000, // La cookie expira en 30 días
-            httpOnly: true, // La cookie solo es accesible a través de HTTP y no a través de JavaScript
-          };
-          res.cookie("remember_user", user[0].users_email, cookieOptions);
+ console.log(user);
+        // Verificar si se encontró un usuario con el correo electrónico proporcionado
+        if (!user) {
+            return res.status(401).render("login", {
+                title: "Login",
+                css: "/css/login.css",
+                error: "Correo electrónico o contraseña incorrectos.",
+            });
         }
- 
-        //  res.render('/', {
-        //   title: "registrarme",
-        //   css: "/css/register.css"
-        //   //success: "¡Inicio de sesión exitoso!",
-        // });
 
-        res.redirect('/');
+        const passwordMatch = await bcrypt.compareSync(
+            password,
+            user.users_password
+        );
 
-      } else {
-          res
-          .status(401)
-          .render("login", {
+        if (passwordMatch) {
+            req.session.user = user;
+
+            // Si el usuario marcó la opción "recordarme"
+            if (remember) {
+                const cookieOptions = {
+                    maxAge: 30 * 24 * 60 * 60 * 1000, // La cookie expira en 30 días
+                    httpOnly: true, // La cookie solo es accesible a través de HTTP y no a través de JavaScript
+                };
+                res.cookie("remember_user", user.users_email, cookieOptions);
+            }
+
+            res.render('profile', { 
+            title: "perfil",
+            css: "/css/profile.css",
+          
+            user: req.session.user });
+
+        } else {
+            res.status(401).render("login", {
+                title: "Login",
+                css: "/css/login.css",
+                error: "Correo electrónico o contraseña incorrectos.",
+            });
+        }
+
+       
+
+    } catch (error) {
+        console.error("Error en el inicio de sesión:", error);
+        return res.status(500).render("login", {
             title: "Login",
             css: "/css/login.css",
-            error: "Correo electrónico o contraseña incorrectos.",
-          });
-      }
-    } catch (error) {
-      console.error("Error en el inicio de sesión:", error);
-      return res
-        .status(500)
-        .render("login", {
-          title: "Login",
-          css: "/css/login.css",
-          error:
-            "Se produjo un error durante el inicio de sesión. Por favor, inténtalo de nuevo más tarde.",
+            error: "Se produjo un error durante el inicio de sesión. Por favor, inténtalo de nuevo más tarde.",
         });
     }
-  },
+},
+
 
   profileView: (req, res) => {
   
@@ -215,10 +231,8 @@ let userController = {
       //const users = JSON.parse(fs.readFileSync('data/users.json'));
       const { username, firstName, lastName, email, password } = req.body;
 
-      // Encriptar la contraseña antes de almacenarla
       const hashedPassword = bcrypt.hashSync(password, 10);
 
-      // Crear un objeto de usuario con los datos proporcionados
       const user = {
         //id: users.length + 1,
         users_username: username,
@@ -232,7 +246,7 @@ let userController = {
         //profileImage:req.file.filename
       };
 
-      // Agregar el nuevo usuario al array de usuarios
+
       //users.push(user);
       // Guardar el array actualizado en el archivo JSON de usuarios
       //fs.writeFileSync('data/users.json', JSON.stringify(users, null, 2));
@@ -250,8 +264,54 @@ let userController = {
     }
   },
 
+
+  editUser: async (req, res) => {
+    try {
+      const userId = req.params.id;
+      const { username, firstName, lastName, email } = req.body;
+
+      const [updatedRows] = await db.User.update(
+        {
+          users_username: username,
+          users_firstName: firstName,
+          users_lastName: lastName,
+          users_email: email,
+        },
+        { where: { users_id: userId } }
+      );
+
+      if (updatedRows === 0) {
+        return res.status(404).json({ error: 'Usuario no encontrado' });
+      }
+
+      res.status(200).json({ message: 'Usuario actualizado exitosamente' });
+    } catch (error) {
+      console.error('Error al modificar usuario:', error);
+      res.status(500).json({ error: 'Error al modificar usuario' });
+    }
+  },
+
+  deleteUser: async (req, res) => {
+    try {
+      const userId = req.params.id;
+  
+      const updatedRows = await db.User.update(
+        { users_active: false },
+        { where: { users_id: userId } }
+      );
+  
+      if (updatedRows[0] === 0) {
+        return res.status(404).json({ error: 'Usuario no encontrado' });
+      }
+  
+      res.status(200).json({ message: 'Usuario marcado como inactivo exitosamente' });
+    } catch (error) {
+      console.error('Error al marcar usuario como inactivo:', error);
+      res.status(500).json({ error: 'Error al marcar usuario como inactivo' });
+    }
+  },
+
   logout: (req, res) => {
-    // Eliminar el usuario de la sesión
     req.session.destroy();
 
     res.clearCookie("remember_user");

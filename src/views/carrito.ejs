@@ -15,7 +15,7 @@
           </thead>
           <tbody>
               <% 
-              let total = 0; // Inicializamos la variable total
+              let total = 0; 
               const uniqueProductIds = new Set();
               cart.forEach(product => {
                   if (!uniqueProductIds.has(product.products_id)) {
@@ -44,7 +44,7 @@
               %>
           </tbody>
       </table>
-      <p id="total">Total: $<span id="total-amount">0.00</span></p> 
+      <p id="total">Total: $<span id="total-amount"><%= total %></span></p> 
     </div>
   <% } else { %>
       <p>No hay productos en el carrito.</p>

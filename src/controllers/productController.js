@@ -366,7 +366,7 @@ allProductsJson: (req, res) => {
         return res.redirect('/carrito');
       }
   
-      // El producto no está en el carrito, agregarlo
+
       const product = await db.Product.findByPk(productId);
       if (!product) {
         return res.status(404).send("Producto no encontrado");

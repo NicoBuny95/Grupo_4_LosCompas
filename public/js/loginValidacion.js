@@ -1,6 +1,6 @@
 window.addEventListener('load', function() {
     if (typeof validator !== 'undefined') {
-        // Capturas de elementos input
+
         var emailInput = document.getElementById('email');
         var passwordInput = document.getElementById('password');
         
@@ -39,7 +39,7 @@ window.addEventListener('load', function() {
         emailInput.addEventListener('input', validateEmail);
         passwordInput.addEventListener('input', validatePassword);
 
-        // Manejar la validación en el envío del formulario
+   
         document.getElementById('login-form').addEventListener('submit', function(event) {
             if (!validateForm()) {
                 event.preventDefault();

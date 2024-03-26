@@ -8,8 +8,8 @@ const requireAuth = (req, res, next) => {
     if (req.session.user) {
       next();
     } else {
-        // res.render('login', { title: 'Login', css: '/css/login.css'});
-        res.status(404).render('Error404');
+        res.render('login', { title: 'Login', css: '/css/login.css'});
+        //res.status(404).render('Error404');
     }
   };
 router.get('/allProducts', productController.allProducts);

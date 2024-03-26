@@ -12,7 +12,7 @@ const ProductTable = () => {
   const [newProductName, setNewProductName] = useState('');
   const [newProductPrice, setNewProductPrice] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
-  const [productsPerPage] = useState(5); // Número de productos por página
+  const [productsPerPage] = useState(5); 
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
@@ -165,7 +165,7 @@ const ProductTable = () => {
               <td>{product.products_price}</td>
               <td>
                 <button className="btn btn-primary" onClick={() => handleEdit(product)}>Editar</button>
-                <button className="btn btn-danger" onClick={() => handleDelete(product.products_id)}>Eliminar</button>
+                <button className="btn btn-danger" onClick={() => handleDelete(product.products_id)}>Dar Baja</button>
               </td>
             </tr>
           ))}
