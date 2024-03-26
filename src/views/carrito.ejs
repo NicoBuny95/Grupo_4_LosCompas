@@ -1,51 +1,57 @@
 <%- include('./partials/head') %>
 <body>
   <%- include('./partials/header') %>
-  <main>
-    <div class="container">
-      <h1>Mi Carrito</h1>
-      <div class="product-card">
-        <div class="asd">      
-        <div class="close-div">
-        <button class="close-button">X</button>
-        <a href="/product/productDetail/1">
-        </div>
-          <div class="product-image">
-            <img src="/img/products/home-aceite.webp" alt="product-image" height="200px" />
-          </div>
-        </a>
-        <h5 class="product-title">Aceite Natura</h5>
-      </div>
-          <div class="product-details">
-            
-            <div class="cont1">
-              <div class="product-quantity">
-                <button class="decrease-quantity-button">-</button>
-                <span class="quantity">1</span>
-                <button class="increase-quantity-button">+</button>
-              </div>
-              <div class="product-actions">
-                <span class="product-price">$599</span>
-              </div>
-            </div>
-          </div>
-        
-      </div>
-      <div class="cart">
-        <h2>Resumen del Carrito</h2>
-        <ul class="cart-items">
-          <li>
-            <span class="cart-quantity">Cantidad: 1</span>
-          </li>
-          
-        </ul>
-        <div class="cart-total">
-          <p>Total: <span id="cart-total-price">$0</span></p>
-        </div>
-        <button class="checkout-button">Realizar Pago</button>
-      </div>
+  <div class="container">
+  <h1>Carrito de compras</h1>
+  <% if (cart && cart.length > 0) { %>
+      <table id="cart-table">
+          <thead>
+              <tr>
+                <th>Imagen</th>
+                  <th>Producto</th>
+                  <th>Precio</th>
+                  <th>Cantidad</th>
+              </tr>
+          </thead>
+          <tbody>
+              <% 
+              let total = 0; 
+              const uniqueProductIds = new Set();
+              cart.forEach(product => {
+                  if (!uniqueProductIds.has(product.products_id)) {
+                      %>
+                      <tr>
+                        <td><img class="product-image" src="/img/products/<%= product.products_image %>"></td>
+                          <td><%= product.products_name %></td>
+                          <td class="precio-producto"><%= product.products_price %></td>
+                          <td>
+                              <button class="restar">-</button>
+                              <p class="cantidad-productos">1</p>
+                              <button class="sumar">+</button>
+                          </td>
+                          <td> 
+                            <form action="/product/removeCarrito/<%= product.products_id %>?_method=DELETE" method="POST">
+                            <button type="submit" class="eliminar">
+                         X
+                            </button>
+                          </form></td>
+                      </tr>
+                      <%
+                      uniqueProductIds.add(product.products_id);
+                  }
+                  total += parseFloat(product.products_price); 
+              });
+              %>
+          </tbody>
+      </table>
+      <p id="total">Total: $<span id="total-amount"><%= total %></span></p> 
     </div>
-  </main>
-  <%- include('./partials/footer') %>  
+  <% } else { %>
+      <p>No hay productos en el carrito.</p>
+  <% } %>
+  <a href="/">Seguir comprando</a>
+  
+  <%- include('./partials/footer') %>
+
 </body>
 </html>

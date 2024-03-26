@@ -1,10 +1,11 @@
+
 <header>
     <div class="header-mobile">
         <nav class="logo-buscador-usuario-carrito">
             <div>
                 <a href="/product/carrito" class="carrito">
                     <i id="iconoCarrito" class="fa-solid fa-cart-shopping"></i>
-                    <p>Carrito</p>
+                    <p></p>
                 </a>
             </div> 
             <a id="logo-header-link" href="/">
@@ -54,23 +55,28 @@
                     </form>
                 </div>
                 <div class="usuario-carrito-D">
-                    <a class="carrito-D" href="/product/carrito"><p>Carrito </p><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="carrito-D" href="/product/carrito"><p> </p><i class="fa-solid fa-cart-shopping"></i></a>
                     <% if (user) { %>
-                        <div class="user-info">
-                           
-                            <p><%= user.users_firstName + " " +user.users_lastName  %></p> 
-                            <img src="/img/users/<%= user.users_image %>" alt="perfil">
-                        </div>
-                        <div class="user-actions">
-                            <ul class="user-options">
-                                <li><a href="/user/logout">Cerrar Sesión</a></li>
-                                <li><a href="/user/profile">Ver Perfil</a></li>
+                        <div class="user-info dropdown">
+                            <a href="#" class="dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <div class="user-content">
+                                    <p><%= user.users_firstName + " " + user.users_lastName %></p>  
+                                    <img src="/img/users/<%= user.users_image %>" alt="perfil"> 
+                                </div>
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="userDropdown">
+                                <li><a class="dropdown-item" href="/user/logout">Cerrar Sesión</a></li>
+                                <li><a class="dropdown-item" href="/user/profile">Ver Perfil</a></li>
+                                <% if (user.user_types_id === 1) { %>
+                                    <li><a class="dropdown-item" href="http://localhost:3000/">Panel Administrador</a></li>
+                                <% } %>
                             </ul>
                         </div>
                     <% } else { %>
-                        <a class="usuario-D" href="/user/login"><p>Iniciar Sesion </p><i class="fa-solid fa-user"></i></a>
+                        <a class="usuario-D" href="/user/login"><p> </p><i class="fa-solid fa-user"></i></a>
                     <% } %>
-                   
+                    
+                    
                     
                 </div>
             </div>  

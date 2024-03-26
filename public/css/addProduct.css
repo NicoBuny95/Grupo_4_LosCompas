@@ -1,12 +1,28 @@
+:root {
+  --color-beige: #E9D186;
+  --color-verde: #42A64A;
+  --color-verde-hover: #63C86C;
+  --color-negro: #0B090C;
+  --color-rojo: #D7162B;
+  --color-rojo-oscuro: #722924;
+  --color-verde-oscuro: #176332;
+  --color-gris: #7C7484;
+  --color-gris-claro: #e4e4e4;
+}
 
 .container-form{
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 20px 10px;
-  
+  margin: 20px 10px;  
 }
+
+.registration-form h1 {
+  text-align: center;
+  color: var(--color-negro);
+}
+
 .registration-form {
   width: 90%;
   max-width: 600px; 
@@ -14,10 +30,6 @@
   border-radius: 10px;
   background-color: var(--color-beige);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
-}
-.registration-form h1 {
-  text-align: center;
-  color: var(--color-negro);
 }
 
 .form-group {
@@ -27,25 +39,34 @@
 }
 
 .form-group input{
-  padding-left: 30px; 
   width: 100% ;
-  padding: 10px;
-  padding-left: 35px;
-  padding-top: 25px;
-  border-radius: 5px;
+  padding: 20px;
+  border-radius: 10px;
   border: 1px solid var(--color-gris);
+  
 }
 
-.form-select, .form-image{
+.form-select{
   display: flex;
-  flex-direction: column;
+  flex-direction:column;
+  width: 50%;
+  margin-bottom: 20px;
+  }
+
+.form-image{
+  display: flex;
+  flex-direction:column;
   padding: 15px;
+  align-items: center;
 }
 
 .form-select div{
   padding: 7px ;
 }
 
+.product-price{
+  color: var(--color-verde)
+}
 
 .form-button {
   width: 48%;
@@ -64,22 +85,34 @@
 
 .form-group input:focus + label,
 .form-group input:not(:placeholder-shown) + label {
-    transform: translateY(-150%);
-    font-size: 12px;
-    color: var(--color-gris);
+  transform: translateY(-40%);
+  font-size: 12px;
+  color: var(--color-gris);
 }
 
 .form-group label {
-    position: absolute;
-    left: 35px;
-    top: 60%;
-    transform: translateY(-50%);
-    transition: all 0.3s ease;
-
-    font-size: small;
-  
+  position: absolute;
+  left: 20px; 
+  top: 10px; 
+  transition: all 0.3s ease;
+  font-size: small;
+  pointer-events: none; 
+  color: var(--color-gris);
 }
 
 .input-group input::placeholder {
   color: transparent; /* Hace que el placeholder sea transparente */
+}
+
+.error-message {
+  color: red;
+  font-size: 0.8em;
+  margin-top: 5px;
+}
+.is-invalid {
+  background-color: rgb(238, 184, 184);
+}
+.error-msg {
+  color: rgb(159, 22, 45);
+  font-size: 0.8em;
 }

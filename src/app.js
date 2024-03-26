@@ -11,6 +11,9 @@ const mainRoutes = require("./routes/mainRoutes");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
 const fs = require('fs');
+const flash = require('connect-flash');
+const cors = require('cors');
+app.use(cors());
 // Configurar cookie parser
 app.use(cookieParser());
 
@@ -20,6 +23,15 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(flash());
+
+// Middleware para pasar mensajes flash a todas las vistas
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+});
 
 const db = require('../src/database/models')
 
@@ -64,11 +76,11 @@ app.use( async(req, res, next) => {
   //res.locals.categories = [...new Set(res.locals.productsData.map((product) => product.category))];
   //res.locals.productsData = await db.Product.findAll();
   res.locals.categories = await db.Category.findAll();
+  res.locals.marks = await db.Mark.findAll();
   res.locals.variableTres = "Valor 3";
   next();
 });
 
-// Configurar carpeta de archivos estáticos
 app.use(express.static("public"));
 
 // Configurar método de override

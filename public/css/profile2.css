@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+        *{font-family: 'Roboto', sans-serif; margin: 0;}
+        body{ background: rgb(245, 247, 238);}
+
+        /*form{
+            height: 100vh;
+            display: grid;
+            justify-content: center;
+            place-items: center;            
+        }*/
+        h1{
+            display: flex;
+            justify-content: center;
+        }
+
+        form{
+            display: flex;
+            flex-direction: column;
+            align-items: center;            
+            width: 300px;
+            margin: 0 auto;
+            background:linear-gradient(rgb(245 215 189) 30%, rgb(255, 255, 255) 30%);
+            box-shadow: 0 0 25px darkred ;
+            border-radius: 10px;
+            padding: 50px 16px 50px;
+            margin-bottom: 100px;
+        }
+        .img-container{
+            position: relative;
+            height: 150px;
+            width: 150px;
+        }
+        .profile-image{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgb(250, 238, 227);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+        .card-body{ padding: 20px; display: flex; flex-wrap: wrap;
+        
+        }
+        label { color: peru; margin-bottom: 5px;}
+        input {color: gray; margin-top: 5px;}
+        .card_redes{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .card_redes div{
+            padding: 10px;
+            text-align: center;
+            background:papayawhip;
+            border-radius: 6px;
+            width: 100%;
+            margin: 10px;
+        }
+        .card_redes div p{
+            font-size: 20px;
+            margin: 0;
+        }
+        .card_redes div a{
+            text-decoration: none;
+            color: peru;
+        }
+
+        button{
+            padding: 8px 20px;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            background: linear-gradient(to left,rgb(245 215 189) 0%,rgb(237, 166, 104) 100%);
+            transition: all 0.5s ease;
+        }
+        button:hover{
+            padding: 8px 30px;
+            background: linear-gradient(to left,rgb(255, 161, 79) 0%,rgb(237, 166, 104) 100%);
+        }
+        /* ANIMACIONES CSS */
+        @keyframes _in {
+            0%{ border-radius: 50%}            
+            100%{ border-radius: 0%; transform: scale(1.2);}
+        }
+
+        @keyframes _out {
+            0%{ border-radius: 0%;transform: scale(1.2);}
+            100%{ border-radius: 50%; transform: scale(1);}                        
+        }

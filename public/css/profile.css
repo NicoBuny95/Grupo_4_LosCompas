@@ -1,86 +1,87 @@
-:root {
-    --color-beige: #fce5a0;
-    --color-verde: #42A64A;
-    --color-verde-hover: #63C86C;
-    --color-negro: #0B090C;
-    --color-rojo: #D7162B;
-    --color-rojo-oscuro: #722924;
-    --color-verde-oscuro: #176332;
-    --color-gris: #7C7484;
-}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
+        *{font-family: 'Roboto', sans-serif; margin: 0;}
+        body{ background: rgb(245, 247, 238);}
 
-body, html {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    background-color: var(--color-beige); /* Utilizando variable de color */
-    font-family: Arial, sans-serif;
-}
+        .profile-container{
+            height: 100vh;
+            display: grid;
+            justify-content: center;
+            place-items: center;            
+        }
+        .card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;            
+            width: 300px;
+            margin: 0 auto;
+            background:linear-gradient(rgb(245 215 189) 30%, rgb(255, 255, 255) 30%);
+            box-shadow: 0 0 25px darkred ;
+            border-radius: 10px;
+            padding: 50px 16px;
+        }
+        .img-container{
+            position: relative;
+            height: 150px;
+            width: 150px;
+        }
+        .profile-image{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgb(250, 238, 227);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
+        .card_body{ text-align: center; padding: 20px; }
+        .card_body h2{ color: peru; margin-bottom: 5px;}
+        .card_body p{color: gray; margin-top: 5px;}
+        .card_redes{
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+        }
+        .card_redes div{
+            padding: 10px;
+            text-align: center;
+            background:papayawhip;
+            border-radius: 6px;
+            width: 100%;
+            margin: 10px;
+        }
+        .card_redes div p{
+            font-size: 20px;
+            margin: 0;
+        }
+        .card_redes div a{
+            text-decoration: none;
+            color: peru;
+        }
 
-.profile-container {
-    display: flex;
+        .options-container{
+            padding-top: 25px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .options-container .option{
+            padding: 8px 20px;
+            border-radius: 25px;
+            color: #fff;
+            text-decoration: none;
+            margin: 0 20px;
+            background: linear-gradient(to left,rgb(245 215 189) 0%,rgb(237, 166, 104) 100%);
+            transition: all 5ms ease;
+        }
+        .option:hover{
+            padding: 8px 30px;
+            background: linear-gradient(to left,rgb(255, 161, 79) 0%,rgb(237, 166, 104) 100%);
+        }
+        /* ANIMACIONES CSS */
+        @keyframes _in {
+            0%{ border-radius: 50%}            
+            100%{ border-radius: 0%; transform: scale(1.2);}
+        }
 
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    padding: 20px;
-}
-
-.card {
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #ffffff;
-    width: 90%;
-    max-width: 600px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    height: 60%;
-}
-
-.profile-image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin: 20px;
-}
-
-.card-content {
-    width: 100%;
-   
-}
-
-.card h1 {
-    margin-bottom: 20px;
-    color: var(--color-negro); /* Utilizando variable de color */
-}
-
-.card p {
-    margin: 10px 0;
-    color: var(--color-gris); /* Utilizando variable de color */
-}
-
-.options-container {
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    margin-top: 20px;
-}
-
-.option {
-    padding: 10px 20px;
-    margin: 5px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-    background-color: var(--color-verde); /* Utilizando variable de color */
-    color: #ffffff;
-    text-align: center;
-}
-
-.option:hover {
-    background-color: var(--color-verde-hover); /* Utilizando variable de color */
-}
+        @keyframes _out {
+            0%{ border-radius: 0%;transform: scale(1.2);}
+            100%{ border-radius: 50%; transform: scale(1);}                        
+        }
