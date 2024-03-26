@@ -9,19 +9,26 @@
           <div class="product-card">
               <!--<a href="/product/productDetail"> -->
                 <div class="product-actions">
-                  <button value="Editar"><a href="/product/editProduct/<%= product.products_id %>"><i class="fa-solid fa-square-pen" tooltip="Editar producto"></i></a></button>
+                  <% if (user.user_types_id === 1) { %> 
+                    <button value="Editar"><a href="/product/editProduct/<%= product.products_id %>"><i class="fa-solid fa-square-pen" tooltip="Editar producto"></i>
+                    </a></button>
+                   <% } %> 
+                    <% if (user.user_types_id === 1) { %> 
                   <form action="/product/deleteProduct/<%= product.products_id %>?_method=DELETE" method="POST">
+                  
                     <button value="Eliminar" type="submit" class="delete-product-button">
                       <i class="fa-solid fa-trash" tooltip="Eliminar producto"></i>
                     </button>
-                  </form>
+                   
+                  </form>     
+                 <% } %>
                   <form action="/product/addCarrito/<%= product.products_id %>" method="POST">
                     <input type="hidden" name="productId" value="<%= product.products_id %>">
                     <button type="submit" class="add-to-cart-button">Agregar al Carrito</button>
                   </form>
                   
-                  
-                </div>
+                     </div> 
+          
                 <div class="product-details">
                   <h4>Categoría: <%= product.category.categories_description %></h4>
                   <h4>Marca: <%= product.mark.marks_description %></h4>
