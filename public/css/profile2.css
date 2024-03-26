@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;500&display=swap');
-        *{font-family: 'Roboto', sans-serif; margin: 0;}
+
         body{ background: rgb(245, 247, 238);}
 
         /*form{
@@ -13,14 +12,14 @@
             justify-content: center;
         }
 
-        form{
+        .profileForm{
             display: flex;
             flex-direction: column;
             align-items: center;            
             width: 300px;
             margin: 0 auto;
-            background:linear-gradient(rgb(245 215 189) 30%, rgb(255, 255, 255) 30%);
-            box-shadow: 0 0 25px darkred ;
+            box-shadow: 0 0 25px rgb(233, 189, 67) ;
+            background:linear-gradient(rgb(241, 213, 134) 30%, rgb(255, 255, 255) 30%);
             border-radius: 10px;
             padding: 50px 16px 50px;
             margin-bottom: 100px;
@@ -64,13 +63,17 @@
             text-decoration: none;
             color: peru;
         }
+.card-bttn{
 
+    margin: 10px;
+    width: 100%;
+}
         button{
             padding: 8px 20px;
             border-radius: 25px;
             color: #fff;
             text-decoration: none;
-            margin: 0 20px;
+            margin: 20px;
             background: linear-gradient(to left,rgb(245 215 189) 0%,rgb(237, 166, 104) 100%);
             transition: all 0.5s ease;
         }

@@ -55,7 +55,7 @@
                     </form>
                 </div>
                 <div class="usuario-carrito-D">
-                    <a class="carrito-D" href="/product/carrito"><p> </p><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a class="carrito-D" href="/product/carrito"><p> </p><i class="fa-solid fa-cart-shopping"></i>carrito</a>
                     <% if (user) { %>
                         <div class="user-info dropdown">
                             <a href="#" class="dropdown-toggle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -73,7 +73,7 @@
                             </ul>
                         </div>
                     <% } else { %>
-                        <a class="usuario-D" href="/user/login"><p> </p><i class="fa-solid fa-user"></i></a>
+                        <a class="usuario-D" href="/user/login"><p> </p><i class="fa-solid fa-user"></i>Login</a>
                     <% } %>
                     
                     
@@ -84,7 +84,28 @@
         <nav id="nav-categorias-D">
             <ul>
                 <% categories.forEach(category => { %>
-                  <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %></a></li>
+                  <% if (category.categories_description ==='Enlatados y Envasados') { %>
+                    <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %>
+                        <i class="fa-solid fa-martini-glass" style="color: #c9ac50;"></i></a>
+                    </li>
+                  <% } %>
+                  <% if (category.categories_description ==='Limpieza') { %>
+                    <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %>
+                        <i class="fa-solid fa-pump-soap" style="color: #c9ac50;"></i></a>
+                    </li>
+                  <% } %>
+
+                  <% if (category.categories_description ==='Frescos') { %>
+                    <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %>
+                        <i class="fa-solid fa-pepper-hot" style="color: #c9ac50;"></i></a>
+                    </li>
+                  <% } %>
+                  
+                  <% if (category.categories_description ==='Para el Hogar') { %>
+                    <li><a href="/product/prodByCategory/<%= category.categories_id %>"><%= category.categories_description %>
+                        <i class="fa-solid fa-house fa-lg" style="color: #c9ac50;"></i></a>
+                    </li>
+                  <% } %>
                 <% }); %>
               </ul>
         </nav>
