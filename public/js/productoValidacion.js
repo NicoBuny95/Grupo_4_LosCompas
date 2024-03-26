@@ -70,7 +70,7 @@ if (imageInput.files.length === 0) {
         .then(response => response.blob())
         .then(blob => {
           
-            var defaultImage = new File([blob], 'default-image.jpg', { type: 'image/jpeg' });
+            var defaultImage = new File([blob], 'default-product.jpg', { type: 'image/jpeg' });
             var defaultImageFileList = new DataTransfer();
             defaultImageFileList.items.add(defaultImage);
             imageInput.files = defaultImageFileList.files;
