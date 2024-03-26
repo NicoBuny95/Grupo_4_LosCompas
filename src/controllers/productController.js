@@ -214,8 +214,8 @@ allProductsJson: (req, res) => {
       });
       fs.writeFileSync("./data/products.json", JSON.stringify(updatedProducts, null, 2));
       */
-      const { name, marca, description, price, category, descuento } = req.body;
-//      console.log(req.file.filename);
+      const { name, marca, description, price, category, discount } = req.body;
+      console.log(req.filename);
 
         let editProduct = {
           products_name: name,
