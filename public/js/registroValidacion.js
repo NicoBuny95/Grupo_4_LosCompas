@@ -1,3 +1,4 @@
+
 document.getElementById('registration-form').addEventListener('input', function(event) {
     var inputId = event.target.id; 
     var inputElement = event.target;
