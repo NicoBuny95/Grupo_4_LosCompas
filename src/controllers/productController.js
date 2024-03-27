@@ -1,9 +1,7 @@
-//const fs = require("fs");
+
 const db = require('../database/models');
 const { log, Console } = require("console");
 const { validationResult } = require('express-validator');
-//async function categorias() {return cat = await db.Category.findAll()};
-//async function marcas () {return  mar = await db.Mark.findAll()};
 
 let productController = {
 
@@ -73,8 +71,6 @@ allProductsJson: (req, res) => {
 
 
   allProducts: (req, res) => {
-    //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-    //res.render({user: req.session.user},productsData)
     db.Product.findAll()
     .then(productsData => {
 
@@ -86,27 +82,9 @@ allProductsJson: (req, res) => {
 
   detalle: (req, res) => {
     try {
-    /*const productId = req.params.id;
-      const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      const product = productsData.find((product) => product.id == productId);
-      if (product) {
-        res.render("detalle", {
-          title: "Detalle Producto",
-          css: "/css/detalle.css",
-          product: product, user: req.session.user 
-        });
-      } else {
-        res.status(404).send("Producto no encontrado");
-      }
-    } catch (err) {
-      res.status(500).json({ error: "No se pudo obtener el producto" , user: req.session.user  });
-    }*/
-
       db.Product.findByPk(req.params.id, {include: ['category', 'mark']})
       .then(producto => {
         if (producto) {
-          //res.render('moviesDetail.ejs', {movie});
-
           res.render("detalle", {
             title: "Detalle Producto",
             css: "/css/detalle.css",
@@ -122,19 +100,12 @@ allProductsJson: (req, res) => {
   },
 
   addView: (req, res) => {
-    //db.Mark.findAll()
-    //.then(marcas => {
-    //  db.Category.findAll()
-    //  .then(categorias =>{
         res.render("addProduct", {
           title: "Agregar producto",
           css: "/css/addProduct.css"
           , user: req.session.user, marcas: res.locals.marks, categorias: res.locals.categories });  
-    //  })
-    //})
   },
   addProduct: async (req, res) => {
-
     //Se capturán los errores y se renderiza en nuevamente pasando la lista de errores 
     const resultValidation = validationResult(req);
     if (resultValidation.errors.length > 0) {
@@ -147,13 +118,11 @@ allProductsJson: (req, res) => {
         categorias: res.locals.categories,
         errors: resultValidation.mapped(),
         oldData: req.body
-       });
+      });
     }
     try {
-      //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
       const { name, marca, description, price, category, discount } = req.body;
       let newProduct = {
-        //id: productsData.length + 1,
         products_name: name,
         marks_id: marca,
         products_description: description,
@@ -164,13 +133,9 @@ allProductsJson: (req, res) => {
         products_active : 1,
       };
 
-    /*  productsData.push(newProduct);
-      fs.writeFileSync("data/products.json", JSON.stringify(productsData, null, 2));
-    */
       await db.Product.create(newProduct)      
       res.redirect('/');
     } catch (err) {      
-      //res.status(500).json({ error: "No se pudo crear el producto"  });
       res.send(err)
     }
   },
@@ -178,11 +143,7 @@ allProductsJson: (req, res) => {
   editView: async(req, res) => {
     try {
       const productId = req.params.id;
-      //const productsData = JSON.parse(fs.readFileSync("data/products.json")); // Verifica la ruta del archivo JSON
-      //let datosEditar = productsData.filter((e) => productId == e.id);
       const productEdit = await db.Product.findByPk(productId);
-      //const categorias = await db.Category.findAll();
-      //const marcas = await db.Mark.findAll();
       res.render("editProduct", {
         title: "Editar producto",
         css: "/css/addProduct.css",
@@ -190,28 +151,13 @@ allProductsJson: (req, res) => {
         marcas: res.locals.marks,
         categorias: res.locals.categories,
         user: req.session.user 
-      }); // Usar updatedProduct en lugar de product
+      }); 
     } catch (err) {
       res.status(500).json({ error: "No se pudo actualizar el producto" });
     }
   },
   editProduct: async(req, res) => {
     try {
-      //const productId = req.params.id;
-      /*const productsData = JSON.parse(fs.readFileSync("data/products.json")); // Verifica la ruta del archivo JSON
-      const updatedProduct = req.body;
-      const updatedProducts = productsData.map((product) => {
-        if (product.id == productId) {
-          for (const key in updatedProduct) {
-            if (updatedProduct.hasOwnProperty(key) && updatedProduct[key] !== "") {
-              product[key] = updatedProduct[key];
-            }
-          }
-        }
-        return product;
-      });
-      fs.writeFileSync("./data/products.json", JSON.stringify(updatedProducts, null, 2));
-      */
       const { name, marca, description, price, category, discount } = req.body;
       console.log(req.filename);
 
@@ -224,19 +170,12 @@ allProductsJson: (req, res) => {
           products_discount: discount,    
         }
 
-      //res.render (req.file)
       await db.Product.update(editProduct,{
         where:{
             products_id: req.params.id
         }
       })
-      /*res.status(200).render("editProduct", {
-        title: "Editar producto",
-        css: "/css/addProduct.css",
-        productoE: editProduct,
-        user: req.session.user 
 
-      }); // Usar updatedProduct en lugar de product*/
       const productEdit = await db.Product.findByPk(req.params.id);
       res.render("editProduct", {
         title: "Editar producto",
@@ -246,7 +185,6 @@ allProductsJson: (req, res) => {
         marcas: res.locals.marks,
         user: req.session.user })
     } catch (err) {
-      //res.status(500).json({ error: "No se pudo actualizar el producto" });
       res.render(err);
     }
   },
@@ -281,9 +219,6 @@ allProductsJson: (req, res) => {
 
   deleteProduct: async(req, res) => {    
     try {
-      //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      //const updatedProducts = productsData.filter((product) => product.id != productId);
-      //fs.writeFileSync("data/products.json", JSON.stringify(updatedProducts, null, 2));
       await db.Product.destroy({
         where:{
             products_id: req.params.id
@@ -321,10 +256,6 @@ allProductsJson: (req, res) => {
   searchByCategory: async (req, res) => {
     try {
       const category = req.params.category;
-      //const productsData = JSON.parse(fs.readFileSync("data/products.json"));
-      //const filteredProducts = productsData.filter(
-      //  (product) => product.category.toLowerCase() === category.toLowerCase()
-      //);
       const filteredProducts = await db.Product.findAll({
         where: {
           categories_id : category
@@ -361,7 +292,6 @@ allProductsJson: (req, res) => {
         return res.redirect('/carrito');
       }
   
-
       const product = await db.Product.findByPk(productId);
       if (!product) {
         return res.status(404).send("Producto no encontrado");
@@ -380,7 +310,6 @@ removeFromCart: (req, res) => {
   try {
     const productId = req.params.id;
     const cart = req.session.cart;
- 
     req.session.cart = cart.filter(item => item.products_id == productId);
 
     // Respuesta exitosa
