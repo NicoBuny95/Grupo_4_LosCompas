@@ -9,7 +9,6 @@ const requireAuth = (req, res, next) => {
       next();
     } else {
         res.render('login', { title: 'Login', css: '/css/login.css'});
-        //res.status(404).render('Error404');
     }
   };
 router.get('/allProducts', productController.allProducts);

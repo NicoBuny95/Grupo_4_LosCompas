@@ -65,11 +65,9 @@ var imageInput = document.getElementById('image');
 if (imageInput.files.length === 0) {
     var defaultImagePath = '/img/users/defaultProfile.jpg'; 
 
-   
     fetch(defaultImagePath)
         .then(response => response.blob())
         .then(blob => {
-          
             var defaultImage = new File([blob], 'default-product.jpg', { type: 'image/jpeg' });
             var defaultImageFileList = new DataTransfer();
             defaultImageFileList.items.add(defaultImage);
