@@ -78,6 +78,11 @@
                 class="">
                 <label for="password">Contraseña</label>
                 <div class="error-message" id="error-password"></div> 
+                <% if (locals.errors && errors.password) { %>
+                    <div class="error-msg" id="error-password-msg">
+                        <%= errors.password.msg %>               
+                    </div>
+                <% } %>
               
             </div>
             <div class="form-group">
@@ -120,42 +125,26 @@
             }, 5000); // 5000 milisegundos = 5 segundos
         }
 
-        const errorUsername = document.getElementById('error-user-msg');
-        const userInput = document.getElementById('username');
-        if (errorUsername) {
+        const fields = [
+        { errorId: 'error-user-msg', inputId: 'username' },
+        { errorId: 'error-firstName-msg', inputId: 'firstName' },
+        { errorId: 'error-lastName-msg', inputId: 'lastName' },
+        { errorId: 'error-email-msg', inputId: 'email' },
+        { errorId: 'error-password-msg', inputId: 'password' }
+       
+    ];
+
+    fields.forEach(field => {
+        const errorElement = document.getElementById(field.errorId);
+        const inputElement = document.getElementById(field.inputId);
+
+        if (errorElement) {
             setTimeout(function() {
-                errorUsername.style.display = 'none';
-                userInput.style.backgroundColor = 'white';
+                errorElement.style.display = 'none';  
+                inputElement.style.backgroundColor = 'white';
             }, 5000); // 5000 milisegundos = 5 segundos
         }
-
-        const errorFirstName = document.getElementById('error-firstName-msg');
-        const firstNamedInput = document.getElementById('firstName');
-        if (errorFirstName) {
-            setTimeout(function() {
-                errorFirstName.style.display = 'none';  
-                passwordInput.style.backgroundColor = 'white';
-            }, 5000); // 5000 milisegundos = 5 segundos
-        }
-
-
-        const errorLastName = document.getElementById('error-lastName-msg');
-        const lastNameInput = document.getElementById('lastName');
-        if (errorLastName) {
-            setTimeout(function() {
-                errorLastName.style.display = 'none';  
-                lastNameInput.style.backgroundColor = 'white';
-            }, 5000); // 5000 milisegundos = 5 segundos
-        }
-
-        const errorEmail = document.getElementById('error-email-msg');
-        const emailInput = document.getElementById('emailName');
-        if (errorLastName) {
-            setTimeout(function() {
-                errorLastName.style.display = 'none';  
-                emailInput.style.backgroundColor = 'white';
-            }, 5000); // 5000 milisegundos = 5 segundos
-        }
+    });
     };
     
     

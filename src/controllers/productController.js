@@ -167,8 +167,15 @@ allProductsJson: (req, res) => {
     /*  productsData.push(newProduct);
       fs.writeFileSync("data/products.json", JSON.stringify(productsData, null, 2));
     */
-      await db.Product.create(newProduct)      
-      res.redirect('/');
+      await db.Product.create(newProduct)    
+      const successMessage = "¡Producto creado con éxito!"  
+      return res.render("addProduct", {
+        title: "Registrarme",
+        css: "/css/addProduct.css",
+       success: successMessage,
+       marcas: res.locals.marks,
+      categorias: res.locals.categories,
+      });
     } catch (err) {      
       //res.status(500).json({ error: "No se pudo crear el producto"  });
       res.send(err)

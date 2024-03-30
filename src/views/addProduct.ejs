@@ -2,6 +2,11 @@
 <body>
   <%- include('./partials/header') %>
   <main>
+    <% if (typeof success !== 'undefined') { %>
+      <div class="alert alert-success" id="success-message" role="alert">
+        <%= success %>
+      </div>
+    <% } %>
     <div class="container-form">
       <h1>Agregar nuevo producto</h1>
       <form action="/product/addProduct" method="POST" class="registration-form" enctype="multipart/form-data" id="registration-form">
@@ -14,7 +19,7 @@
           <label for="name"> Nombre del producto</label>
           <div class="error-message" id="error-name"></div>
           <% if (locals.errors && errors.name) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-name-msg">
                 <%= errors.name.msg %>               
             </div>
         <% } %>
@@ -33,7 +38,7 @@
           </select>
           <div class="error-message" id="error-marca"></div>
           <% if (locals.errors && errors.marca) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-marca-msg">
                 <%= errors.marca.msg %>               
             </div>
         <% } %>
@@ -48,7 +53,7 @@
           <label for="description">Descripcion</label>
           <div class="error-message" id="error-description"></div>
           <% if (locals.errors && errors.description) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-description-msg">
                 <%= errors.description.msg %>               
             </div>
         <% } %>
@@ -62,7 +67,7 @@
           <label for="price">Precio</label>
           <div class="error-message" id="error-price"></div>
           <% if (locals.errors && errors.price) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-price-msg">
                 <%= errors.price.msg %>               
             </div>
         <% } %>
@@ -76,7 +81,7 @@
           <label for="discount">Descuento</label>
           <div class="error-message" id="error-discount"></div>
           <% if (locals.errors && errors.discount) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-discount-msg">
                 <%= errors.discount.msg %>               
             </div>
         <% } %>
@@ -91,7 +96,7 @@
           <% } %>
           <div class="error-message" id="error-category"></div>
           <% if (locals.errors && errors.category) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-category-msg">
                 <%= errors.category.msg %>               
             </div>
         <% } %>
@@ -105,7 +110,7 @@
           <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png, .webp"> 
           <div class="error-message" id="error-image"></div>   
           <% if (locals.errors && errors.image) { %>
-            <div class= "error-msg">
+            <div class= "error-msg" id="error-image-msg">
                 <%= errors.image.msg %>               
             </div>
           <% } %>      
@@ -121,7 +126,45 @@
  </main> 
 
   <%- include('./partials/footer') %>  
-  
+  <script>
+window.onload = function() {
+
+
+  const successMessage = document.getElementById('success-message');
+        if (successMessage) {
+            setTimeout(function() {
+                successMessage.style.display = 'none';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+
+
+    const fields = [
+        { errorId: 'error-name-msg', inputId: 'name' },
+        { errorId: 'error-marca-msg', inputId: 'marca' },
+        { errorId: 'error-description-msg', inputId: 'description' },
+        { errorId: 'error-price-msg', inputId: 'price' },
+        { errorId: 'error-discount-msg', inputId: 'discount' },
+        { errorId: 'error-category-msg', inputId: 'category' },
+        { errorId: 'error-image-msg', inputId: 'image' }
+        
+    ];
+
+    fields.forEach(field => {
+        const errorElement = document.getElementById(field.errorId);
+        const inputElement = document.getElementById(field.inputId);
+
+        if (errorElement) {
+            setTimeout(function() {
+                errorElement.style.display = 'none';  
+                inputElement.style.backgroundColor = 'white';
+            }, 5000); // 5000 milisegundos = 5 segundos
+        }
+    });
+};
+
+
+
+  </script>
   <script src="/js/productoValidacion.js"></script> 
 </body>
 </html>
