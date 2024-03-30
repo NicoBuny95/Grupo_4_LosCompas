@@ -67,7 +67,7 @@
                             <ul class="dropdown-menu" aria-labelledby="userDropdown">
                                 <li><a class="dropdown-item" href="/user/logout">Cerrar Sesión</a></li>
                                 <li><a class="dropdown-item" href="/user/profile">Ver Perfil</a></li>
-                                <% if (user.user_types_id === 1) { %>
+                                <% if (user && user.user_types_id === 1) { %>
                                     <li><a class="dropdown-item" href="http://localhost:3000/">Panel Administrador</a></li>
                                 <% } %>
                             </ul>
